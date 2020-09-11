@@ -2,8 +2,8 @@ package Models;
 
 /**
  * This is an API for a drop-down selecting Country, State, and then City
- *
- * @author Katelynn Urgitus Last Updated 09/11/2020
+ * @author Katelynn Urgitus, Josiah Stadler, Marc Bittle
+ * Last Updated 09/11/2020
  */
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
