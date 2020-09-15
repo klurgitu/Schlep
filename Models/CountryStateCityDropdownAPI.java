@@ -3,9 +3,10 @@ package Models;
 /**
  * This is an API for a drop-down selecting Country, State, and then City
  * @author Katelynn Urgitus
- * Last Updated 09/12/2020
+ * Last Updated 09/15/2020
  */
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -13,11 +14,10 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.*;
-import Controllers.DropdownController;
 
 public class CountryStateCityDropdownAPI {
 
-    private String apiKey;
+    private final String apiKey;
     private URL url;
     private String authToken;
     private String country;
@@ -65,13 +65,18 @@ public class CountryStateCityDropdownAPI {
  */
     private ArrayList<String> getDataFromAPI(String type){
         String callAction = "";
-        if (type.equals("country")) {
-            callAction = "/api/countries/";
-        } else if (type.equals("state")) {
-            callAction = "/api/states/" + this.country;
-        } else if (type.equals("city")) {
-            callAction = "/api/cities/" + this.state;
+        switch (type){
+            case "country":
+                callAction = "/api/countries/";
+                break;
+            case "state":
+                callAction = "/api/states/" + this.country;
+                break;
+            case "city":
+                callAction = "/api/cities/" + this.state;
+                break;
         }
+
         String baseUrl = "https://www.universal-tutorial.com";
         String urlString = baseUrl + callAction;
         ArrayList<String> notSoEmptyList = new ArrayList();
@@ -81,13 +86,14 @@ public class CountryStateCityDropdownAPI {
             con.setRequestMethod("GET");
             con.setRequestProperty("Authorization", "Bearer " + authToken);
             con.setRequestProperty("Accept", "application/json");
-            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String inputLine;
-            StringBuffer content = new StringBuffer();
-            while ((inputLine = in.readLine()) != null) {
-                content.append(inputLine);
+            StringBuffer content;
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
+                String inputLine;
+                content = new StringBuffer();
+                while ((inputLine = in.readLine()) != null) {
+                    content.append(inputLine);
+                }
             }
-            in.close();
             con.disconnect();
             JSONArray obj = new JSONArray(content.toString());
 
@@ -96,7 +102,7 @@ public class CountryStateCityDropdownAPI {
                 notSoEmptyList.add(temp.getString(type + "_name"));
 
             }
-        } catch (Exception ex) {
+        } catch (IOException | JSONException ex) {
             Logger.getLogger(CountryStateCityDropdownAPI.class.getName()).log(Level.SEVERE, null, ex);
         }
         return notSoEmptyList;
@@ -119,19 +125,20 @@ public class CountryStateCityDropdownAPI {
             con.setRequestMethod("GET");
             con.setRequestProperty("api-token", apiKey);
             con.setRequestProperty("user-email", email);
-            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String inputLine;
-            StringBuffer content = new StringBuffer();
-            while ((inputLine = in.readLine()) != null) {
-                content.append(inputLine);
+            StringBuffer content;
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
+                String inputLine;
+                content = new StringBuffer();
+                while ((inputLine = in.readLine()) != null) {
+                    content.append(inputLine);
+                }
             }
-            in.close();
             con.disconnect();
 
             JSONObject obj = new JSONObject(content.toString());
             authToken = obj.getString("auth_token");
             return authToken;
-        } catch (Exception ex) {
+        } catch (IOException | JSONException ex) {
             Logger.getLogger(CountryStateCityDropdownAPI.class.getName()).log(Level.SEVERE, null, ex);
             return "failed to connect";
         }

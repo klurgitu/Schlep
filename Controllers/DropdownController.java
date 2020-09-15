@@ -3,7 +3,7 @@ package Controllers;
 /**
  * This is a Controller for a drop-down selecting Country
  * @author Katelynn Urgitus
- * Last Updated 09/12/2020
+ * Last Updated 09/15/2020
  */
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,7 +13,7 @@ import Models.CountryStateCityDropdownAPI;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.input.MouseEvent;
+
 
 public class DropdownController implements Initializable {
     private String selectedCountry;
@@ -28,44 +28,37 @@ public class DropdownController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         x = new CountryStateCityDropdownAPI();
         countryBox.getItems().addAll(x.country());
         countryBox.valueProperty().addListener(new ChangeListener<String>() {
-        @Override public void changed(ObservableValue ov, String t, String t1) {
-            if (t1 == null){
-                selectedCountry = t;
+        @Override public void changed(ObservableValue ov, String oldValue, String newValue) {
+            if (newValue == null){
+                selectedCountry = oldValue;
 
             }
             else{
-                selectedCountry = t1;
+                selectedCountry = newValue;
 
             }
             stateBox.getItems().addAll(x.state(selectedCountry));
         }
     });
         stateBox.valueProperty().addListener(new ChangeListener<String>() {
-        @Override public void changed(ObservableValue ov, String t, String t1) {
-            if (t1 == null){
-                selectedState = t;
+        @Override public void changed(ObservableValue ov, String oldValue, String newValue) {
+            if (newValue == null){
+                selectedState = oldValue;
 
             }
             else{
-                selectedState = t1;
+                selectedState = newValue;
                             }
             cityBox.getItems().addAll(x.city(selectedState));
         }
     });
     }
-
-    public String getSelectedCountry() {
-        return selectedCountry;
-    }
-
-    public String getSelectedState() {
-        return selectedState;
-    }
-
 }
