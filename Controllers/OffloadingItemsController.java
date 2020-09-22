@@ -47,11 +47,17 @@ public class OffloadingItemsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-
+/**
+ * Will save the offloading items for the User into the Schlep Database
+ * and move to the Billing screen
+ * @param event
+ * @throws IOException
+ * @throws SQLException
+ */
     @FXML
     private void saveItemsAndMove(ActionEvent event) throws IOException, SQLException {
         Stage stageTheLabelBelongs = (Stage) nextButton.getScene().getWindow();
-        URL urlForDropdownFX = new File("src/View/OffloadingItems.fxml").toURI().toURL();
+        URL urlForDropdownFX = new File("src/View/Billing.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(urlForDropdownFX);
         scene = new Scene(root);
         stageTheLabelBelongs.setScene(scene);
