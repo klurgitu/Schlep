@@ -1,7 +1,7 @@
-package Controllers;
+package Models;
 
 /**
- * This is the run for a drop-down selecting Country
+ * This is the run for user address popup
  * @author Katelynn Urgitus
  * Last Updated 09/12/2020
  */
@@ -27,7 +27,7 @@ public class RunDropdown extends Application {
     public void start(Stage stage) throws Exception {
         window = stage;
         window.setTitle("Country, State, City drop");
-        URL urlForDropdownFX = new File("src/view/CountryDropdown.fxml").toURI().toURL();
+        URL urlForDropdownFX = new File("src/view/AddressSignUp.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(urlForDropdownFX);
         scene = new Scene(root);
         window.setScene(scene);

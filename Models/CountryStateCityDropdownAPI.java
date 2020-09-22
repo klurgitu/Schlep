@@ -75,6 +75,8 @@ public class CountryStateCityDropdownAPI {
             case "city":
                 callAction = "/api/cities/" + this.state;
                 break;
+            default:
+                throw new IllegalStateException("Unexpected Value: " + type + ". Try again.");
         }
 
         String baseUrl = "https://www.universal-tutorial.com";
