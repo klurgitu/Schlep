@@ -87,7 +87,13 @@ public class AddressSignUpController implements Initializable {
             }
         });
     }
-
+/**
+ * Will save the User input data into the Schlep Database
+ * and move to the Offloading Screen
+ * @param event
+ * @throws SQLException
+ * @throws IOException
+ */
     @FXML
     private void saveAddressAndMove(ActionEvent event) throws SQLException, IOException {
         Stage stageTheLabelBelongs = (Stage) nextAddressButton.getScene().getWindow();
