@@ -1,10 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controllers;
 
+/**
+ * This is a controller for the Billing FXML
+ * @author Katelynn Urgitus
+ * Last Updated 09/24/2020
+ */
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -12,12 +12,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+//import Models.MoveScene;
+import java.io.IOException;
 
-/**
- * FXML Controller class
- *
- * @author katel
- */
 public class BillingController implements Initializable {
 
     @FXML
@@ -31,20 +28,26 @@ public class BillingController implements Initializable {
     @FXML
     private Button nextButton;
 
+    //private final MoveScene moveToRequest = new MoveScene();
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-/**
- * Will save billing info of the User in the Schlep Database
- * and move to the next screen
- * @param event 
- */
-    @FXML
-    private void saveInfoAndMove(ActionEvent event) {
     }
-    
+
+    /**
+     * Will save billing info of the User in the Schlep Database and move to the
+     * next screen
+     *
+     * @param event
+     */
+    @FXML
+    private void saveInfoAndMove(ActionEvent event) throws IOException {
+        //For future login or maybe move to pickup request
+        //moveToRequest.Move("Login.fxml", nextButton);
+    }
+
 }
