@@ -1,4 +1,4 @@
-package Models;
+package API;
 
 /**
  * This is an API for a drop-down selecting Country, State, and then City
@@ -15,65 +15,37 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.*;
 
-public class CountryStateCityDropdownAPI {
+public class UniversalTutorialAPI {
 
     private final String apiKey;
     private URL url;
     private String authToken;
-    private String country;
-    private String state;
+    
 
     /**
      * Constructor for the CountryStateCityDropdownAPI class
      */
-    public CountryStateCityDropdownAPI() {
+    public UniversalTutorialAPI() {
         this.apiKey = "Zpsw77iAWu38UL09ho0j3_e2v5SYkWeGttihzA6HB_sx7JcAuWZz7IGWbm4DDx_60fc";
         this.authToken = setAuthToken(this.apiKey, "katelynn.urgitus@yahoo.com");
     }
-    /**
-     *
-     * @return an array list containing all of the countries in the world
-     */
-    public ArrayList<String> country() {
-        return this.getDataFromAPI("country");
-
-    }
-
-    /**
-     *
-     * @param selectedCountry
-     * @return an array list of states in the country selected
-     */
-    public ArrayList<String> state(String selectedCountry) {
-        this.country = selectedCountry;
-        return this.getDataFromAPI("state");
-    }
-
-    /**
-     *
-     * @param selectedState
-     * @return an array list of cities in the state selected
-     */
-    public ArrayList<String> city(String selectedState) {
-        this.state = selectedState;
-        return this.getDataFromAPI("city");
-    }
+    
 /**
  *
  * @param type
  * @return an array list for the given type
  */
-    private ArrayList<String> getDataFromAPI(String type){
+    protected ArrayList<String> getDataFromAPI(String type, String selected){
         String callAction = "";
         switch (type){
             case "country":
                 callAction = "/api/countries/";
                 break;
             case "state":
-                callAction = "/api/states/" + this.country;
+                callAction = "/api/states/" + selected;
                 break;
             case "city":
-                callAction = "/api/cities/" + this.state;
+                callAction = "/api/cities/" + selected;
                 break;
             default:
                 throw new IllegalStateException("Unexpected Value: " + type + ". Try again.");
@@ -105,7 +77,7 @@ public class CountryStateCityDropdownAPI {
 
             }
         } catch (IOException | JSONException ex) {
-            Logger.getLogger(CountryStateCityDropdownAPI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UniversalTutorialAPI.class.getName()).log(Level.SEVERE, null, ex);
         }
         return notSoEmptyList;
     }
@@ -141,7 +113,7 @@ public class CountryStateCityDropdownAPI {
             authToken = obj.getString("auth_token");
             return authToken;
         } catch (IOException | JSONException ex) {
-            Logger.getLogger(CountryStateCityDropdownAPI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UniversalTutorialAPI.class.getName()).log(Level.SEVERE, null, ex);
             return "failed to connect";
         }
     }

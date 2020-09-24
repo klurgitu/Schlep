@@ -3,13 +3,13 @@ package Controllers;
 /**
  * This is a Controller for user entering their address
  *@author Katelynn Urgitus
- * Last Updated 09/22/2020
+ * Last Updated 09/24/2020
  */
+import API.BaseAddressAPIClass;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import Models.CountryStateCityDropdownAPI;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -24,11 +24,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class AddressSignUpController implements Initializable {
+public class AddressSignUpController extends BaseAddressAPIClass implements Initializable {
     Scene scene;
     private String selectedCountry;
     private String selectedState;
-    CountryStateCityDropdownAPI x;
 
     @FXML
     private ChoiceBox<String> countryBox;
@@ -59,8 +58,7 @@ public class AddressSignUpController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        x = new CountryStateCityDropdownAPI();
-        countryBox.getItems().addAll(x.country());
+        countryBox.getItems().addAll(myAPI.getCountryList());
         countryBox.valueProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue ov, String oldValue, String newValue) {
@@ -71,7 +69,7 @@ public class AddressSignUpController implements Initializable {
                     selectedCountry = newValue;
 
                 }
-                stateBox.getItems().addAll(x.state(selectedCountry));
+                stateBox.getItems().addAll(myAPI.getStateList(selectedCountry));
             }
         });
         stateBox.valueProperty().addListener(new ChangeListener<String>() {
@@ -83,7 +81,7 @@ public class AddressSignUpController implements Initializable {
                 } else {
                     selectedState = newValue;
                 }
-                cityBox.getItems().addAll(x.city(selectedState));
+                cityBox.getItems().addAll(myAPI.getCityList(selectedState));
             }
         });
     }
