@@ -1,11 +1,13 @@
 package Models;
 
 /**
- * This is the run for user address popup
- * @author Katelynn Urgitus
- * Last Updated 09/12/2020
+ * This is the start of the application
+ *
+ * @author Katelynn Urgitus Last Updated 09/12/2020
+ * @author Marc Bittle Last Updated 9/24/2020
  */
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -19,19 +21,15 @@ import javafx.stage.Stage;
  * @author katel
  */
 public class RunSchlep extends Application {
-
-    Stage window;
-    Scene scene;
-
     @Override
     public void start(Stage stage) throws Exception {
-        window = stage;
-        window.setTitle("Country, State, City drop");
-        URL urlForDropdownFX = new File("src/view/AddressSignUp.fxml").toURI().toURL();
-        Parent root = FXMLLoader.load(urlForDropdownFX);
-        scene = new Scene(root);
-        window.setScene(scene);
-        window.show();
+        URL urlForDropdownFX = new File("src/view/CreateAccount.fxml").toURI().toURL();
+        Parent parent = FXMLLoader.load(urlForDropdownFX);
+        Scene scene = new Scene(parent);
+
+        stage.setTitle("Create User Account");
+        stage.setScene(scene);
+        stage.show();
     }
 
     public static void main(String[] args) {
