@@ -18,7 +18,7 @@ import javafx.stage.Stage;
  *
  * @author katel
  */
-public class RunDropdown extends Application {
+public class RunSchlep extends Application {
 
     Stage window;
     Scene scene;
