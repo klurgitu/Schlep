@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package API;
-
 /**
- *
- * @author katel
+ * This is a BaseAPI Class for our Country, State, City API
+ * @author Katelynn Urgitus
+ * Last Updated 09/24/2020
  */
 public class BaseAddressAPIClass {
-    protected final static CountryStateCityAPIInterface myAPI = new UniversalTutorialAPITranslator();
+    protected final static CountryStateCityAPIInterface universalAPI = new UniversalTutorialAPITranslator();
 }

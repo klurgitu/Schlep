@@ -1,5 +1,4 @@
 package Controllers;
-
 /**
  * This is a Controller for user entering their address
  *@author Katelynn Urgitus
@@ -58,7 +57,7 @@ public class AddressSignUpController extends BaseAddressAPIClass implements Init
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        countryBox.getItems().addAll(myAPI.getCountryList());
+        countryBox.getItems().addAll(universalAPI.getCountryList());
         countryBox.valueProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue ov, String oldValue, String newValue) {
@@ -69,7 +68,7 @@ public class AddressSignUpController extends BaseAddressAPIClass implements Init
                     selectedCountry = newValue;
 
                 }
-                stateBox.getItems().addAll(myAPI.getStateList(selectedCountry));
+                stateBox.getItems().addAll(universalAPI.getStateList(selectedCountry));
             }
         });
         stateBox.valueProperty().addListener(new ChangeListener<String>() {
@@ -81,7 +80,7 @@ public class AddressSignUpController extends BaseAddressAPIClass implements Init
                 } else {
                     selectedState = newValue;
                 }
-                cityBox.getItems().addAll(myAPI.getCityList(selectedState));
+                cityBox.getItems().addAll(universalAPI.getCityList(selectedState));
             }
         });
     }

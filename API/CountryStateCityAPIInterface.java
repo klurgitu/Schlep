@@ -1,16 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package API;
-
-import java.util.ArrayList;
-
 /**
- *
- * @author katel
+ * This is our API Interface for the Country, State, City API
+ * @author Katelynn Urgitus
+ * Last Updated 09/24/2020
  */
+import java.util.ArrayList;
 public interface CountryStateCityAPIInterface {
     public ArrayList<String> getCountryList();
     public ArrayList<String> getStateList(String country);

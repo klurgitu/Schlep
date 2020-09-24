@@ -1,9 +1,8 @@
 package API;
-
 /**
  * This is an API for a drop-down selecting Country, State, and then City
  * @author Katelynn Urgitus
- * Last Updated 09/15/2020
+ * Last Updated 09/24/2020
  */
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,21 +19,20 @@ public class UniversalTutorialAPI {
     private final String apiKey;
     private URL url;
     private String authToken;
-    
 
     /**
-     * Constructor for the CountryStateCityDropdownAPI class
-     */
+    * Constructor for the CountryStateCityDropdownAPI class
+    */
     public UniversalTutorialAPI() {
         this.apiKey = "Zpsw77iAWu38UL09ho0j3_e2v5SYkWeGttihzA6HB_sx7JcAuWZz7IGWbm4DDx_60fc";
         this.authToken = setAuthToken(this.apiKey, "katelynn.urgitus@yahoo.com");
     }
-    
-/**
- *
- * @param type
- * @return an array list for the given type
- */
+    /**
+     *
+    * @param type the type of list we are looking for(i.e. country, state, city)
+    * @param selected the country or state selected by the user in the drop-down
+    * @return an array list for the given type
+    */
     protected ArrayList<String> getDataFromAPI(String type, String selected){
         String callAction = "";
         switch (type){
