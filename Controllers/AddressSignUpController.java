@@ -9,24 +9,19 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import Models.MoveScene;
 
 public class AddressSignUpController extends BaseAddressAPIClass implements Initializable {
-    Scene scene;
     private String selectedCountry;
     private String selectedState;
+    private final MoveScene moveToOffloading = new MoveScene();
 
     @FXML
     private ChoiceBox<String> countryBox;
@@ -88,15 +83,11 @@ public class AddressSignUpController extends BaseAddressAPIClass implements Init
  * Will save the User input data into the Schlep Database
  * and move to the Offloading Screen
  * @param event
- * @throws SQLException
  * @throws IOException
  */
     @FXML
-    private void saveAddressAndMove(ActionEvent event) throws SQLException, IOException {
-        Stage stageTheLabelBelongs = (Stage) nextAddressButton.getScene().getWindow();
-        URL urlForDropdownFX = new File("src/View/OffloadingItems.fxml").toURI().toURL();
-        Parent root = FXMLLoader.load(urlForDropdownFX);
-        scene = new Scene(root);
-        stageTheLabelBelongs.setScene(scene);
+    private void saveAddressAndMove(ActionEvent event) throws IOException {
+        moveToOffloading.Move("OffloadingItems.fxml", nextAddressButton);
+
     }
 }
