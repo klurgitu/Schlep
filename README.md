@@ -7,16 +7,11 @@ ThisGroupWillKillYourGroupNotSry
 ## Table of Contents
 
 * [General Info](#General-Info)
-* [Technologies](#Technologies)
 * [About the Team](#About-the-Team)
 
 ## General Info
 
 The purpose of the Schlep is to provide a type of ride sharing service that allows for delivery of large, or oversized products to be delivered to a customer when a seller does not provide delivery.
-
-## Technologies
-
-JDK 8u111
 
 ## About the Team
 
