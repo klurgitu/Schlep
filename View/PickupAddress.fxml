@@ -3,69 +3,52 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="697.0" style="-fx-background-color: Orange;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PickupAddressController">
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="531.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PickupAddressController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="315.0" layoutX="200.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="specialInstructionsTxFld" alignment="TOP_LEFT" layoutX="16.0" layoutY="318.0" onAction="#enterSpecialInstructions" prefHeight="103.0" prefWidth="190.0" promptText="Enter Special Instructions Here" />
+      <TextField fx:id="vendorNameTxBx" layoutX="13.0" layoutY="170.0" onAction="#enterVendor" prefHeight="26.0" prefWidth="136.0" promptText="Enter Vendor Name" />
+      <TextField fx:id="streetNaameTxBx" layoutX="14.0" layoutY="205.0" onAction="#enterStreetAddress" prefHeight="26.0" prefWidth="136.0" promptText="Street Name/Number" />
+      <TextField fx:id="zipcodeTxBx" layoutX="14.0" layoutY="242.0" onAction="#enterZipCode" prefHeight="26.0" prefWidth="136.0" promptText="Zip Code" />
+      <Button fx:id="NxtBtn" layoutX="438.0" layoutY="430.0" mnemonicParsing="false" onAction="#goToNxtPage" prefHeight="31.0" prefWidth="79.0" text="Next" />
+      <Button fx:id="backBtn" layoutX="16.0" layoutY="430.0" mnemonicParsing="false" onAction="#goToPrvPage" prefHeight="31.0" prefWidth="79.0" text="Previous" />
+      <TextField fx:id="orderConfirmationtxBX" layoutX="14.0" layoutY="281.0" onAction="#enterOrderNumber" prefHeight="26.0" prefWidth="136.0" promptText="Order/Confirmation #" />
+      <ImageView fx:id="logo" fitHeight="123.0" fitWidth="241.0" layoutX="145.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Downloads/Copy%20of%20logo.PNG" />
+            <Image url="@../../../../../../Downloads/Copy%20of%20logo.PNG" />
          </image>
       </ImageView>
-      <Label layoutX="16.0" layoutY="157.0" text="Select Venue of Pickup">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <ChoiceBox layoutX="22.0" layoutY="182.0" prefWidth="150.0" />
-      <Label layoutX="29.0" layoutY="268.0" text="Special Instructions">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <TextField layoutX="13.0" layoutY="293.0" prefHeight="97.0" prefWidth="169.0" promptText="Enter Special Instructions Here" />
-      <TextField layoutX="188.0" layoutY="182.0" />
-      <TextField layoutX="348.0" layoutY="182.0" />
-      <Label layoutX="200.0" layoutY="157.0" prefHeight="25.0" prefWidth="185.0" text="Name of Vender">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="370.0" layoutY="157.0" text="Street Number">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="244.0" layoutY="218.0" text="State">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="567.0" layoutY="157.0" text="City">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <TextField layoutX="348.0" layoutY="243.0" />
-      <ChoiceBox layoutX="187.0" layoutY="243.0" prefWidth="150.0" />
-      <ChoiceBox layoutX="505.0" layoutY="182.0" prefWidth="150.0" />
-      <Label layoutX="394.0" layoutY="218.0" text="Zipcode">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Button fx:id="pickupAddressNxtBtn" layoutX="604.0" layoutY="491.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="79.0" text="Next" />
-      <Button fx:id="pickupAddressPrvBtn" layoutX="15.0" layoutY="491.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="79.0" text="Previous" />
-      <TextField layoutX="348.0" layoutY="293.0" />
-      <Label layoutX="337.0" layoutY="268.0" text="Order/Confirmation Number">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
+      <Label fx:id="processingReqLbl" layoutX="244.0" layoutY="183.0" text="Your Request is Being Processed. " />
+      <Label fx:id="orderProcessedMsg" layoutX="199.0" layoutY="246.0" text="Your Pickup Has Been Confirmed! It Will Be Arriving in " />
+      <VBox alignment="TOP_CENTER" layoutX="244.0" layoutY="117.0" prefHeight="44.0" prefWidth="100.0">
+         <children>
+            <Label fx:id="selectCityLbl" text="Select City" />
+            <ChoiceBox prefWidth="150.0" />
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" layoutX="128.0" layoutY="117.0" prefHeight="44.0" prefWidth="100.0">
+         <children>
+            <Label fx:id="selectStateLbl" text="Select State" />
+            <ChoiceBox prefWidth="150.0" />
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" layoutX="16.0" layoutY="117.0" prefHeight="44.0" prefWidth="100.0">
+         <children>
+            <Label fx:id="selectVendorLBL" text="Select Vendor" />
+            <MenuButton fx:id="selectVendorMnBx" mnemonicParsing="false" onAction="#vendorSelected" prefHeight="26.0" prefWidth="100.0">
+              <items>
+                <MenuItem fx:id="prvtSellerMnItem" mnemonicParsing="false" text="Private Seller" />
+                <MenuItem fx:id="commercialVendorMnItem" mnemonicParsing="false" text="Commercial vendor" />
+              </items>
+            </MenuButton>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
