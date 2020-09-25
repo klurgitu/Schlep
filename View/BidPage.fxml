@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="531.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.BidPageController">
+   <children>
+      <ImageView fitHeight="123.0" fitWidth="231.0" layoutX="145.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Downloads/Copy%20of%20logo.PNG" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER" layoutY="163.0" prefHeight="42.0" prefWidth="531.0" spacing="30.0">
+         <children>
+            <Label fx:id="driver1Lbl" alignment="CENTER" text="Driver 1" />
+            <TextField fx:id="hourEst1TxFld" prefHeight="28.0" prefWidth="62.0" text="xx Hrs" />
+            <Button fx:id="schlepItBtn1" mnemonicParsing="false" onAction="#acceptBid" prefHeight="31.0" prefWidth="70.0" text="Schlep it!" textAlignment="CENTER" />
+            <Label fx:id="rating1Lbl" text="Rating" />
+            <TextField fx:id="price1TxtFld" text="\$ 00.00" />
+         </children>
+      </HBox>
+      <Label layoutX="90.0" layoutY="144.0" prefHeight="18.0" prefWidth="351.0" text="Schleppers In Your Area Are willing top Schlep Your Item" />
+      <HBox alignment="CENTER" layoutY="205.0" prefHeight="42.0" prefWidth="531.0" spacing="30.0">
+         <children>
+            <Label fx:id="driver2Lbl" alignment="CENTER" text="Driver 2" />
+            <TextField fx:id="hourEst2TxFld" prefHeight="28.0" prefWidth="62.0" text="xx Hrs" />
+            <Button fx:id="schlepItBtn2" mnemonicParsing="false" onAction="#acceptBid" prefHeight="31.0" prefWidth="70.0" text="Schlep it!" textAlignment="CENTER" />
+            <Label fx:id="rating2Lbl" text="Rating" />
+            <TextField fx:id="price2TxtFld" text="\$ 00.00" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutY="247.0" prefHeight="42.0" prefWidth="531.0" spacing="30.0">
+         <children>
+            <Label fx:id="driver3Lbl" alignment="CENTER" text="Driver 3" />
+            <TextField fx:id="hourEst3TxFld" prefHeight="28.0" prefWidth="62.0" text="xx Hrs" />
+            <Button fx:id="schlepItBtn3" mnemonicParsing="false" onAction="#acceptBid" prefHeight="31.0" prefWidth="70.0" text="Schlep it!" textAlignment="CENTER" />
+            <Label fx:id="rating3Lbl" text="Rating" />
+            <TextField fx:id="price3TxtFld" text="\$ 00.00" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutY="289.0" prefHeight="42.0" prefWidth="531.0" spacing="30.0">
+         <children>
+            <Label fx:id="driver4Lbl" alignment="CENTER" text="Driver 4" />
+            <TextField fx:id="hourEst4TxFld" prefHeight="28.0" prefWidth="62.0" text="xx Hrs" />
+            <Button fx:id="schlepItBtn4" mnemonicParsing="false" onAction="#acceptBid" prefHeight="31.0" prefWidth="70.0" text="Schlep it!" textAlignment="CENTER" />
+            <Label fx:id="rating4Lbl" text="Rating" />
+            <TextField fx:id="price4TxtFld" text="\$ 00.00" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutY="331.0" prefHeight="42.0" prefWidth="531.0" spacing="30.0">
+         <children>
+            <Label fx:id="driver5Lbl" alignment="CENTER" text="Driver 5" />
+            <TextField fx:id="hourEst5TxFld" prefHeight="28.0" prefWidth="62.0" text="xx Hrs" />
+            <Button fx:id="schlepItBtn5" mnemonicParsing="false" onAction="#acceptBid" prefHeight="31.0" prefWidth="70.0" text="Schlep it!" textAlignment="CENTER" />
+            <Label fx:id="rating5Lbl" text="Rating" />
+            <TextField fx:id="price5TxtFld" text="\$ 00.00" />
+         </children>
+      </HBox>
+      <HBox fx:id="driver6Lbl" alignment="CENTER" layoutY="373.0" prefHeight="42.0" prefWidth="531.0" spacing="30.0">
+         <children>
+            <Label alignment="CENTER" text="Driver 6" />
+            <TextField fx:id="hourEst6TxFld" prefHeight="28.0" prefWidth="62.0" text="xx Hrs" />
+            <Button fx:id="schlepItBtn6" mnemonicParsing="false" onAction="#acceptBid" prefHeight="31.0" prefWidth="70.0" text="Schlep it!" textAlignment="CENTER" />
+            <Label fx:id="rating6Lbl" text="Rating" />
+            <TextField fx:id="price6TxtFld" text="\$ 00.00" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
