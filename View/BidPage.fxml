@@ -8,10 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="531.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.BidPageController">
    <children>
-      <ImageView fitHeight="123.0" fitWidth="231.0" layoutX="145.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="logo" fitHeight="123.0" fitWidth="231.0" layoutX="145.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../Downloads/Copy%20of%20logo.PNG" />
          </image>
@@ -25,7 +24,7 @@
             <TextField fx:id="price1TxtFld" text="\$ 00.00" />
          </children>
       </HBox>
-      <Label layoutX="90.0" layoutY="144.0" prefHeight="18.0" prefWidth="351.0" text="Schleppers In Your Area Are willing top Schlep Your Item" />
+      <Label fx:id="BidLbl" layoutX="90.0" layoutY="144.0" prefHeight="18.0" prefWidth="351.0" text="Schleppers In Your Area Are willing top Schlep Your Item" />
       <HBox alignment="CENTER" layoutY="205.0" prefHeight="42.0" prefWidth="531.0" spacing="30.0">
          <children>
             <Label fx:id="driver2Lbl" alignment="CENTER" text="Driver 2" />
