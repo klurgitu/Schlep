@@ -13,14 +13,16 @@ public class Address {
     protected String state;
     protected String city;
     protected int zipcode;
+    protected int address_id;
 
-    public Address(String addressLine1, String addressLine2, String country, String state, String city, int zipcode) {
+    public Address(String addressLine1, String addressLine2, String country, String state, String city, int zipcode, int address_id) {
         this.addressLine1 = addressLine1;
         this.addressLine2 = addressLine2;
         this.country = country;
         this.state = state;
         this.city = city;
         this.zipcode = zipcode;
+        this.address_id = address_id;
     }
 
     public String getAddressLine1() {

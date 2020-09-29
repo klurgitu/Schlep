@@ -19,10 +19,6 @@ import javafx.scene.control.MenuButton;
 public class OffloadingItemsController implements Initializable {
 
     @FXML
-    private Button nextButton;
-    @FXML
-    private MenuButton menuButton;
-    @FXML
     private CheckMenuItem handTruckItem;
     @FXML
     private CheckMenuItem rampItem;
@@ -30,6 +26,10 @@ public class OffloadingItemsController implements Initializable {
     private CheckMenuItem dollyItem;
 
     private final MoveScene moveToBilling = new MoveScene();
+    @FXML
+    private Button nextBtn;
+    @FXML
+    private MenuButton menuBtn;
 
     /**
      * Initializes the controller class.
@@ -46,6 +46,6 @@ public class OffloadingItemsController implements Initializable {
  */
     @FXML
     private void saveItemsAndMove(ActionEvent event) throws IOException{
-       moveToBilling.Move("Billing.fxml", nextButton);
+       moveToBilling.Move("Billing.fxml", nextBtn);
     }
 }
