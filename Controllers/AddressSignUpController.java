@@ -42,7 +42,7 @@ public class AddressSignUpController extends BaseAddressAPIClass implements Init
     private TextField zipcode;
 
     @FXML
-    private Button nextAddressButton;
+    private Button nextBtn;
 
     /**
      * Initializes the controller class.
@@ -87,7 +87,7 @@ public class AddressSignUpController extends BaseAddressAPIClass implements Init
  */
     @FXML
     private void saveAddressAndMove(ActionEvent event) throws IOException {
-        moveToOffloading.Move("OffloadingItems.fxml", nextAddressButton);
+        moveToOffloading.Move("OffloadingItems.fxml", nextBtn);
 
     }
 }

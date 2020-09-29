@@ -26,7 +26,7 @@ public class BillingController implements Initializable {
     @FXML
     private TextField ccvCvvField;
     @FXML
-    private Button nextButton;
+    private Button nextBtn;
 
     //private final MoveScene moveToRequest = new MoveScene();
 
