@@ -49,10 +49,15 @@ public class SelectDeliveryTypeController implements Initializable {
 
     @FXML
     private void setServiceType(Event event) {
+        String service =  selectServiceTypeMnuBtn.getText();
+        if(service.equals("Scheduled Delivery")){
+            
+        }
     }
 
     @FXML
     private void goToNextPage(ActionEvent event) {
+        
     }
 
     @FXML
