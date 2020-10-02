@@ -24,16 +24,16 @@
             <TextField />
             <PasswordField />
             <CheckBox mnemonicParsing="false" text="Remeber Password" />
-            <Button fx:id="loginBtn" mnemonicParsing="false" text="Login" />
+            <Button fx:id="loginBtn" mnemonicParsing="false" style="-fx-background-color: POWDERBLUE;" text="Login" />
          </children>
       </VBox>
       <Label alignment="CENTER_RIGHT" layoutX="98.0" layoutY="195.0" prefHeight="17.0" prefWidth="79.0" text="Username" />
       <Label alignment="CENTER_RIGHT" layoutX="98.0" layoutY="227.0" prefHeight="17.0" prefWidth="79.0" text="Password" />
-      <ImageView fitHeight="103.0" fitWidth="200.0" layoutX="166.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="91.0" fitWidth="200.0" layoutX="176.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../CSC340_WireFrame/logo.PNG" />
          </image>
       </ImageView>
-      <BorderPane layoutX="166.0" layoutY="1.0" prefHeight="101.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 10;" />
+      <BorderPane layoutX="166.0" prefHeight="91.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 10;" />
    </children>
 </AnchorPane>
