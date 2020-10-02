@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -25,27 +26,15 @@ public class PickupAddressController implements Initializable {
     @FXML
     private TextField specialInstructionsTxFld;
     @FXML
-    private TextField vendorNameTxBx;
-    @FXML
-    private TextField streetNaameTxBx;
-    @FXML
-    private TextField zipcodeTxBx;
-    @FXML
     private Button NxtBtn;
     @FXML
     private Button backBtn;
     @FXML
-    private TextField orderConfirmationtxBX;
-    @FXML
     private Label processingReqLbl;
-    @FXML
-    private Label orderProcessedMsg;
     @FXML
     private Label selectCityLbl;
     @FXML
     private Label selectStateLbl;
-    @FXML
-    private Label selectVendorLBL;
     @FXML
     private MenuButton selectVendorMnBx;
     @FXML
@@ -54,6 +43,22 @@ public class PickupAddressController implements Initializable {
     private MenuItem commercialVendorMnItem;
     @FXML
     private AnchorPane anchor;
+    @FXML
+    private TextField vendorNameTxFld;
+    @FXML
+    private TextField streetNameTxFld;
+    @FXML
+    private TextField zipCodeTxFld;
+    @FXML
+    private TextField orderConfirmationTxFld;
+    @FXML
+    private Label orderProcessedMsgLbl;
+    @FXML
+    private ChoiceBox<?> selectCityChoiceBx;
+    @FXML
+    private ChoiceBox<?> selectStateChoiceBX;
+    @FXML
+    private Label selectVendorLbL;
 
     /**
      * Initializes the controller class.
