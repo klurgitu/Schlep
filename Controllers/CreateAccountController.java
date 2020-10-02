@@ -49,7 +49,7 @@ public class CreateAccountController implements Initializable {
      * first and last name
      */
     @FXML
-    public void activateAcctBtn() {
+    private void activateAcctBtn(ActionEvent e) {
         String welcome = "Welcome, ";
         welcome += firstName.getText() + " ";
         welcome += lastName.getText();
