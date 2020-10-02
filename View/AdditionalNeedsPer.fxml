@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane fx:id="nextBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="469.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdditionalNeedsPerController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="53.0" layoutY="14.0" prefHeight="232.0" prefWidth="363.0" spacing="15.0">
+         <children>
+            <ImageView fx:id="logo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Downloads/Copy%20of%20logo.PNG" />
+               </image>
+            </ImageView>
+            <MenuButton fx:id="additionalItemMnBtn" mnemonicParsing="false" onAction="#setItem" text="Select Additional Items Needed">
+              <items>
+                  <CheckMenuItem fx:id="dollyCheckMnItem" mnemonicParsing="false" onAction="#checkItem" text="Dolly" />
+                  <CheckMenuItem fx:id="handTruckCheckMnBtn" mnemonicParsing="false" onAction="#checkItem" text="Hand Truck" />
+                  <CheckMenuItem fx:id="rampCheckMnItem" mnemonicParsing="false" onAction="#setItem" text="Ramp" />
+                  <CheckMenuItem fx:id="assistCheckMnItem" mnemonicParsing="false" onAction="#setItem" text="Driver Assistance(Additional Fee)" />
+              </items>
+            </MenuButton>
+            <MenuButton fx:id="AssistTimeAmountMnBtn" mnemonicParsing="false" onAction="#selectTime" text="Estimated Time of Assistnce Needed">
+              <items>
+                <MenuItem fx:id="selectAssistAmount_30" mnemonicParsing="false" onAction="#selectTime" text="30 Mintues" />
+                <MenuItem fx:id="selectAssistTime_1Hr" mnemonicParsing="false" onAction="#selectTime" text="1 Hr" />
+                  <MenuItem fx:id="AssistTime_2Hr" mnemonicParsing="false" onAction="#selectTime" text="2 Hr" />
+                  <MenuItem fx:id="assistTime_3Hr" mnemonicParsing="false" onAction="#selectTime" text="3 Hr" />
+              </items>
+            </MenuButton>
+         </children>
+      </VBox>
+      <Label fx:id="confirmedLbl" layoutX="207.0" layoutY="310.0" text="Confirmed" />
+      <Button layoutX="364.0" layoutY="476.0" mnemonicParsing="false" style="-fx-background-color: POWDERBLUE;" text="Next" textFill="WHITE" />
+      <Button fx:id="backBtn" layoutX="53.0" layoutY="476.0" mnemonicParsing="false" style="-fx-background-color: POWDERBLUE;" text="Back" textFill="WHITE" />
+   </children>
+</AnchorPane>
