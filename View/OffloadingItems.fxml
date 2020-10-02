@@ -4,45 +4,18 @@
 <?import javafx.scene.control.CheckMenuItem?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 
 <AnchorPane id="AnchorPane" prefHeight="469.0" prefWidth="531.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.OffloadingItemsController">
    <children>
-      <Button fx:id="nextBtn" layoutX="476.0" layoutY="399.0" mnemonicParsing="false" onAction="#saveItemsAndMove" style="-fx-background-color: POWDERBLUE;" text="Next" />
-      <VBox alignment="TOP_CENTER" layoutX="123.0" layoutY="14.0" prefHeight="181.0" prefWidth="286.0" spacing="10.0">
-         <children>
-            <ImageView fx:id="logo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../Downloads/Copy%20of%20logo.PNG" />
-               </image>
-            </ImageView>
-            <Label fx:id="selectItemsLbl" text="Offloading Items You Already Have" />
-            <MenuButton fx:id="menuBtn" mnemonicParsing="false" text="Select All That Apply">
-              <items>
-                  <CheckMenuItem fx:id="handTruckItem" mnemonicParsing="false" text="Hand Truck" />
-                  <CheckMenuItem fx:id="rampItem" mnemonicParsing="false" text="Ramp" />
-                  <CheckMenuItem fx:id="dollyItem" mnemonicParsing="false" text="Dolly" />
-              </items>
-            </MenuButton>
-         </children>
-      </VBox>
-      <VBox alignment="TOP_CENTER" layoutX="175.0" layoutY="224.0" prefHeight="101.0" prefWidth="186.0" spacing="10.0">
-         <children>
-            <Label fx:id="driverAssistLbl" text="Will You Need Driver Assitance?" />
-            <MenuButton fx:id="timeOfAssistMnBtn" mnemonicParsing="false" text="Select Amount of Assistance">
-              <items>
-                <MenuItem fx:id="assistMnItem_30" mnemonicParsing="false" onAction="#setTimeOfAssist" text="30 Minutes" />
-                <MenuItem fx:id="assistMnItem_1Hr" mnemonicParsing="false" onAction="#setTimeOfAssist" text="1 Hour" />
-                  <MenuItem fx:id="assistTimeMnItem_2Hr" mnemonicParsing="false" onAction="#setTimeOfAssist" text="2 Hours" />
-                  <MenuItem fx:id="assistMnItem_3hr" mnemonicParsing="false" onAction="#setTimeOfAssist" text="3 Hours" />
-              </items>
-            </MenuButton>
-         </children>
-      </VBox>
-      <Button fx:id="backBtn" layoutX="14.0" layoutY="399.0" mnemonicParsing="false" style="-fx-background-color: POWDERBLUE;" text="Back" textFill="WHITE" />
+      <Label layoutX="173.0" layoutY="73.0" text="Offloading Items You Already Have" />
+      <Button fx:id="nextBtn" layoutX="445.0" layoutY="399.0" mnemonicParsing="false" onAction="#saveItemsAndMove" style="-fx-background-color: POWDERBLUE;" text="Next" />
+      <MenuButton fx:id="menuBtn" layoutX="195.0" layoutY="109.0" mnemonicParsing="false" text="Select All That Apply">
+        <items>
+            <CheckMenuItem fx:id="handTruckItem" mnemonicParsing="false" text="Hand Truck" />
+            <CheckMenuItem fx:id="rampItem" mnemonicParsing="false" text="Ramp" />
+            <CheckMenuItem fx:id="dollyItem" mnemonicParsing="false" text="Dolly" />
+        </items>
+      </MenuButton>
    </children>
 </AnchorPane>
