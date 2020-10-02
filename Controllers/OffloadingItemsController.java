@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package Controllers;
-
+import java.io.IOException;
+import Models.MoveScene;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -20,10 +21,13 @@ import javafx.scene.image.ImageView;
 /**
  * FXML Controller class
  *
- * @author josia
+ * @author josiah Stadler
+ * Last Updated: 10/12/20
  */
 public class OffloadingItemsController implements Initializable {
 
+    private final MoveScene moveToBilling = new MoveScene();
+    
     @FXML
     private Button nextBtn;
     @FXML
@@ -52,6 +56,7 @@ public class OffloadingItemsController implements Initializable {
     private MenuItem assistMnItem_3hr;
     @FXML
     private Button backBtn;
+      
 
     /**
      * Initializes the controller class.
@@ -62,11 +67,18 @@ public class OffloadingItemsController implements Initializable {
     }    
 
     @FXML
-    private void saveItemsAndMove(ActionEvent event) {
+    private void saveItemsAndMove(ActionEvent event) throws IOException{
+       moveToBilling.Move("Billing.fxml", nextBtn);
     }
 
     @FXML
     private void setTimeOfAssist(ActionEvent event) {
     }
-    
+    /**
+ * Will save the offloading items for the User into the Schlep Database
+ * and move to the Billing screen
+ * @param event
+ * @throws IOException
+ */
+     
 }
