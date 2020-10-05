@@ -5,6 +5,8 @@
  */
 package Controllers;
 
+import Models.MoveScene;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -25,8 +27,9 @@ import javafx.scene.layout.AnchorPane;
  */
 public class AdditionalNeedsPerController implements Initializable {
 
+    private static final MoveScene moveToNext = new MoveScene();
     @FXML
-    private AnchorPane nextBtn;
+    private AnchorPane anchor;    
     @FXML
     private ImageView logo;
     @FXML
@@ -53,6 +56,8 @@ public class AdditionalNeedsPerController implements Initializable {
     private Label confirmedLbl;
     @FXML
     private Button backBtn;
+    @FXML
+    private Button nextBtn;
 
     /**
      * Initializes the controller class.
@@ -72,6 +77,12 @@ public class AdditionalNeedsPerController implements Initializable {
 
     @FXML
     private void selectTime(ActionEvent event) {
+    }
+      @FXML
+    void movePage(ActionEvent event) throws IOException {
+        moveToNext.Move("PickupAddress.fxml", backBtn);//change view referenced
+        moveToNext.Move("BidPage", nextBtn);
+
     }
     
 }

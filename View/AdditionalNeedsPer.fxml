@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane fx:id="nextBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="469.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdditionalNeedsPerController">
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="469.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdditionalNeedsPerController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="53.0" layoutY="14.0" prefHeight="232.0" prefWidth="363.0" spacing="15.0">
          <children>
@@ -20,7 +19,7 @@
                   <Image url="@../../../../../../Downloads/Copy%20of%20logo.PNG" />
                </image>
             </ImageView>
-            <MenuButton fx:id="additionalItemMnBtn" mnemonicParsing="false" onAction="#setItem" text="Select Additional Items Needed">
+            <MenuButton fx:id="additionalItemMnBtn" mnemonicParsing="false" text="Select Additional Items Needed">
               <items>
                   <CheckMenuItem fx:id="dollyCheckMnItem" mnemonicParsing="false" onAction="#checkItem" text="Dolly" />
                   <CheckMenuItem fx:id="handTruckCheckMnBtn" mnemonicParsing="false" onAction="#checkItem" text="Hand Truck" />
@@ -39,7 +38,7 @@
          </children>
       </VBox>
       <Label fx:id="confirmedLbl" layoutX="207.0" layoutY="310.0" text="Confirmed" />
-      <Button layoutX="364.0" layoutY="476.0" mnemonicParsing="false" style="-fx-background-color: POWDERBLUE;" text="Next" textFill="WHITE" />
-      <Button fx:id="backBtn" layoutX="53.0" layoutY="476.0" mnemonicParsing="false" style="-fx-background-color: POWDERBLUE;" text="Back" textFill="WHITE" />
+      <Button layoutX="364.0" layoutY="476.0" mnemonicParsing="false" onAction="#movePage" style="-fx-background-color: POWDERBLUE;" text="Next" textFill="WHITE" />
+      <Button fx:id="backBtn" layoutX="53.0" layoutY="476.0" mnemonicParsing="false" onAction="#movePage" style="-fx-background-color: POWDERBLUE;" text="Back" textFill="WHITE" />
    </children>
 </AnchorPane>
