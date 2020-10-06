@@ -9,6 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="469.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdditionalNeedsPerController">
    <children>
@@ -21,24 +22,30 @@
             </ImageView>
             <MenuButton fx:id="additionalItemMnBtn" mnemonicParsing="false" text="Select Additional Items Needed">
               <items>
-                  <CheckMenuItem fx:id="dollyCheckMnItem" mnemonicParsing="false" onAction="#checkItem" text="Dolly" />
-                  <CheckMenuItem fx:id="handTruckCheckMnBtn" mnemonicParsing="false" onAction="#checkItem" text="Hand Truck" />
-                  <CheckMenuItem fx:id="rampCheckMnItem" mnemonicParsing="false" onAction="#setItem" text="Ramp" />
-                  <CheckMenuItem fx:id="assistCheckMnItem" mnemonicParsing="false" onAction="#setItem" text="Driver Assistance(Additional Fee)" />
+                  <CheckMenuItem fx:id="dollyCheckMnItem" mnemonicParsing="false" onAction="#checkDolly" text="Dolly" />
+                  <CheckMenuItem fx:id="handTruckCheckMnBtn" mnemonicParsing="false" onAction="#checkHandTruck" text="Hand Truck" />
+                  <CheckMenuItem fx:id="rampCheckMnItem" mnemonicParsing="false" onAction="#checkRamp" text="Ramp" />
+                  <CheckMenuItem fx:id="assistCheckMnItem" mnemonicParsing="false" onAction="#CheckDriverAssist" text="Driver Assistance(Additional Fee)" />
               </items>
             </MenuButton>
-            <MenuButton fx:id="AssistTimeAmountMnBtn" mnemonicParsing="false" onAction="#selectTime" text="Estimated Time of Assistnce Needed">
+            <MenuButton fx:id="AssistTimeAmountMnBtn" mnemonicParsing="false" onAction="#selectTime" text="Estimated Time of Assistnce Needed" visible="false">
               <items>
-                <MenuItem fx:id="selectAssistAmount_30" mnemonicParsing="false" onAction="#selectTime" text="30 Mintues" />
-                <MenuItem fx:id="selectAssistTime_1Hr" mnemonicParsing="false" onAction="#selectTime" text="1 Hr" />
-                  <MenuItem fx:id="AssistTime_2Hr" mnemonicParsing="false" onAction="#selectTime" text="2 Hr" />
-                  <MenuItem fx:id="assistTime_3Hr" mnemonicParsing="false" onAction="#selectTime" text="3 Hr" />
+                <MenuItem fx:id="selectAssistAmount_30" mnemonicParsing="false" onAction="#assistTime30M" text="30 Mintues" />
+                <MenuItem fx:id="selectAssistTime_1Hr" mnemonicParsing="false" onAction="#assistTime1Hr" text="1 Hr" />
+                  <MenuItem fx:id="AssistTime_2Hr" mnemonicParsing="false" onAction="#assistTime2Hr" text="2 Hr" />
+                  <MenuItem fx:id="assistTime_3Hr" mnemonicParsing="false" onAction="#assistTime3Hr" text="3 Hr" />
               </items>
             </MenuButton>
+            <Button fx:id="processBtn" disable="true" mnemonicParsing="false" onAction="#showCost" style="-fx-background-color: POWDERBLUE;" text="Process" textFill="WHITE" />
          </children>
       </VBox>
-      <Label fx:id="confirmedLbl" layoutX="207.0" layoutY="310.0" text="Confirmed" />
-      <Button layoutX="364.0" layoutY="476.0" mnemonicParsing="false" onAction="#movePage" style="-fx-background-color: POWDERBLUE;" text="Next" textFill="WHITE" />
-      <Button fx:id="backBtn" layoutX="53.0" layoutY="476.0" mnemonicParsing="false" onAction="#movePage" style="-fx-background-color: POWDERBLUE;" text="Back" textFill="WHITE" />
+      <Label fx:id="confirmedLbl" layoutX="71.0" layoutY="266.0" prefHeight="25.0" prefWidth="328.0" text="The following has been confirmed for your delivery: " textAlignment="JUSTIFY" underline="true" visible="false" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Button fx:id="nextBtn" layoutX="364.0" layoutY="476.0" mnemonicParsing="false" onAction="#moveToNextPage" style="-fx-background-color: POWDERBLUE;" text="Next" textFill="WHITE" />
+      <Button fx:id="backBtn" layoutX="53.0" layoutY="476.0" mnemonicParsing="false" onAction="#movePrvPage" style="-fx-background-color: POWDERBLUE;" text="Back" textFill="WHITE" />
+      <Label fx:id="NeedsLbl" layoutX="94.0" layoutY="300.0" text="Label" visible="false" />
+      <Label fx:id="costLbl" layoutX="94.0" layoutY="353.0" text="Label" visible="false" />
    </children>
 </AnchorPane>
