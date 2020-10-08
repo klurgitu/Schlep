@@ -16,7 +16,8 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author josia
+ * @author josiah Stadler
+ * Last updated 10/8/20
  */
 public class RunAdditionalItems extends Application{
 
