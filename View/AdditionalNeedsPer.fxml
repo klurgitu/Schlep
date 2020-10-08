@@ -4,7 +4,7 @@
 <?import javafx.scene.control.CheckMenuItem?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -22,7 +22,7 @@
             </ImageView>
             <MenuButton fx:id="additionalItemMnBtn" mnemonicParsing="false" text="Select Additional Items Needed">
               <items>
-                  <CheckMenuItem fx:id="dollyCheckMnItem" mnemonicParsing="false" onAction="#checkDolly" text="Dolly" />
+                  <CheckMenuItem fx:id="dollyCheckMnBtn" mnemonicParsing="false" onAction="#checkDolly" text="Dolly" />
                   <CheckMenuItem fx:id="handTruckCheckMnBtn" mnemonicParsing="false" onAction="#checkHandTruck" text="Hand Truck" />
                   <CheckMenuItem fx:id="rampCheckMnItem" mnemonicParsing="false" onAction="#checkRamp" text="Ramp" />
                   <CheckMenuItem fx:id="assistCheckMnItem" mnemonicParsing="false" onAction="#CheckDriverAssist" text="Driver Assistance(Additional Fee)" />
@@ -30,10 +30,10 @@
             </MenuButton>
             <MenuButton fx:id="AssistTimeAmountMnBtn" mnemonicParsing="false" onAction="#selectTime" text="Estimated Time of Assistnce Needed" visible="false">
               <items>
-                <MenuItem fx:id="selectAssistAmount_30" mnemonicParsing="false" onAction="#assistTime30M" text="30 Mintues" />
-                <MenuItem fx:id="selectAssistTime_1Hr" mnemonicParsing="false" onAction="#assistTime1Hr" text="1 Hr" />
-                  <MenuItem fx:id="AssistTime_2Hr" mnemonicParsing="false" onAction="#assistTime2Hr" text="2 Hr" />
-                  <MenuItem fx:id="assistTime_3Hr" mnemonicParsing="false" onAction="#assistTime3Hr" text="3 Hr" />
+                  <RadioMenuItem id="time30" fx:id="time30Rb" mnemonicParsing="false" onAction="#selectTime" text="30 Mintues" />
+                  <RadioMenuItem id="time1Hr" fx:id="time1HrRb" mnemonicParsing="false" onAction="#selectTime" text="1 Hour" />
+                  <RadioMenuItem id="time2Hr" fx:id="time2HrRb" mnemonicParsing="false" onAction="#selectTime" text="2 Hours" />
+                  <RadioMenuItem id="time3Hr" fx:id="time3HrRb" mnemonicParsing="false" onAction="#selectTime" text="3 Hours" />
               </items>
             </MenuButton>
             <Button fx:id="processBtn" disable="true" mnemonicParsing="false" onAction="#showCost" style="-fx-background-color: POWDERBLUE;" text="Process" textFill="WHITE" />
@@ -43,7 +43,7 @@
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Button fx:id="nextBtn" layoutX="364.0" layoutY="476.0" mnemonicParsing="false" onAction="#moveToNextPage" style="-fx-background-color: POWDERBLUE;" text="Next" textFill="WHITE" />
+      <Button fx:id="nextBtn" disable="true" layoutX="364.0" layoutY="476.0" mnemonicParsing="false" onAction="#moveToNextPage" style="-fx-background-color: POWDERBLUE;" text="Next" textFill="WHITE" />
       <Button fx:id="backBtn" layoutX="53.0" layoutY="476.0" mnemonicParsing="false" onAction="#movePrvPage" style="-fx-background-color: POWDERBLUE;" text="Back" textFill="WHITE" />
       <Label fx:id="NeedsLbl" layoutX="94.0" layoutY="300.0" text="Label" visible="false" />
       <Label fx:id="costLbl" layoutX="94.0" layoutY="353.0" text="Label" visible="false" />
