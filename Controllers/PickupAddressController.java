@@ -1,5 +1,8 @@
 package Controllers;
 
+
+import Models.MoveScene;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -17,16 +20,31 @@ import javafx.scene.layout.AnchorPane;
 /**
  * FXML Controller class
  *
- * @author josia
+ * @author Josiah Stadler
+ * last updated 10/9/20
  */
-public class PickupAddressController implements Initializable {
+public class PickupAddressController  implements Initializable  {
+    
+    
+    private static final MoveScene goToNextPage = new MoveScene();
+    private static final MoveScene goToPrvPage = new MoveScene();
+    private String instructionStr;
+    private String streetAddress;
+    private String orderNumber;
+    private String vendorName;
+    private String zip;
+    private String orderInfo;
+    private String selectedCity;
+    private String selectedState;
+    private String selectedCountry;
+    
 
     @FXML
     private ImageView logo;
     @FXML
     private TextField specialInstructionsTxFld;
     @FXML
-    private Button NxtBtn;
+    private Button nextBtn;
     @FXML
     private Button backBtn;
     @FXML
@@ -54,11 +72,32 @@ public class PickupAddressController implements Initializable {
     @FXML
     private Label orderProcessedMsgLbl;
     @FXML
-    private ChoiceBox<?> selectCityChoiceBx;
+    private ChoiceBox<String> selectCityChoiceBx;
     @FXML
-    private ChoiceBox<?> selectStateChoiceBX;
+    private ChoiceBox<String> selectStateChoiceBX;
     @FXML
     private Label selectVendorLbL;
+    @FXML
+    private Button confirmationBtn;
+     @FXML
+    private Label detailLbl;
+
+  
+  
+
+
+    @FXML
+    void confirmOrder(ActionEvent event) {
+        
+        detailLbl.setText(orderInfo);
+        orderProcessedMsgLbl.setVisible(true);
+        detailLbl.setVisible(true);
+        nextBtn.setDisable(false);
+        
+        
+
+    }
+
 
     /**
      * Initializes the controller class.
@@ -66,38 +105,61 @@ public class PickupAddressController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+        vendorName = vendorNameTxFld.getText();
+        streetAddress = streetNameTxFld.getText();
+        zip = zipCodeTxFld.getText();
+        orderNumber = orderConfirmationTxFld.getText();
+        orderInfo = "Vendor Name: " + vendorName + "\n" + "Address: " +
+                streetAddress + "\n" + "ZipCode: " + zip + "\n" + "Order Number from seller: " +
+                orderNumber + "\n" ;
+     
     }    
 
     @FXML
     private void enterSpecialInstructions(ActionEvent event) {
+        
+        
     }
 
     @FXML
     private void enterVendor(ActionEvent event) {
+        
+        
     }
 
     @FXML
     private void enterStreetAddress(ActionEvent event) {
+       
     }
 
     @FXML
     private void enterZipCode(ActionEvent event) {
+        
     }
 
     @FXML
-    private void goToNxtPage(ActionEvent event) {
+    private void goToNxtPage(ActionEvent event) throws IOException {
+        goToNextPage.Move("BidPage.fxml", nextBtn);
     }
 
     @FXML
-    private void goToPrvPage(ActionEvent event) {
+    private void goToPrvPage(ActionEvent event) throws IOException {
+        goToPrvPage.Move("AdditionalNeeds.fxml", backBtn);
     }
 
     @FXML
     private void enterOrderNumber(ActionEvent event) {
+       
     }
 
     @FXML
     private void vendorSelected(ActionEvent event) {
+        MenuItem source = (MenuItem) event.getSource();
+        String vendorStr = source.getText();
+        selectVendorMnBx.setText(vendorStr);
+        
+        
     }
     
 }
