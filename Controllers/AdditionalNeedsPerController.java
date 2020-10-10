@@ -10,6 +10,7 @@ import Models.MoveScene;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.Label;
@@ -24,15 +25,12 @@ public class AdditionalNeedsPerController {
     private final double wage = 15.00;
     private final double halfHrWage = wage*.5;
     private final double twoHrWage = wage * 2;
-    private final double threeHrWage = wage * 3;
+    
     
     private double subtotal;
-    private String dollyStr;
-    private String rampStr;
-    private String handTruckStr;
-    private String time;
-    private String checkedItemsMsq;
-    int comma = 0;
+    private String time = "Your selected assistance time is: ";
+    private String itemsMsg = "You have selected the following additional items to assist you: \n";
+    private String costMsg;
     
     
     
@@ -94,25 +92,25 @@ public class AdditionalNeedsPerController {
     @FXML
     void CheckDriverAssist(ActionEvent event) {
         AssistTimeAmountMnBtn.setVisible(true);
-        processBtn.setDisable(false);
+        //processBtn.setDisable(false);
 
     }
 
     @FXML
     void checkDolly(ActionEvent event) {
-        dollyStr = dollyCheckMnBtn.getText();
+        itemsMsg += dollyCheckMnBtn.getText()+"\n";
 
     }
 
     @FXML
     void checkHandTruck(ActionEvent event) {
-        handTruckStr = handTruckCheckMnBtn.getText();
+         itemsMsg += handTruckCheckMnBtn.getText() +"\n";
 
     }
 
     @FXML
     void checkRamp(ActionEvent event) {
-         rampStr = rampCheckMnItem.getText();
+          itemsMsg += rampCheckMnItem.getText() + "\n";
 
     }
 
@@ -130,55 +128,34 @@ public class AdditionalNeedsPerController {
     }
     @FXML
     void selectTime(ActionEvent event){
-        
-    }
+       RadioMenuItem source = (RadioMenuItem) event.getSource();
+       String id = source.getId();
+        switch (id) {
+            case "time30":
+                subtotal = halfHrWage;
+                time += time30Rb.getText();
+                break;
+            case "time1Hr":
+                subtotal = wage;
+                time += time1HrRb.getText();
+                break;
+            case "time2Hr":
+                subtotal = twoHrWage;
+                time += time2HrRb.getText();
+                break;
+        }
+        costLbl.setVisible(true);
+    } 
    
-    @FXML
-    void selectTime(RadioMenuItem m, ActionEvent event) {
-        
-         if(m.getId().equals(time30Rb.getId())){
-            time1HrRb.setSelected(false);
-            time2HrRb.setSelected(false);
-            time3HrRb.setSelected(false);
-            time = time30Rb.getText(); 
-            subtotal = halfHrWage;
-        }
-        else if(m.getId().equals(time1HrRb.getId())){
-            time30Rb.setSelected(false);
-            time2HrRb.setSelected(false);
-            time3HrRb.setSelected(false);
-            time = time1HrRb.getText();
-            subtotal = wage;
-        }
-        else if(m.getId().equals(time2HrRb.getId())){
-            time30Rb.setSelected(false);
-            time1HrRb.setSelected(false);
-            time3HrRb.setSelected(false);
-            time = time2HrRb.getText(); 
-            subtotal = twoHrWage;
-        }
-        else{
-            time30Rb.setSelected(false);
-            time1HrRb.setSelected(false);
-            time2HrRb.setSelected(false);
-            time = time3HrRb.getText();
-            subtotal = threeHrWage;
-        }
-         
-    }
 
     @FXML
     void showCost(ActionEvent event) {
-        if(dollyCheckMnBtn.isSelected()){
-            //get count of commas needed for string output
-        }
         confirmedLbl.setVisible(true);
-        //NeedsLbl.setText(itemsSelectedMsg);
-        costLbl.setText(time + "of assistance = "+ subtotal);
+        NeedsLbl.setText(itemsMsg);
+        costLbl.setText(time + " of assistance.\n" + " with a cost of $ " + String.format("%.2f", subtotal) + "\n");
         NeedsLbl.setVisible(true);
-        costLbl.setVisible(true);
+        
         nextBtn.setDisable(false);
-
     }
 
 }
