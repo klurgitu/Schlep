@@ -3,9 +3,9 @@ package Models;
 /**
  * This is a class for the Address for a user
  * @author Katelynn Urgitus
- * Last Updated 09/24/2020
+ * Last Updated 10/08/2020
  */
-public class Address {
+public class Address extends DB.DataObject{
 
     protected String addressLine1;
     protected String addressLine2;
@@ -13,60 +13,58 @@ public class Address {
     protected String state;
     protected String city;
     protected int zipcode;
-    protected int address_id;
 
-    public Address(String addressLine1, String addressLine2, String country, String state, String city, int zipcode, int address_id) {
-        this.addressLine1 = addressLine1;
-        this.addressLine2 = addressLine2;
-        this.country = country;
-        this.state = state;
-        this.city = city;
-        this.zipcode = zipcode;
-        this.address_id = address_id;
+
+    public Address() {
+
     }
+
+// ================================ GETTERS ====================================
 
     public String getAddressLine1() {
         return addressLine1;
-    }
-
-    public void setAddressLine1(String addressLine1) {
-        this.addressLine1 = addressLine1;
     }
 
     public String getAddressLine2() {
         return addressLine2;
     }
 
-    public void setAddressLine2(String addressLine2) {
-        this.addressLine2 = addressLine2;
-    }
-
     public String getCountry() {
         return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 
     public String getState() {
         return state;
     }
 
-    public void setState(String state) {
-        this.state = state;
-    }
-
     public String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     public int getZipcode() {
         return zipcode;
+    }
+
+// ================================ SETTERS ====================================
+
+    public void setAddressLine1(String addressLine1) {
+        this.addressLine1 = addressLine1;
+    }
+
+    public void setAddressLine2(String addressLine2) {
+        this.addressLine2 = addressLine2;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public void setZipcode(int zipcode) {
