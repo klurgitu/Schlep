@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="531.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SelectDeliveryTypeController">
+<AnchorPane id="anchor" fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="531.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SelectDeliveryTypeController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="8.0" layoutY="14.0" prefHeight="200.0" prefWidth="515.0" spacing="10.0">
          <children>
@@ -18,15 +17,15 @@
                   <Image url="@../../../../../../Downloads/Copy%20of%20logo.PNG" />
                </image>
             </ImageView>
-            <MenuButton fx:id="selectServiceTypeMnuBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="204.0" text="Select Type of Service">
+            <MenuButton id="selectServiceMn" fx:id="selectServiceTypeMnuBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="204.0" text="Select Type of Service">
               <items>
-                <MenuItem fx:id="scheduledDelveryMnuItem" mnemonicParsing="false" onMenuValidation="#setServiceType" text="Scheduled Delivery" />
-                <MenuItem fx:id="instantDeliveryMnuItem" mnemonicParsing="false" onMenuValidation="#setServiceType" text="Instant Delivery (Added Fee)" />
+                <MenuItem id="scheduledDelivery" fx:id="scheduledDelveryMnuItem" mnemonicParsing="false" onAction="#setServiceType" text="Scheduled Delivery" />
+                <MenuItem id="instantDelivery" fx:id="instantDeliveryMnuItem" mnemonicParsing="false" onAction="#setServiceType" text="Instant Delivery (Added Fee)" />
               </items>
             </MenuButton>
          </children>
       </VBox>
-      <Button fx:id="nextBtn" layoutX="464.0" layoutY="421.0" mnemonicParsing="false" onAction="#goToNextPage" style="-fx-background-color: POWDERBLUE;" text="Next" textFill="WHITE" />
-      <Button fx:id="backBtn" layoutX="21.0" layoutY="421.0" mnemonicParsing="false" onAction="#goToPrvPage" style="-fx-background-color: POWDERBLUE;" text="Back" textFill="WHITE" />
+      <Button id="nextBtn" fx:id="nextBtn" layoutX="464.0" layoutY="421.0" mnemonicParsing="false" onAction="#goToNextPage" style="-fx-background-color: POWDERBLUE;" text="Next" textFill="WHITE" />
+      <Button id="backBtn" fx:id="backBtn" layoutX="21.0" layoutY="421.0" mnemonicParsing="false" onAction="#goToPrvPage" style="-fx-background-color: POWDERBLUE;" text="Back" textFill="WHITE" />
    </children>
 </AnchorPane>
