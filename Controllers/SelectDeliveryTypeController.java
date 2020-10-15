@@ -5,6 +5,8 @@
  */
 package Controllers;
 
+import Models.MoveScene;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -23,7 +25,8 @@ import javafx.scene.layout.AnchorPane;
  * @author josia
  */
 public class SelectDeliveryTypeController implements Initializable {
-
+    private static final MoveScene goToNextPage = new MoveScene();
+    private static final MoveScene goToPrvPage = new MoveScene();
     @FXML
     private AnchorPane anchorPane;
     @FXML
@@ -49,19 +52,31 @@ public class SelectDeliveryTypeController implements Initializable {
 
     @FXML
     private void setServiceType(Event event) {
-        String service =  selectServiceTypeMnuBtn.getText();
-        if(service.equals("Scheduled Delivery")){
+        MenuItem source = (MenuItem) event.getSource();
+        String id =source.getId();
+        if(id.equals(scheduledDelveryMnuItem.getId())){
+            selectServiceTypeMnuBtn.setText(source.getText());
+        }
+        else{
+            selectServiceTypeMnuBtn.setText(instantDeliveryMnuItem.getText());
             
+        }
+       
+    }
+
+    @FXML
+    private void goToNextPage(ActionEvent event) throws IOException {
+        if(selectServiceTypeMnuBtn.getText().equals(instantDeliveryMnuItem.getText())){
+            goToNextPage.Move("SelectDeliveryTime.fxml",nextBtn);
+        }
+        else if(selectServiceTypeMnuBtn.getText().equals(scheduledDelveryMnuItem.getText())){
+            goToNextPage.Move("SelectDeliveryDate.fxml",nextBtn);
         }
     }
 
     @FXML
-    private void goToNextPage(ActionEvent event) {
-        
-    }
-
-    @FXML
-    private void goToPrvPage(ActionEvent event) {
+    private void goToPrvPage(ActionEvent event) throws IOException {
+        goToPrvPage.Move("LoginView.fxml",backBtn);
     }
     
 }
