@@ -24,7 +24,7 @@
             <TextField />
             <PasswordField />
             <CheckBox mnemonicParsing="false" text="Remeber Password" />
-            <Button fx:id="loginBtn" mnemonicParsing="false" style="-fx-background-color: POWDERBLUE;" text="Login" />
+            <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#goToNextPage" style="-fx-background-color: POWDERBLUE;" text="Login" />
          </children>
       </VBox>
       <Label alignment="CENTER_RIGHT" layoutX="98.0" layoutY="195.0" prefHeight="17.0" prefWidth="79.0" text="Username" />
