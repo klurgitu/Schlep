@@ -54,22 +54,15 @@ public class CreateAccountController implements Initializable {
      * first and last name
      */
     @FXML
-<<<<<<< HEAD
+
     private void activateAcctBtn(ActionEvent e) throws IOException {
         String welcome = "Welcome, ";
         welcome += firstName.getText() + " ";
         welcome += lastName.getText();
         this.welcomeMSG.setText(welcome);
-        moveToAddress.Move("AddressSignUp.fxml", activateAcctBtn);
-=======
-    private void activateAcctBtn(ActionEvent e) throws Exception {
-        String welcome = "Welcome Schlepper, ";
-        welcome += firstName.getText() + " ";
-        welcome += lastName.getText();
-        this.welcomeMSG.setText(welcome);
-
         user = new SchlepUser(firstName, lastName, email);
->>>>>>> Added a 'back' button on the login view
+        moveToAddress.Move("AddressSignUp.fxml", activateAcctBtn);
+
     }
 
     /**

@@ -33,13 +33,13 @@ public class LoginViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-<<<<<<< HEAD
+
     @FXML
     void moveToNextPage(ActionEvent event) throws IOException{
         goToNextPage.Move("SelectDeliveryType.fxml", loginBtn);
     }
     
-=======
+
 
     @FXML
     private void returnToCreateAcctBtn(ActionEvent event) throws Exception{
@@ -47,5 +47,5 @@ public class LoginViewController implements Initializable {
     }
     
     
->>>>>>> Added a 'back' button on the login view
+
 }
