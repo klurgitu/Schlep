@@ -15,14 +15,14 @@
    <children>
       <VBox alignment="TOP_CENTER" layoutX="53.0" layoutY="14.0" prefHeight="232.0" prefWidth="363.0" spacing="15.0">
          <children>
-            <ImageView fx:id="logo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="logo" fx:id="logo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../Downloads/Copy%20of%20logo.PNG" />
+                  <Image url="@../../../../../UNCG%20Fall%202020/Copy%20of%20logo.PNG" />
                </image>
             </ImageView>
-            <MenuButton fx:id="additionalItemMnBtn" mnemonicParsing="false" text="Select Additional Items Needed">
+            <MenuButton id="selectionMnBtn" fx:id="additionalItemMnBtn" mnemonicParsing="false" text="Select Additional Items Needed">
               <items>
-                  <CheckMenuItem fx:id="dollyCheckMnBtn" mnemonicParsing="false" onAction="#checkDolly" text="Dolly" />
+                  <CheckMenuItem id="dolly" fx:id="dollyCheckMnBtn" mnemonicParsing="false" onAction="#checkDolly" text="Dolly" />
                   <CheckMenuItem fx:id="handTruckCheckMnBtn" mnemonicParsing="false" onAction="#checkHandTruck" text="Hand Truck" />
                   <CheckMenuItem fx:id="rampCheckMnItem" mnemonicParsing="false" onAction="#checkRamp" text="Ramp" />
                   <CheckMenuItem fx:id="assistCheckMnItem" mnemonicParsing="false" onAction="#CheckDriverAssist" text="Driver Assistance(Additional Fee)" />
@@ -36,7 +36,7 @@
                   <RadioMenuItem id="time3Hr" fx:id="time3HrRb" mnemonicParsing="false" onAction="#selectTime" text="3 Hours" />
               </items>
             </MenuButton>
-            <Button fx:id="processBtn" mnemonicParsing="false" onAction="#showCost" style="-fx-background-color: POWDERBLUE;" text="Process" textFill="WHITE" />
+            <Button id="processBtn" fx:id="processBtn" mnemonicParsing="false" onAction="#showCost" style="-fx-background-color: POWDERBLUE;" text="Process" textFill="WHITE" />
          </children>
       </VBox>
       <Label fx:id="confirmedLbl" alignment="CENTER" layoutX="71.0" layoutY="253.0" prefHeight="25.0" prefWidth="328.0" text="The following has been confirmed for your delivery: " underline="true" visible="false" wrapText="true">
