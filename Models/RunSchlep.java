@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class RunSchlep extends Application {
+
     @Override
     public void start(Stage stage) throws Exception {
         URL urlForDropdownFX = new File("src/view/CreateAccount.fxml").toURI().toURL();
