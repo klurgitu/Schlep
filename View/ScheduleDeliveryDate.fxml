@@ -8,21 +8,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="531.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ScheduleDeliveryDateController">
    <children>
       <ImageView fx:id="logo" fitHeight="150.0" fitWidth="200.0" layoutX="158.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Downloads/Copy%20of%20logo.PNG" />
+            <Image url="@../../../../../UNCG%20Fall%202020/Copy%20of%20logo.PNG" />
          </image>
       </ImageView>
       <VBox alignment="TOP_CENTER" layoutX="154.0" layoutY="135.0" prefHeight="75.0" prefWidth="200.0" spacing="15.0">
          <children>
-            <Label fx:id="scheduleDeliveryLbl" alignment="TOP_CENTER" prefHeight="22.0" prefWidth="134.0" style="-fx-background-color: POWDERBLUE;" text="Schedule Your Delivery" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true" />
-            <DatePicker fx:id="scheduleDeliveryDatePicker" onAction="#getDate" prefHeight="25.0" prefWidth="197.0" promptText="Select a Date " />
+            <Label id="scheduleLbl" fx:id="scheduleDeliveryLbl" alignment="TOP_CENTER" prefHeight="22.0" prefWidth="134.0" style="-fx-background-color: POWDERBLUE;" text="Schedule Your Delivery" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true" />
+            <DatePicker id="datePicker" fx:id="scheduleDeliveryDatePicker" onAction="#getDate" prefHeight="25.0" prefWidth="197.0" promptText="Select a Date " />
          </children>
       </VBox>
-      <Button fx:id="nextBtn" layoutX="446.0" layoutY="396.0" mnemonicParsing="false" onAction="#goToNxtPage" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: POWDERBLUE;" text="Next" textFill="WHITE" />
+      <Button id="nextBtn" fx:id="nextBtn" disable="true" layoutX="446.0" layoutY="396.0" mnemonicParsing="false" onAction="#goToNxtPage" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: POWDERBLUE;" text="Next" textFill="WHITE" />
       <Button fx:id="backBtn" layoutX="27.0" layoutY="396.0" mnemonicParsing="false" onAction="#goToPrvPage" style="-fx-background-color: POWDERBLUE;" text="Previous" textFill="WHITE" />
+      <Label id="outputLbl" fx:id="outputLbl" layoutX="88.0" layoutY="235.0" text="Your delivery is scheduled for: " visible="false" />
    </children>
 </AnchorPane>
