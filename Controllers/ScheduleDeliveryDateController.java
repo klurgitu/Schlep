@@ -1,11 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controllers;
 
+import Models.MoveScene;
+import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,9 +17,14 @@ import javafx.scene.image.ImageView;
 /**
  * FXML Controller class
  *
- * @author josia
+ * @author Josiah Stadler
+ * last updated: 10/16/20
  */
 public class ScheduleDeliveryDateController implements Initializable {
+    private static final MoveScene goToNextPage = new MoveScene();
+    private static final MoveScene goToPrvPage = new MoveScene();
+    
+    private String outputDate;
 
     @FXML
     private ImageView logo;
@@ -32,6 +36,8 @@ public class ScheduleDeliveryDateController implements Initializable {
     private Button nextBtn;
     @FXML
     private Button backBtn;
+    @FXML
+    private Label outputLbl;
 
     /**
      * Initializes the controller class.
@@ -42,15 +48,26 @@ public class ScheduleDeliveryDateController implements Initializable {
     }    
 
     @FXML
-    private void getDate(ActionEvent event) {
+    private void getDate(ActionEvent event) { 
+        //Change date format??
+        outputLbl.setText(outputLbl.getText()+ scheduleDeliveryDatePicker.getValue());      
+        outputLbl.setVisible(true);
+        nextBtn.setDisable(false);
+        
+        
+        
+       
+        
     }
 
     @FXML
-    private void goToNxtPage(ActionEvent event) {
+    private void goToNxtPage(ActionEvent event) throws IOException {
+        goToNextPage.Move("PickupAddress.fxml", nextBtn);
     }
 
     @FXML
-    private void goToPrvPage(ActionEvent event) {
+    private void goToPrvPage(ActionEvent event) throws IOException {
+        goToPrvPage.Move("SelectDeliveryType.fxml", backBtn);
     }
     
 }
