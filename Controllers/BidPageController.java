@@ -87,6 +87,10 @@ public class BidPageController implements Initializable {
     private Label rating6Lbl;
     @FXML
     private TextField price6TxtFld;
+    @FXML
+    private Button backBtn;
+    @FXML
+    private Button nextBtn;
 
     /**
      * Initializes the controller class.
@@ -99,6 +103,14 @@ public class BidPageController implements Initializable {
     @FXML
     private void acceptBid(ActionEvent event) {
 
+    }
+
+    @FXML
+    private void moveToPrvPage(ActionEvent event) {
+    }
+
+    @FXML
+    private void moveToNextPage(ActionEvent event) {
     }
 
 }
