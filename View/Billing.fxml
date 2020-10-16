@@ -7,7 +7,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="469.0" prefWidth="531.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.BillingController">
    <children>
-      <Label layoutX="217.0" layoutY="62.0" text="Billing Information" />
+      <Label id="billingLbl" layoutX="217.0" layoutY="62.0" text="Billing Information" />
       <TextField fx:id="nameOnCardField" layoutX="191.0" layoutY="94.0" promptText="Name On Card" />
       <TextField fx:id="cardNumberField" layoutX="191.0" layoutY="130.0" promptText="Card Number" />
       <TextField fx:id="expirationDateField" layoutX="191.0" layoutY="164.0" promptText="Expiration Date" />
