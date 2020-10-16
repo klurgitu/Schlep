@@ -26,7 +26,7 @@ import javafx.scene.layout.AnchorPane;
 public class PickupAddressController  implements Initializable  {
     
     
-    private static final MoveScene goToNextPage = new MoveScene();
+    private static final MoveScene goToNxtPage = new MoveScene();
     private static final MoveScene goToPrvPage = new MoveScene();
     private String instructionStr;
     private String streetAddress;
@@ -149,7 +149,7 @@ public class PickupAddressController  implements Initializable  {
 
     @FXML
     private void goToNxtPage(ActionEvent event) throws IOException {
-        goToNextPage.Move("BidPage.fxml", nextBtn);
+        goToNxtPage.Move("BidPage.fxml", nextBtn);
     }
 
     @FXML

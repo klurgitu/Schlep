@@ -30,7 +30,7 @@
             <Image url="@../../../../../UNCG%20Fall%202020/Copy%20of%20logo.PNG" />
          </image>
       </ImageView>
-      <Label id="confirmationLbl" fx:id="orderProcessedMsgLbl" layoutX="293.0" layoutY="191.0" text="Please check the details you entered" underline="true" visible="false" />
+      <Label id="confirmationLbl" fx:id="orderProcessedMsgLbl" layoutX="236.0" layoutY="191.0" prefHeight="18.0" prefWidth="250.0" text="Please check the details you entered" underline="true" visible="false" />
       <HBox id="menuHBox" layoutX="16.0" layoutY="117.0" spacing="90.0">
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="44.0" prefWidth="126.0">
@@ -58,7 +58,7 @@
             </VBox>
          </children>
       </HBox>
-      <Label id="detailLbl" fx:id="detailLbl" alignment="CENTER" layoutX="238.0" layoutY="246.0" prefHeight="114.0" prefWidth="278.0" text="Label" textAlignment="CENTER" visible="false" />
+      <Label id="detailLbl" fx:id="detailLbl" alignment="CENTER" layoutX="214.0" layoutY="246.0" prefHeight="114.0" prefWidth="302.0" text="Label" textAlignment="CENTER" visible="false" />
       <Button id="confirmationBtn" fx:id="confirmationBtn" layoutX="255.0" layoutY="382.0" mnemonicParsing="false" onAction="#confirmOrder" prefHeight="25.0" prefWidth="218.0" style="-fx-background-color: POWDERBLUE;" text="Confirm Order Details" textFill="WHITE" />
    </children>
 </AnchorPane>
