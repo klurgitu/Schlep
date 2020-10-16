@@ -1,6 +1,7 @@
 package Controllers;
 
 import API.BaseAddressAPIClass;
+import DB.DataObject;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -111,7 +112,8 @@ public class AddressSignUpController extends BaseAddressAPIClass implements Init
 
         String uuid = result.getString("UUID");
         _data.put("UUID", uuid);
-        connect.createObject(_data, "address");
+// dont put sql code in the controller there needs to be a hierarcchy and make a separate thing
+        //DataObject address = connect.createObject(_data, "address");
 
         Map<String, String> address_id = new HashMap();
         address_id.put("address_id", "address.address_id");

@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import Models.MoveScene;
 import java.io.IOException;
 import javafx.scene.control.PasswordField;
+import Models.SchlepUser;
 
 /**
  * FXML Controller class
@@ -46,17 +47,29 @@ public class CreateAccountController implements Initializable {
     private final MoveScene moveToLogin = new MoveScene();
     private final MoveScene moveToAddress = new MoveScene();
 
+    private SchlepUser user;
+
     /**
      * When a user makes a new account, prints a welcome message with the users
      * first and last name
      */
     @FXML
+<<<<<<< HEAD
     private void activateAcctBtn(ActionEvent e) throws IOException {
         String welcome = "Welcome, ";
         welcome += firstName.getText() + " ";
         welcome += lastName.getText();
         this.welcomeMSG.setText(welcome);
         moveToAddress.Move("AddressSignUp.fxml", activateAcctBtn);
+=======
+    private void activateAcctBtn(ActionEvent e) throws Exception {
+        String welcome = "Welcome Schlepper, ";
+        welcome += firstName.getText() + " ";
+        welcome += lastName.getText();
+        this.welcomeMSG.setText(welcome);
+
+        user = new SchlepUser(firstName, lastName, email);
+>>>>>>> Added a 'back' button on the login view
     }
 
     /**
