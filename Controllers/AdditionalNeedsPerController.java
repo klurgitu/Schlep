@@ -8,9 +8,10 @@ package Controllers;
 
 import Models.MoveScene;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.Label;
@@ -25,6 +26,7 @@ public class AdditionalNeedsPerController {
     private final double wage = 15.00;
     private final double halfHrWage = wage*.5;
     private final double twoHrWage = wage * 2;
+     private final double threeHrWage = wage * 3;
     
     
     private double subtotal;
@@ -107,6 +109,9 @@ public class AdditionalNeedsPerController {
          itemsMsg += handTruckCheckMnBtn.getText() +"\n";
 
     }
+  
+
+    
 
     @FXML
     void checkRamp(ActionEvent event) {
@@ -123,7 +128,8 @@ public class AdditionalNeedsPerController {
 
     @FXML
     void moveToNextPage(ActionEvent event) throws IOException {
-        goToNextPage.Move("PickupAddress.fxml",nextBtn);
+       goToNextPage.Move("PickupAddress.fxml",nextBtn);
+       //goToNextPage.Move("SelectDeliveryType.fxml",nextBtn);
 
     }
     @FXML
@@ -143,8 +149,16 @@ public class AdditionalNeedsPerController {
                 subtotal = twoHrWage;
                 time += time2HrRb.getText();
                 break;
-        }
-        costLbl.setVisible(true);
+            case "time3Hr":
+                subtotal = threeHrWage;
+                time += time3HrRb.getText();
+                break;
+            default:                
+                subtotal = 0;
+                time = "";
+        }        
+        
+        
     } 
    
 
@@ -154,8 +168,10 @@ public class AdditionalNeedsPerController {
         NeedsLbl.setText(itemsMsg);
         costLbl.setText(time + " of assistance.\n" + " with a cost of $ " + String.format("%.2f", subtotal) + "\n");
         NeedsLbl.setVisible(true);
-        
+        costLbl.setVisible(true);
         nextBtn.setDisable(false);
+        
+        
     }
-
+      
 }
