@@ -13,20 +13,26 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author josia
+ * @author josiah Stadler
+ * last updated: 10/16/20
+ * controller for SelectDeliveryType.fxml view
  */
 public class SelectDeliveryTypeController implements Initializable {
     private static final MoveScene goToNextPage = new MoveScene();
     private static final MoveScene goToPrvPage = new MoveScene();
+    private String nextPage;
     @FXML
     private AnchorPane anchorPane;
     @FXML
@@ -47,32 +53,46 @@ public class SelectDeliveryTypeController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        /*
+        * Stage window = new Stage();
+        window.setTitle("Delivery Type");
+        Scene scene;
+        Parent root = anchorPane;
+        scene = new Scene(root);
+        window.setScene(scene);
+        nextBtn.setDisable(true);
+        */
+       
+        
     }    
 
     @FXML
-    private void setServiceType(Event event) {
+    private void setServiceType(Event event) throws IOException {
         MenuItem source = (MenuItem) event.getSource();
         String id =source.getId();
         if(id.equals(scheduledDelveryMnuItem.getId())){
             selectServiceTypeMnuBtn.setText(source.getText());
+            nextPage = "ScheduleDeliveryDate.fxml";
+           
+           
         }
         else{
             selectServiceTypeMnuBtn.setText(instantDeliveryMnuItem.getText());
+            nextPage = "SelectDeliveryTime.fxml";
             
         }
+        nextBtn.setDisable(false);
        
     }
 
+    
     @FXML
     private void goToNextPage(ActionEvent event) throws IOException {
-        if(selectServiceTypeMnuBtn.getText().equals(instantDeliveryMnuItem.getText())){
-            goToNextPage.Move("SelectDeliveryTime.fxml",nextBtn);
-        }
-        else if(selectServiceTypeMnuBtn.getText().equals(scheduledDelveryMnuItem.getText())){
-            goToNextPage.Move("SelectDeliveryDate.fxml",nextBtn);
-        }
+        goToNextPage.Move(nextPage,nextBtn);
+       
     }
+    
+    
 
     @FXML
     private void goToPrvPage(ActionEvent event) throws IOException {
