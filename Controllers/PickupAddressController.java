@@ -21,7 +21,7 @@ import javafx.scene.layout.AnchorPane;
  * FXML Controller class
  *
  * @author Josiah Stadler
- * last updated 10/9/20
+ * last updated 10/16/20
  */
 public class PickupAddressController  implements Initializable  {
     
@@ -33,7 +33,7 @@ public class PickupAddressController  implements Initializable  {
     private String orderNumber;
     private String vendorName;
     private String zip;
-    private String orderInfo;
+    private String orderInfo; 
     private String selectedCity;
     private String selectedState;
     private String selectedCountry;
@@ -47,8 +47,7 @@ public class PickupAddressController  implements Initializable  {
     private Button nextBtn;
     @FXML
     private Button backBtn;
-    @FXML
-    private Label processingReqLbl;
+    
     @FXML
     private Label selectCityLbl;
     @FXML
@@ -88,7 +87,14 @@ public class PickupAddressController  implements Initializable  {
 
     @FXML
     void confirmOrder(ActionEvent event) {
-        
+        instructionStr = specialInstructionsTxFld.getText();
+        vendorName = vendorNameTxFld.getText();
+        streetAddress = streetNameTxFld.getText();
+        zip = zipCodeTxFld.getText();
+        orderNumber = orderConfirmationTxFld.getText();
+        orderInfo = "Vendor Name: " + vendorName + "\n" + "Address: " +
+                streetAddress + "\n" + "ZipCode: " + zip + "\n" + "Order Number from seller: " +
+                orderNumber + "\n" + "instructions: " + instructionStr;
         detailLbl.setText(orderInfo);
         orderProcessedMsgLbl.setVisible(true);
         detailLbl.setVisible(true);
@@ -105,20 +111,22 @@ public class PickupAddressController  implements Initializable  {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
-        vendorName = vendorNameTxFld.getText();
+        /*
+        *vendorName = vendorNameTxFld.getText();
         streetAddress = streetNameTxFld.getText();
         zip = zipCodeTxFld.getText();
         orderNumber = orderConfirmationTxFld.getText();
         orderInfo = "Vendor Name: " + vendorName + "\n" + "Address: " +
                 streetAddress + "\n" + "ZipCode: " + zip + "\n" + "Order Number from seller: " +
                 orderNumber + "\n" ;
+        */
+        
      
     }    
 
     @FXML
     private void enterSpecialInstructions(ActionEvent event) {
-        
+       
         
     }
 
@@ -130,6 +138,7 @@ public class PickupAddressController  implements Initializable  {
 
     @FXML
     private void enterStreetAddress(ActionEvent event) {
+       
        
     }
 
@@ -145,11 +154,12 @@ public class PickupAddressController  implements Initializable  {
 
     @FXML
     private void goToPrvPage(ActionEvent event) throws IOException {
-        goToPrvPage.Move("AdditionalNeeds.fxml", backBtn);
+        goToPrvPage.Move("AdditionalNeedsPer.fxml", backBtn);
     }
 
     @FXML
     private void enterOrderNumber(ActionEvent event) {
+        
        
     }
 
