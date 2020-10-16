@@ -52,6 +52,13 @@
             <Image url="@../../../../../CSC340_WireFrame/logo.PNG" />
          </image>
       </ImageView>
-      <BorderPane layoutX="166.0" prefHeight="91.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 10;" />
+      <BorderPane layoutX="166.0" prefHeight="91.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 10;">
+         <center>
+            <ImageView fitHeight="101.0" fitWidth="200.0" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../../../../../Downloads/Copy%20of%20logo.PNG" />
+               </image>
+            </ImageView>
+         </center></BorderPane>
    </children>
 </AnchorPane>

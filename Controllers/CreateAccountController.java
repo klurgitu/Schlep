@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import Models.MoveScene;
+import java.io.IOException;
 import javafx.scene.control.PasswordField;
 
 /**
@@ -17,7 +18,7 @@ import javafx.scene.control.PasswordField;
  * @author Marc Bittle
  */
 public class CreateAccountController implements Initializable {
-
+  
     @FXML
     private TextField firstName;
 
@@ -43,17 +44,19 @@ public class CreateAccountController implements Initializable {
     private Button activateAcctBtn;
 
     private final MoveScene moveToLogin = new MoveScene();
+    private final MoveScene moveToAddress = new MoveScene();
 
     /**
      * When a user makes a new account, prints a welcome message with the users
      * first and last name
      */
     @FXML
-    private void activateAcctBtn(ActionEvent e) {
+    private void activateAcctBtn(ActionEvent e) throws IOException {
         String welcome = "Welcome, ";
         welcome += firstName.getText() + " ";
         welcome += lastName.getText();
         this.welcomeMSG.setText(welcome);
+        moveToAddress.Move("AddressSignUp.fxml", activateAcctBtn);
     }
 
     /**
