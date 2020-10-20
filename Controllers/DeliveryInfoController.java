@@ -98,41 +98,46 @@ public class DeliveryInfoController implements Initializable {
        time_6 = selectedTime9_11MnItem.getId();  
        scheduleDeliveryDatePicker.setDisable(true);
        selectTimeMnBtn.setDisable(true);  
+       outputLbl.setVisible(false);
+       nextBtn.setDisable(true);
     }    
 
     @FXML
     private void setDate(ActionEvent event) {
-        //date = scheduleDeliveryDatePicker.getText().toString();
+        //date = scheduleDeliveryDatePicker.get().toString();
        
     }
 
     @FXML
     private void setWindow(ActionEvent event) {
          MenuItem source = (MenuItem) event.getSource();
+         
         if(source.getId().equals(time_1)){
             selectTimeMnBtn.setText(source.getText());
-            timeWindow += window1;            
+            timeWindow += "\n" + window1;            
         }
         else if(source.getId().equals(time_2)){
             selectTimeMnBtn.setText(source.getText());
-            timeWindow += window2;            
+            timeWindow += "\n" + window2;            
         }
          else if(source.getId().equals(time_3)){
             selectTimeMnBtn.setText(source.getText());
-            timeWindow += window3;            
+            timeWindow += "\n" + window3;            
         }
          else if(source.getId().equals(time_4)){
             selectTimeMnBtn.setText(source.getText());
-            timeWindow = window4;            
+            timeWindow = "\n" + window4;            
         }
         else if(source.getId().equals(time_5)){
             selectTimeMnBtn.setText(source.getText());
-            timeWindow += window5;            
+            timeWindow += "\n" + window5;            
         }
          else if(source.getId().equals(time_6)){
             selectTimeMnBtn.setText(source.getText());
-            timeWindow += window6; 
-        } 
+            timeWindow += "\n" + window6; 
+        }
+        outputLbl.setText( timeWindow);
+        outputLbl.setVisible(true);
     }
 
     @FXML
@@ -143,14 +148,17 @@ public class DeliveryInfoController implements Initializable {
 
     @FXML
     private void setType(ActionEvent event) {
+        outputLbl.setVisible(false);
         MenuItem source = (MenuItem) event.getSource();
         if(source.getId().equals(instantDeliveryMnuItem.getId())){
             selectTimeMnBtn.setDisable(false);
-            scheduleDeliveryDatePicker.setDisable(true);            
+            scheduleDeliveryDatePicker.setDisable(true);
+            selectServiceTypeMnuBtn.setText(instantDeliveryMnuItem.getText());
         }
         else if (source.getId().equals(scheduledDelveryMnuItem.getId())){
             scheduleDeliveryDatePicker.setDisable(false);
             selectTimeMnBtn.setDisable(true);
+            selectServiceTypeMnuBtn.setText(scheduledDelveryMnuItem.getText());
         }
         nextBtn.setDisable(false);
     }

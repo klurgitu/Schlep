@@ -13,7 +13,7 @@
 <AnchorPane id="anchor" fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="531.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DeliveryInfoController">
    <children>
       <DatePicker id="datePicker" fx:id="scheduleDeliveryDatePicker" disable="true" layoutX="374.0" layoutY="178.0" onAction="#setDate" prefHeight="25.0" prefWidth="157.0" promptText="Pick a Delivery Date" />
-      <MenuButton id="selectTimeMn" fx:id="selectTimeMnBtn" disable="true" layoutY="178.0" mnemonicParsing="false" text="Select Delivery Window">
+      <MenuButton id="selectTimeMn" fx:id="selectTimeMnBtn" disable="true" layoutY="178.0" mnemonicParsing="false" onAction="#setWindow" text="Select Delivery Window">
          <items>
             <MenuItem id="time10_12" fx:id="selectedTime10_12MnItem" mnemonicParsing="false" onAction="#setWindow" text="10:00 a.m. - 12:00 p.m." />
             <MenuItem id="time1_3" fx:id="selectedTime1_3MnItem" mnemonicParsing="false" onAction="#setWindow" text="1:00 p.m. - 3:00 p.m. " />
@@ -31,7 +31,7 @@
                   <Image url="@../../../../../UNCG%20Fall%202020/Copy%20of%20logo.PNG" />
                </image>
             </ImageView>
-            <MenuButton id="selectServiceMn" fx:id="selectServiceTypeMnuBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="204.0" text="Select Type of Service">
+            <MenuButton id="selectServiceMn" fx:id="selectServiceTypeMnuBtn" mnemonicParsing="false" onAction="#setType" prefHeight="25.0" prefWidth="204.0" text="Select Type of Service">
               <items>
                 <MenuItem id="scheduledDelivery" fx:id="scheduledDelveryMnuItem" mnemonicParsing="false" onAction="#setType" text="Scheduled Delivery" />
                 <MenuItem id="instantDelivery" fx:id="instantDeliveryMnuItem" mnemonicParsing="false" onAction="#setType" text="Instant Delivery (Added Fee)" />
@@ -40,6 +40,6 @@
          </children>
       </VBox>
       <Button id="backBtn" fx:id="backBtn" layoutX="21.0" layoutY="421.0" mnemonicParsing="false" onAction="#moveToPrvPage" style="-fx-background-color: POWDERBLUE;" text="Back" textFill="WHITE" />
-      <Label id="outputLbl" fx:id="outputLbl" layoutX="252.0" layoutY="235.0" visible="false" />
+      <Label id="outputLbl" fx:id="outputLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="235.0" visible="false" />
    </children>
 </AnchorPane>
