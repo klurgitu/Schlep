@@ -121,7 +121,7 @@ public class AdditionalNeedsPerController {
 
     @FXML
     void movePrvPage(ActionEvent event) throws IOException {
-         goToPrvPage.Move("SelectDeliveryType.fxml",backBtn);
+         goToPrvPage.Move("DeliveryInfo.fxml",backBtn);
 
 
     }

@@ -25,8 +25,9 @@ public class RunAdditionalItems extends Application{
     Scene scene;
     @Override
     public void start(Stage stage) throws Exception {
-        /*
-        *window = stage;
+        
+       /*
+        * window = stage;
         window.setTitle("Additional Needs");
         URL file = new File("src/View/AdditionalNeedsPer.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(file);
@@ -34,22 +35,38 @@ public class RunAdditionalItems extends Application{
         window.setScene(scene);
         window.show();
         */
+       
         
-         /*
-     * 
-     */
-        window = stage;
+        
+        
+       
+       /*
+       * window = stage;
         window.setTitle("");
         URL file = new File("src/View/SelectDeliveryType.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(file);
         scene = new Scene(root);
         window.setScene(scene);
         window.show();
+       */
+        window = stage;
+        window.setTitle("");
+        URL file = new File("src/View/DeliveryInfo.fxml").toURI().toURL();
+        Parent root = FXMLLoader.load(file);
+        scene = new Scene(root);
+        window.setScene(scene);
+        window.show();
         
-        
-        
+      
         
     }
+         
+      
+        
+        
+        
+        
+    
      public static void main(String args[]){
         launch(args);
     }

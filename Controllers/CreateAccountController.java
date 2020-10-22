@@ -57,6 +57,7 @@ public class CreateAccountController implements Initializable {
      * @throws IOException
      */
     @FXML
+
     private void activateAcctBtn(ActionEvent e) throws IOException {
         // Force user to complete all fields
         if (firstName.getText().equals("") || lastName.getText().equals("") || email.getText().equals("") || phoneNumber.getText().equals("")) {
@@ -70,6 +71,7 @@ public class CreateAccountController implements Initializable {
 
         }
         //changeScene.Move("AddressSignUp.fxml", activateAcctBtn);
+
     }
 
     /**
