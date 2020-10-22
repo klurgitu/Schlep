@@ -19,7 +19,7 @@ import Models.SchlepUser;
  * @author Marc Bittle
  */
 public class CreateAccountController implements Initializable {
-  
+
     @FXML
     private TextField firstName;
 
@@ -27,10 +27,13 @@ public class CreateAccountController implements Initializable {
     private TextField lastName;
 
     @FXML
-    private Label welcomeMSG;
+    private Label messageLbl;
 
     @FXML
     private TextField email;
+
+    @FXML
+    private TextField phoneNumber;
 
     @FXML
     private PasswordField password;
@@ -44,43 +47,39 @@ public class CreateAccountController implements Initializable {
     @FXML
     private Button activateAcctBtn;
 
-    private final MoveScene moveToLogin = new MoveScene();
-    private final MoveScene moveToAddress = new MoveScene();
+    private static final MoveScene changeScene = new MoveScene();
 
     private SchlepUser user;
 
     /**
-     * When a user makes a new account, prints a welcome message with the users
-     * first and last name
+     *
+     * @param e
+     * @throws IOException
      */
     @FXML
-<<<<<<< HEAD
     private void activateAcctBtn(ActionEvent e) throws IOException {
-        String welcome = "Welcome, ";
-        welcome += firstName.getText() + " ";
-        welcome += lastName.getText();
-        this.welcomeMSG.setText(welcome);
-        moveToAddress.Move("AddressSignUp.fxml", activateAcctBtn);
-=======
-    private void activateAcctBtn(ActionEvent e) throws Exception {
-        String welcome = "Welcome Schlepper, ";
-        welcome += firstName.getText() + " ";
-        welcome += lastName.getText();
-        this.welcomeMSG.setText(welcome);
+        // Force user to complete all fields
+        if (firstName.getText().equals("") || lastName.getText().equals("") || email.getText().equals("") || phoneNumber.getText().equals("")) {
+            this.messageLbl.setText("All fields required!");
+        } else {
+            if (!password.getText().equals(passwordConf.getText())) {
+                this.messageLbl.setText("Passwords do not match!");
+            } else {
+                user = new SchlepUser(firstName, lastName, email, passwordConf, phoneNumber);
+            }
 
-        user = new SchlepUser(firstName, lastName, email);
->>>>>>> Added a 'back' button on the login view
+        }
+        //changeScene.Move("AddressSignUp.fxml", activateAcctBtn);
     }
 
     /**
-     * If user already has an account, change scene to login screen
      *
-     * @param event read from button to get the stage
-     * @throws Exception for IO
+     * @param event
+     * @throws Exception
      */
     @FXML
     public void changeToLoginScreenBtn(ActionEvent event) throws Exception {
-        moveToLogin.Move("LoginView.fxml", changeToLoginBtn);
+        changeScene.Move("LoginView.fxml", changeToLoginBtn);
     }
 
     /**
@@ -88,7 +87,7 @@ public class CreateAccountController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        welcomeMSG.setText("");
+        this.messageLbl.setText("");
     }
 
 }

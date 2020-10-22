@@ -17,14 +17,13 @@ import javafx.scene.control.Button;
  * @author Marc Bittle
  */
 public class LoginViewController implements Initializable {
-    private static final MoveScene goToNextPage = new MoveScene();
-    
+
     @FXML
     private Button loginBtn;
     @FXML
     private Button returnToCreateAcctBtn;
-    
-    private final MoveScene moveToCreateAcct = new MoveScene();
+
+    private static final MoveScene changeScene = new MoveScene(); // Handles scene changes
 
     /**
      * Initializes the controller class.
@@ -33,19 +32,15 @@ public class LoginViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-<<<<<<< HEAD
-    @FXML
-    void moveToNextPage(ActionEvent event) throws IOException{
-        goToNextPage.Move("SelectDeliveryType.fxml", loginBtn);
-    }
-    
-=======
 
     @FXML
-    private void returnToCreateAcctBtn(ActionEvent event) throws Exception{
-        moveToCreateAcct.Move("CreateAccount.fxml", returnToCreateAcctBtn);
+    void moveToNextPage(ActionEvent event) throws IOException {
+        changeScene.Move("SelectDeliveryType.fxml", loginBtn);
     }
-    
-    
->>>>>>> Added a 'back' button on the login view
+
+    @FXML
+    private void returnToCreateAcctBtn(ActionEvent event) throws Exception {
+        changeScene.Move("CreateAccount.fxml", returnToCreateAcctBtn);
+    }
+
 }
