@@ -11,16 +11,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="469.0" prefWidth="531.0" style="-fx-background-color: peachpuff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CreateAccountController">
+<AnchorPane id="AnchorPane" prefHeight="507.0" prefWidth="575.0" style="-fx-background-color: peachpuff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CreateAccountController">
    <children>
-      <VBox alignment="CENTER" fillWidth="false" layoutX="160.0" layoutY="93.0" prefHeight="350.0" prefWidth="211.0" spacing="15.0">
+      <VBox alignment="CENTER" fillWidth="false" layoutX="162.0" layoutY="103.0" prefHeight="390.0" prefWidth="211.0" spacing="15.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="252.0" text="Create Account">
                <font>
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="welcomeMSG" style="-fx-text-fill: #E3493B;" text="Label" />
+            <Label fx:id="messageLbl" style="-fx-text-fill: #E3493B;" text="Label" />
             <TextField fx:id="firstName" alignment="TOP_LEFT">
                <font>
                   <Font name="System Italic" size="12.0" />
@@ -36,29 +36,24 @@
                   <Font name="System Italic" size="12.0" />
                </font>
             </TextField>
+            <TextField fx:id="phoneNumber" />
             <PasswordField fx:id="password" />
             <PasswordField fx:id="passwordConf" />
             <Button fx:id="activateAcctBtn" mnemonicParsing="false" onAction="#activateAcctBtn" style="-fx-background-color: POWDERBLUE;" text="Activate Account" />
             <Button fx:id="changeToLoginBtn" mnemonicParsing="false" onAction="#changeToLoginScreenBtn" prefHeight="25.0" prefWidth="284.0" style="-fx-background-color: POWDERBLUE;" text="Already have an account? Click here!" />
          </children>
       </VBox>
-      <Label alignment="CENTER_RIGHT" layoutX="70.0" layoutY="171.0" prefHeight="25.0" prefWidth="106.0" text="First Name" />
-      <Label alignment="CENTER_RIGHT" layoutX="70.0" layoutY="210.0" prefHeight="25.0" prefWidth="106.0" text="Last Name" />
-      <Label alignment="CENTER_RIGHT" layoutX="70.0" layoutY="249.0" prefHeight="25.0" prefWidth="106.0" text="Email Address" />
-      <Label alignment="CENTER_RIGHT" layoutX="70.0" layoutY="290.0" prefHeight="25.0" prefWidth="106.0" text="Password" />
-      <Label alignment="CENTER_RIGHT" layoutX="70.0" layoutY="332.0" prefHeight="25.0" prefWidth="106.0" text="Confrim Password" />
+      <Label alignment="CENTER_RIGHT" layoutX="67.0" layoutY="182.0" prefHeight="25.0" prefWidth="106.0" text="First Name" />
+      <Label alignment="CENTER_RIGHT" layoutX="67.0" layoutY="222.0" prefHeight="25.0" prefWidth="106.0" text="Last Name" />
+      <Label alignment="CENTER_RIGHT" layoutX="67.0" layoutY="264.0" prefHeight="25.0" prefWidth="106.0" text="Email Address" />
+      <Label alignment="CENTER_RIGHT" layoutX="61.0" layoutY="342.0" prefHeight="25.0" prefWidth="106.0" text="Password" />
+      <Label alignment="CENTER_RIGHT" layoutX="61.0" layoutY="384.0" prefHeight="25.0" prefWidth="106.0" text="Confrim Password" />
       <ImageView fitHeight="91.0" fitWidth="200.0" layoutX="176.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../CSC340_WireFrame/logo.PNG" />
          </image>
       </ImageView>
-      <BorderPane layoutX="166.0" prefHeight="91.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 10;">
-         <center>
-            <ImageView fitHeight="101.0" fitWidth="200.0" BorderPane.alignment="CENTER">
-               <image>
-                  <Image url="@../../../../../../Downloads/Copy%20of%20logo.PNG" />
-               </image>
-            </ImageView>
-         </center></BorderPane>
+      <BorderPane layoutX="167.0" prefHeight="91.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 10;" />
+      <Label alignment="CENTER_RIGHT" layoutX="67.0" layoutY="307.0" prefHeight="17.0" prefWidth="106.0" text="PhoneNumber" />
    </children>
 </AnchorPane>

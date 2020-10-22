@@ -24,7 +24,7 @@
             <TextField />
             <PasswordField />
             <CheckBox mnemonicParsing="false" text="Remeber Password" />
-            <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#goToNextPage" style="-fx-background-color: POWDERBLUE;" text="Login" />
+            <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#moveToNextPage" style="-fx-background-color: POWDERBLUE;" text="Login" />
          </children>
       </VBox>
       <Label alignment="CENTER_RIGHT" layoutX="98.0" layoutY="195.0" prefHeight="17.0" prefWidth="79.0" text="Username" />
@@ -34,18 +34,9 @@
             <Image url="@../../../../../CSC340_WireFrame/logo.PNG" />
          </image>
       </ImageView>
-<<<<<<< HEAD
-      <BorderPane layoutX="156.0" layoutY="6.0" prefHeight="91.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 10;">
-         <center>
-            <ImageView fitHeight="101.0" fitWidth="200.0" BorderPane.alignment="CENTER">
-               <image>
-                  <Image url="@../../../../../UNCG%20Fall%202020/Copy%20of%20logo.PNG" />
-               </image>
-            </ImageView>
-         </center></BorderPane>
-=======
+
       <BorderPane layoutX="166.0" prefHeight="91.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 10;" />
       <Button fx:id="returnToCreateAcctBtn" layoutX="23.0" layoutY="423.0" mnemonicParsing="false" onAction="#returnToCreateAcctBtn" style="-fx-background-color: POWDERBLUE;" text="Go back to sign up" />
->>>>>>> Added a 'back' button on the login view
+
    </children>
 </AnchorPane>

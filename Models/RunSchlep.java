@@ -24,7 +24,7 @@ public class RunSchlep extends Application {
         Parent parent = FXMLLoader.load(urlForDropdownFX);
         Scene scene = new Scene(parent);
 
-        stage.setTitle("Create User Account");
+        stage.setTitle("Schlep");
         stage.setScene(scene);
         stage.show();
     }
