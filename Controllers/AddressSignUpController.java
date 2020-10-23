@@ -31,6 +31,7 @@ public class AddressSignUpController extends BaseAddressAPIClass implements Init
     private String selectedCountry;
     private String selectedState;
     private final MoveScene moveToOffloading = new MoveScene();
+    private final DB.MySQLConnector con = new DB.MySQLConnector();
 
     @FXML
     private ChoiceBox<String> countryBox;
@@ -96,30 +97,20 @@ public class AddressSignUpController extends BaseAddressAPIClass implements Init
  */
     @FXML
     private void saveAddressAndMove(ActionEvent event) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException, SQLException {
-        HashMap<String, String> _data = new HashMap();
-        _data.put("addressLine1", addressLine1.getText());
-        _data.put("addressLine2", addressLine2.getText());
-        _data.put("country", countryBox.getValue());
-        _data.put("state", stateBox.getValue());
-        _data.put("city", cityBox.getValue());
-        _data.put("zipcode", zipcode.getText());
-
-        MySQLConnector connect = new MySQLConnector();
-
-        String selectStmt = "SELECT UUID FROM user WHERE address_id IS NULL";
-        ResultSet result = connect.executeSelect(selectStmt);
-        result.next();
-
-        String uuid = result.getString("UUID");
-        _data.put("UUID", uuid);
-// dont put sql code in the controller there needs to be a hierarcchy and make a separate thing
-        //DataObject address = connect.createObject(_data, "address");
-
-        Map<String, String> address_id = new HashMap();
-        address_id.put("address_id", "address.address_id");
-        connect.updateObject(address_id, uuid, "user");
-
-        moveToOffloading.Move("OffloadingItems.fxml", nextBtn);
+        Address userAddress = new Address();
+        HashMap<String, String> pairs = new HashMap();
+        pairs.put("addressLine1", addressLine1.getText());
+        pairs.put("addressLine2", addressLine2.getText());
+        pairs.put("country", countryBox.getValue());
+        pairs.put("state", stateBox.getValue());
+        pairs.put("city", cityBox.getValue());
+        pairs.put("zipcode", zipcode.getText());
+        pairs.put("UUID", userAddress.getUuid());
+        con.createObject(pairs, "address");
+        Map<String, String> map = new HashMap();
+        map.put("address_id", "address.UUID");
+        con.updateObject(map, userAddress.getUuid(), "user", "address");
+        moveToOffloading.Move("Billing.fxml", nextBtn);
 
     }
 }

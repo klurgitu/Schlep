@@ -20,10 +20,10 @@ public class MoveScene {
     }
 
 
-    public void Move(String nextFXML, Button button) throws IOException {
+    public void Move(String _nextFXML, Button _button) throws IOException {
         Scene scene;
-        Stage stageTheLabelBelongs = (Stage) button.getScene().getWindow();
-        URL urlForDropdownFX = new File("src/View/" + nextFXML).toURI().toURL();
+        Stage stageTheLabelBelongs = (Stage) _button.getScene().getWindow();
+        URL urlForDropdownFX = new File("src/View/" + _nextFXML).toURI().toURL();
         Parent root = FXMLLoader.load(urlForDropdownFX);
         scene = new Scene(root);
         stageTheLabelBelongs.setScene(scene);

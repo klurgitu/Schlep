@@ -18,22 +18,22 @@ public class UniversalTutorialAPITranslator extends UniversalTutorialAPI impleme
     }
 /**
  *
- * @param selectedCountry the country selected by the user
+ * @param _selectedCountry the country selected by the user
  * @return the entire list of states for the selected country
  */
     @Override
-    public ArrayList<String> getStateList(String selectedCountry) {
-        this.country = selectedCountry;
+    public ArrayList<String> getStateList(String _selectedCountry) {
+        this.country = _selectedCountry;
         return this.getDataFromAPI("state", country);
     }
 /**
  *
- * @param selectedState the state selected by the user
+ * @param _selectedState the state selected by the user
  * @return the entire list of cities for the selected state
  */
     @Override
-    public ArrayList<String> getCityList(String selectedState) {
-        this.state = selectedState;
+    public ArrayList<String> getCityList(String _selectedState) {
+        this.state = _selectedState;
         return this.getDataFromAPI("city", state);
     }
 }

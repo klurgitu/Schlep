@@ -8,10 +8,13 @@ package DB;
  */
 
 import java.lang.reflect.InvocationTargetException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 public class DataObject extends DataFactory{
     protected final String dataTable = "";
@@ -108,6 +111,20 @@ public class DataObject extends DataFactory{
  */
     protected static String generateUuid() {
         return UUID.randomUUID().toString();
+    }
+
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
+    public static String connectUUID() throws SQLException{
+        MySQLConnector connect = new MySQLConnector();
+        String selectStmt = "SELECT UUID FROM user WHERE address_id IS NULL";
+        ResultSet result = connect.executeSelect(selectStmt);
+        result.next();
+        String _uuid = result.getString("UUID");
+        return _uuid;
     }
 
 // ================================ GETTERS ====================================

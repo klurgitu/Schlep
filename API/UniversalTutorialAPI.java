@@ -29,24 +29,24 @@ public class UniversalTutorialAPI {
     }
     /**
      *
-    * @param type the type of list we are looking for(i.e. country, state, city)
-    * @param selected the country or state selected by the user in the drop-down
+    * @param _type the type of list we are looking for(i.e. country, state, city)
+    * @param _selected the country or state _selected by the user in the drop-down
     * @return an array list for the given type
     */
-    protected ArrayList<String> getDataFromAPI(String type, String selected){
+    protected ArrayList<String> getDataFromAPI(String _type, String _selected){
         String callAction = "";
-        switch (type){
+        switch (_type){
             case "country":
                 callAction = "/api/countries/";
                 break;
             case "state":
-                callAction = "/api/states/" + selected;
+                callAction = "/api/states/" + _selected;
                 break;
             case "city":
-                callAction = "/api/cities/" + selected;
+                callAction = "/api/cities/" + _selected;
                 break;
             default:
-                throw new IllegalStateException("Unexpected Value: " + type + ". Try again.");
+                throw new IllegalStateException("Unexpected Value: " + _type + ". Try again.");
         }
 
         String baseUrl = "https://www.universal-tutorial.com";
@@ -71,7 +71,7 @@ public class UniversalTutorialAPI {
 
             for (int i = 0; i < obj.length() - 1; i++) {
                 JSONObject temp = new JSONObject(obj.get(i).toString());
-                notSoEmptyList.add(temp.getString(type + "_name"));
+                notSoEmptyList.add(temp.getString(_type + "_name"));
 
             }
         } catch (IOException | JSONException ex) {
@@ -82,12 +82,12 @@ public class UniversalTutorialAPI {
 
     /**
      *
-     * @param apiKey
-     * @param email
+     * @param _apiKey
+     * @param _email
      * @return the authorization token needed to access the countries, states,
      * and cities
      */
-    private String setAuthToken(String apiKey, String email) {
+    private String setAuthToken(String _apiKey, String _email) {
         String baseUrl = "https://www.universal-tutorial.com";
         String callActionAuth = "/api/getaccesstoken";
         URL urlAuth;
@@ -95,8 +95,8 @@ public class UniversalTutorialAPI {
             urlAuth = new URL(baseUrl + callActionAuth);
             HttpURLConnection con = (HttpURLConnection) urlAuth.openConnection();
             con.setRequestMethod("GET");
-            con.setRequestProperty("api-token", apiKey);
-            con.setRequestProperty("user-email", email);
+            con.setRequestProperty("api-token", _apiKey);
+            con.setRequestProperty("user-email", _email);
             StringBuffer content;
             try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
                 String inputLine;
