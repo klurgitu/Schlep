@@ -17,7 +17,15 @@ public class BillingInfo extends DB.DataObject {
     public BillingInfo(){
         
     }
- //=============================GETTERS===============================   
+    
+    public BillingInfo(String _fName, String _lName, String _cCardNum, String _expDate, String _ccv ){
+        this.firstName = _fName;
+        this.lastName = _lName;
+        this.creditCardNum  = _cCardNum;
+        this.expDate = _expDate;
+        this.ccv = _ccv;
+    }
+ //============================= GETTERS ===============================   
     
     /**
      * @return the firstName
@@ -49,31 +57,31 @@ public class BillingInfo extends DB.DataObject {
     public String getCcv() {
         return ccv;
     }
-    //===================Setters============================================
+    //=================== Setters ============================================
 
     /**
-     * @param _firstName the firstName to set
+     * @param _fName the firstName to set
      */
-    public void setFirstName(String _firstName) {
-        this.firstName = _firstName;
+    public void setFirstName(String _fName) {
+        this.firstName = _fName;
     }
 
     
 
     /**
-     * @param _lastName the lastName to set
+     * @param _lName the lastName to set
      */
-    public void setLastName(String _lastName) {
-        this.lastName = _lastName;
+    public void setLastName(String _lName) {
+        this.lastName = _lName;
     }
 
     
 
     /**
-     * @param _creditCardNum the creditCardNum to set
+     * @param _cCardNum the creditCardNum to set
      */
-    public void setCreditCardNum(String _creditCardNum) {
-        this.creditCardNum = _creditCardNum;
+    public void setCreditCardNum(String _cCardNum) {
+        this.creditCardNum = _cCardNum;
     }
 
     
