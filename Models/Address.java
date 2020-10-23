@@ -1,5 +1,9 @@
 package Models;
 
+import java.sql.SQLException;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ChoiceBox;
+
 /**
  * This is a class for the Address for a user
  * @author Katelynn Urgitus
@@ -12,11 +16,19 @@ public class Address extends DB.DataObject{
     protected String country;
     protected String state;
     protected String city;
-    protected int zipcode;
+    protected String zipcode;
 
+    public Address() throws SQLException{
+        this.setUuid(DB.DataObject.connectUUID());
+    }
 
-    public Address() {
-
+    public Address(TextField _addressLine1, TextField _addressLine2, ChoiceBox<String> _country, ChoiceBox<String> _state, ChoiceBox<String> _city, TextField _zipcode, String _UUID) {
+        this.addressLine1 = _addressLine1.getText();
+        this.addressLine2 = _addressLine2.getText();
+        this.country = _country.getValue();
+        this.state = _state.getValue();
+        this.city = _city.getValue();
+        this.zipcode = _zipcode.getText();
     }
 
 // ================================ GETTERS ====================================
@@ -41,34 +53,34 @@ public class Address extends DB.DataObject{
         return city;
     }
 
-    public int getZipcode() {
+    public String getZipcode() {
         return zipcode;
     }
 
 // ================================ SETTERS ====================================
 
-    public void setAddressLine1(String addressLine1) {
-        this.addressLine1 = addressLine1;
+    public void setAddressLine1(String _addressLine1) {
+        this.addressLine1 = _addressLine1;
     }
 
-    public void setAddressLine2(String addressLine2) {
-        this.addressLine2 = addressLine2;
+    public void setAddressLine2(String _addressLine2) {
+        this.addressLine2 = _addressLine2;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setCountry(String _country) {
+        this.country = _country;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setState(String _state) {
+        this.state = _state;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setCity(String _city) {
+        this.city = _city;
     }
 
-    public void setZipcode(int zipcode) {
-        this.zipcode = zipcode;
+    public void setZipcode(String _zipcode) {
+        this.zipcode = _zipcode;
     }
 
 }

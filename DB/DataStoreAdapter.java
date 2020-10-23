@@ -19,19 +19,19 @@ public class DataStoreAdapter {
 
     /**
      *
-     * @param obj
+     * @param _obj
      * @return
      * @throws IllegalArgumentException
      * @throws IllegalAccessException
      * @throws InvocationTargetException
      * @throws NoSuchFieldException
      */
-    public static Boolean createObject(DataObject obj) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchFieldException {
+    public static Boolean createObject(DataObject _obj) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchFieldException {
         // Send name-value pairs to the connector class. This class should
         // return a generated id number.
-        int id = connector.createObject(obj.getProperties(), obj.getDataTable());
+        int id = connector.createObject(_obj.getProperties(), _obj.getDataTable());
         // Associate this new id number with the object that was just saved.
-        obj.setId(id);
+        _obj.setId(id);
         // Return true if we have an id number. false otherwise.
         return (id != 0);
     }
@@ -65,28 +65,28 @@ public class DataStoreAdapter {
 
     /**
      *
-     * @param obj
+     * @param _obj
      * @return
      * @throws IllegalArgumentException
      * @throws IllegalAccessException
      * @throws InvocationTargetException
      * @throws NoSuchFieldException
      */
-    public static Boolean updateObject(DataObject obj) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchFieldException {
-        return connector.updateObject(obj.getProperties(), obj.getUuid(), obj.getDataTable());
+    public static Boolean updateObject(DataObject _obj) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchFieldException {
+        return connector.updateObject(_obj.getProperties(), _obj.getUuid(), _obj.getDataTable());
     }
 
     /**
      *
-     * @param obj
+     * @param _obj
      * @return
      * @throws IllegalArgumentException
      * @throws IllegalAccessException
      * @throws InvocationTargetException
      * @throws NoSuchFieldException
      */
-    public static Boolean deleteObject(DataObject obj) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchFieldException {
-        obj.makeInactive();
-        return DataStoreAdapter.updateObject(obj);
+    public static Boolean deleteObject(DataObject _obj) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchFieldException {
+        _obj.makeInactive();
+        return DataStoreAdapter.updateObject(_obj);
     }
 }

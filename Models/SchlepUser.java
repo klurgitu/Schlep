@@ -18,6 +18,10 @@ public class SchlepUser extends DB.DataObject {
     private String userAddress;
     private String phoneNumber;
 
+    public SchlepUser() {
+        this.setUuid(DB.DataObject.generateUuid());
+    }
+
     /**
      *
      * @param _fname
