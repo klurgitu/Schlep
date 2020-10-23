@@ -149,6 +149,7 @@ public class PickupAddressController extends BaseAddressAPIClass  implements Ini
     @FXML
     private void goToNxtPage(ActionEvent _event) throws IOException {
         goToNxtPage.Move("BidPage.fxml", nextBtn);
+        //goToNxtPage.Move("GPSView.fxml", nextBtn);
     }
 
     @FXML

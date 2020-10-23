@@ -86,7 +86,7 @@ public class AdditionalNeedsPerController {
     @FXML
     void CheckDriverAssist(ActionEvent _event) {
         AssistTimeAmountMnBtn.setVisible(true);
-        costMsg = "Your selected assistance time is:\n";       
+        costMsg = "Your selected assistance time is: ";       
     }
 
     @FXML
@@ -154,12 +154,16 @@ public class AdditionalNeedsPerController {
     }
     @FXML
     void showCost(ActionEvent _event) {
-       costMsg +=  time + " of assistance.\n" + " with a cost of $ " + String.format("%.2f", subtotal) + "\n";
-       costLbl.setText(costMsg);
+        if(assistCheckMnItem.isSelected()){
+            costMsg +=  time + " of assistance.\n " + " With a cost of $ " + String.format("%.2f", subtotal) + "\n";
+            costLbl.setText(costMsg);
+            costLbl.setVisible(true);
+        }else{
+            costLbl.setVisible(false);
+        }
        confirmedLbl.setVisible(true);
        NeedsLbl.setText("You have selected the following additional items to assist you: \n" + itemsMsg);        
-       NeedsLbl.setVisible(true);
-       costLbl.setVisible(true);
+       NeedsLbl.setVisible(true);       
        nextBtn.setDisable(false);        
     }     
 }
