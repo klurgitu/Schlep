@@ -1,10 +1,10 @@
 package Models;
 
 /**
- * This is the start of the application
+ * Launch the application
  *
  * @author Katelynn Urgitus Last Updated 09/12/2020
- * @author Marc Bittle Last Updated 9/24/2020
+ * @author Marc Bittle Last Updated 10/22/2020
  */
 import java.io.File;
 import java.io.IOException;

@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="507.0" prefWidth="575.0" style="-fx-background-color: peachpuff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CreateAccountController">
+<AnchorPane id="AnchorPane" prefHeight="510.0" prefWidth="575.0" style="-fx-background-color: peachpuff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CreateAccountController">
    <children>
-      <VBox alignment="CENTER" fillWidth="false" layoutX="162.0" layoutY="103.0" prefHeight="390.0" prefWidth="211.0" spacing="15.0">
+      <VBox alignment="CENTER" fillWidth="false" layoutX="182.0" layoutY="99.0" prefHeight="390.0" prefWidth="211.0" spacing="15.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="252.0" text="Create Account">
                <font>
@@ -43,17 +43,17 @@
             <Button fx:id="changeToLoginBtn" mnemonicParsing="false" onAction="#changeToLoginScreenBtn" prefHeight="25.0" prefWidth="284.0" style="-fx-background-color: POWDERBLUE;" text="Already have an account? Click here!" />
          </children>
       </VBox>
-      <Label alignment="CENTER_RIGHT" layoutX="67.0" layoutY="182.0" prefHeight="25.0" prefWidth="106.0" text="First Name" />
-      <Label alignment="CENTER_RIGHT" layoutX="67.0" layoutY="222.0" prefHeight="25.0" prefWidth="106.0" text="Last Name" />
-      <Label alignment="CENTER_RIGHT" layoutX="67.0" layoutY="264.0" prefHeight="25.0" prefWidth="106.0" text="Email Address" />
-      <Label alignment="CENTER_RIGHT" layoutX="61.0" layoutY="342.0" prefHeight="25.0" prefWidth="106.0" text="Password" />
-      <Label alignment="CENTER_RIGHT" layoutX="61.0" layoutY="384.0" prefHeight="25.0" prefWidth="106.0" text="Confrim Password" />
-      <ImageView fitHeight="91.0" fitWidth="200.0" layoutX="176.0" pickOnBounds="true" preserveRatio="true">
+      <Label alignment="CENTER_RIGHT" layoutX="76.0" layoutY="177.0" prefHeight="25.0" prefWidth="106.0" text="First Name" />
+      <Label alignment="CENTER_RIGHT" layoutX="76.0" layoutY="215.0" prefHeight="25.0" prefWidth="106.0" text="Last Name" />
+      <Label alignment="CENTER_RIGHT" layoutX="76.0" layoutY="255.0" prefHeight="25.0" prefWidth="106.0" text="Email Address" />
+      <Label alignment="CENTER_RIGHT" layoutX="76.0" layoutY="337.0" prefHeight="25.0" prefWidth="106.0" text="Password" />
+      <Label alignment="CENTER_RIGHT" layoutX="76.0" layoutY="379.0" prefHeight="25.0" prefWidth="106.0" text="Confrim Password" />
+      <ImageView fitHeight="91.0" fitWidth="200.0" layoutX="198.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../CSC340_WireFrame/logo.PNG" />
          </image>
       </ImageView>
-      <BorderPane layoutX="167.0" prefHeight="91.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 10;" />
-      <Label alignment="CENTER_RIGHT" layoutX="67.0" layoutY="307.0" prefHeight="17.0" prefWidth="106.0" text="PhoneNumber" />
+      <BorderPane layoutX="188.0" prefHeight="91.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 10;" />
+      <Label alignment="CENTER_RIGHT" layoutX="76.0" layoutY="302.0" prefHeight="17.0" prefWidth="106.0" text="PhoneNumber" />
    </children>
 </AnchorPane>
