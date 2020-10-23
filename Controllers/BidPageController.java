@@ -173,12 +173,12 @@ public class BidPageController implements Initializable {
 
     @FXML
 
-    private void moveToPrvPage(ActionEvent event) throws IOException {
+    private void moveToPrvPage(ActionEvent _event) throws IOException {
        goToPrvPage.Move("PickupAddress.fxml", backBtn);
     }
 
     @FXML
-    private void moveToNextPage(ActionEvent event) throws IOException {
+    private void moveToNextPage(ActionEvent _event) throws IOException {
         //Needs to be a different fxml, not sure where we go from here
          goToNextPage.Move("pickupAddress.fxml", nextBtn); 
 

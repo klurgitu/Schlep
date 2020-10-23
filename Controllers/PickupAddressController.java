@@ -82,21 +82,14 @@ public class PickupAddressController extends BaseAddressAPIClass  implements Ini
     private Label selectVendorLbL;
     @FXML
     private Button confirmationBtn;
-     @FXML
+    @FXML
     private Label detailLbl;
     @FXML
     private Label countryLbl;
     @FXML
     private ChoiceBox<String> selectCountryChoiceBx;
-
-  
-  
-
-
     @FXML
-    void confirmOrder(ActionEvent event) {
-       
-        
+    void confirmOrder(ActionEvent _event) {        
         instructionStr = specialInstructionsTxFld.getText();
         vendorName = vendorNameTxFld.getText();
         streetAddress = streetNameTxFld.getText();
@@ -153,28 +146,21 @@ public class PickupAddressController extends BaseAddressAPIClass  implements Ini
             }
         }); 
     }
-
-
-
-
     @FXML
-    private void goToNxtPage(ActionEvent event) throws IOException {
+    private void goToNxtPage(ActionEvent _event) throws IOException {
         goToNxtPage.Move("BidPage.fxml", nextBtn);
     }
 
     @FXML
-    private void goToPrvPage(ActionEvent event) throws IOException {
+    private void goToPrvPage(ActionEvent _event) throws IOException {
         goToPrvPage.Move("AdditionalNeedsPer.fxml", backBtn);
     }
 
 
     @FXML
-    private void vendorSelected(ActionEvent event) {
-        MenuItem source = (MenuItem) event.getSource();
+    private void vendorSelected(ActionEvent _event) {
+        MenuItem source = (MenuItem) _event.getSource();
         String vendorStr = source.getText();
-        selectVendorMnBx.setText(vendorStr);
-        
-        
-    }
-    
+        selectVendorMnBx.setText(vendorStr);        
+    }    
 }
