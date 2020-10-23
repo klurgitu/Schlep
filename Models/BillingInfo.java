@@ -60,7 +60,7 @@ public class BillingInfo extends DB.DataObject {
     //=================== Setters ============================================
 
     /**
-     * @param _firstName the firstName to set
+     * @param _fName the firstName to set
      */
     public void setFirstName(String _fName) {
         this.firstName = _fName;
@@ -69,7 +69,7 @@ public class BillingInfo extends DB.DataObject {
     
 
     /**
-     * @param _lastName the lastName to set
+     * @param _lName the lastName to set
      */
     public void setLastName(String _lName) {
         this.lastName = _lName;
@@ -78,7 +78,7 @@ public class BillingInfo extends DB.DataObject {
     
 
     /**
-     * @param _creditCardNum the creditCardNum to set
+     * @param _cCardNum the creditCardNum to set
      */
     public void setCreditCardNum(String _cCardNum) {
         this.creditCardNum = _cCardNum;
