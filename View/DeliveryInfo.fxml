@@ -40,6 +40,6 @@
          </children>
       </VBox>
       <Button id="backBtn" fx:id="backBtn" layoutX="21.0" layoutY="421.0" mnemonicParsing="false" onAction="#moveToPrvPage" style="-fx-background-color: POWDERBLUE;" text="Back" textFill="WHITE" />
-      <Label id="outputLbl" fx:id="outputLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="235.0" visible="false" />
+      <Label id="outputLbl" fx:id="outputLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="108.0" layoutY="235.0" prefHeight="71.0" prefWidth="298.0" textAlignment="CENTER" visible="false" />
    </children>
 </AnchorPane>
