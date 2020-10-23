@@ -103,14 +103,14 @@ public class DeliveryInfoController implements Initializable {
     }    
 
     @FXML
-    private void setDate(ActionEvent event) {
+    private void setDate(ActionEvent _event) {
         //date = scheduleDeliveryDatePicker.get().toString();
        
     }
 
     @FXML
-    private void setWindow(ActionEvent event) {
-         MenuItem source = (MenuItem) event.getSource();
+    private void setWindow(ActionEvent _event) {
+         MenuItem source = (MenuItem) _event.getSource();
          
         if(source.getId().equals(time_1)){
             selectTimeMnBtn.setText(source.getText());
@@ -141,15 +141,15 @@ public class DeliveryInfoController implements Initializable {
     }
 
     @FXML
-    private void goToNextPage(ActionEvent event) throws IOException {
+    private void goToNextPage(ActionEvent _event) throws IOException {
          goToNextPage.Move("AdditionalNeedsPer.fxml", nextBtn);
     }
 
 
     @FXML
-    private void setType(ActionEvent event) {
+    private void setType(ActionEvent _event) {
         outputLbl.setVisible(false);
-        MenuItem source = (MenuItem) event.getSource();
+        MenuItem source = (MenuItem) _event.getSource();
         if(source.getId().equals(instantDeliveryMnuItem.getId())){
             selectTimeMnBtn.setDisable(false);
             scheduleDeliveryDatePicker.setDisable(true);
@@ -165,7 +165,7 @@ public class DeliveryInfoController implements Initializable {
 
 
     @FXML
-    private void moveToPrvPage(ActionEvent event) throws IOException {
+    private void moveToPrvPage(ActionEvent _event) throws IOException {
         //goToPrvPage.Move("LoginView.fxml", backBtn);
     }
     

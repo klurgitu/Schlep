@@ -84,68 +84,77 @@ public class AdditionalNeedsPerController {
     private Label costLbl; 
 
     @FXML
-    void CheckDriverAssist(ActionEvent event) {
+    void CheckDriverAssist(ActionEvent _event) {
         AssistTimeAmountMnBtn.setVisible(true);
-        costMsg = "Your selected assistance time is:\n";
-        //costLbl.setText(costMsg);
-        //processBtn.setDisable(false);
+        costMsg = "Your selected assistance time is:\n";       
     }
 
     @FXML
-    void checkDolly(ActionEvent event) {
+    void checkDolly(ActionEvent _event) {
         itemsMsg += dollyCheckMnBtn.getText()+"\n";
     }
 
     @FXML
-    void checkHandTruck(ActionEvent event) {
+    void checkHandTruck(ActionEvent _event) {
          itemsMsg += handTruckCheckMnBtn.getText() +"\n";
     }  
 
     @FXML
-    void checkRamp(ActionEvent event) {
+    void checkRamp(ActionEvent _event) {
           itemsMsg += rampCheckMnItem.getText() + "\n";
     }
 
     @FXML
-    void movePrvPage(ActionEvent event) throws IOException {
+    void movePrvPage(ActionEvent _event) throws IOException {
          goToPrvPage.Move("DeliveryInfo.fxml",backBtn);
     }
 
     @FXML
-    void moveToNextPage(ActionEvent event) throws IOException {
-       goToNextPage.Move("PickupAddress.fxml",nextBtn);
-       //goToNextPage.Move("SelectDeliveryType.fxml",nextBtn);
+    void moveToNextPage(ActionEvent _event) throws IOException {
+       goToNextPage.Move("PickupAddress.fxml",nextBtn);       
     }
     @FXML
-    void selectTime(ActionEvent event) {
-       RadioMenuItem source = (RadioMenuItem) event.getSource();
+    void selectTime(ActionEvent _event) {
+       RadioMenuItem source = (RadioMenuItem) _event.getSource();
        String id = source.getId();
        AssistTimeAmountMnBtn.setText(source.getText());
         switch (id) {
             case "time30":
                 subtotal = halfHrWage;
                 time = time30Rb.getText();
+                time1HrRb.setSelected(false);
+                time2HrRb.setSelected(false);
+                time3HrRb.setSelected(false);
                 break;
             case "time1Hr":
                 subtotal = wage;
                 time = time1HrRb.getText();
+                time30Rb.setSelected(false);
+                time2HrRb.setSelected(false);
+                time3HrRb.setSelected(false);
                 break;
             case "time2Hr":
                 subtotal = twoHrWage;
                 time = time2HrRb.getText();
+                time1HrRb.setSelected(false);
+                time30Rb.setSelected(false);
+                time3HrRb.setSelected(false);
                 break;
             case "time3Hr":
                 subtotal = threeHrWage;
                 time = time3HrRb.getText();
+                time1HrRb.setSelected(false);
+                time2HrRb.setSelected(false);
+                time30Rb.setSelected(false);
                 break;
             default:                
                 subtotal = 0;
                 time = "";
-        }    
-       costMsg +=  time + " of assistance.\n" + " with a cost of $ " + String.format("%.2f", subtotal) + "\n";
+        }      
     }
     @FXML
-    void showCost(ActionEvent event) {
+    void showCost(ActionEvent _event) {
+       costMsg +=  time + " of assistance.\n" + " with a cost of $ " + String.format("%.2f", subtotal) + "\n";
        costLbl.setText(costMsg);
        confirmedLbl.setVisible(true);
        NeedsLbl.setText("You have selected the following additional items to assist you: \n" + itemsMsg);        

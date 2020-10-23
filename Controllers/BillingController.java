@@ -5,6 +5,7 @@ package Controllers;
  * @author Katelynn Urgitus
  * Last Updated 09/24/2020
  */
+import Models.MoveScene;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -16,6 +17,8 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 
 public class BillingController implements Initializable {
+    private static final MoveScene goToPrvPage = new MoveScene();
+    private static final MoveScene saveInfoAndMove = new MoveScene();
 
     @FXML
     private TextField nameOnCardField;
@@ -27,9 +30,8 @@ public class BillingController implements Initializable {
     private TextField ccvCvvField;
     @FXML
     private Button nextBtn;
-
-    //private final MoveScene moveToRequest = new MoveScene();
-
+    @FXML
+    private Button backBtn;
     /**
      * Initializes the controller class.
      */
@@ -47,7 +49,11 @@ public class BillingController implements Initializable {
     @FXML
     private void saveInfoAndMove(ActionEvent event) throws IOException {
         //For future login or maybe move to pickup request
-        //moveToRequest.Move("Login.fxml", nextButton);
+        saveInfoAndMove.Move("Login.fxml", nextBtn);
     }
 
+    @FXML
+    private void goToPrvPage(ActionEvent event) throws IOException {
+        goToPrvPage.Move("OffloadingItems.fxml", backBtn);
+    }
 }
