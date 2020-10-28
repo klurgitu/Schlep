@@ -15,9 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import Models.MoveScene;
 import Models.Address;
-import DB.MySQLConnector;
 import java.lang.reflect.InvocationTargetException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +23,7 @@ import java.util.Map;
 /**
  * This is a Controller for user entering their address
  *@author Katelynn Urgitus
- * Last Updated 10/15/2020
+ * Last Updated 10/23/2020
  */
 public class AddressSignUpController extends BaseAddressAPIClass implements Initializable {
     private String selectedCountry;

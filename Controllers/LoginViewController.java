@@ -35,7 +35,7 @@ public class LoginViewController implements Initializable {
 
     @FXML
     void moveToNextPage(ActionEvent event) throws IOException {
-        changeScene.Move("SelectDeliveryType.fxml", loginBtn);
+        changeScene.Move("DeliveryInfo.fxml", loginBtn);
     }
 
 

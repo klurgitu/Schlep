@@ -67,11 +67,12 @@ public class CreateAccountController implements Initializable {
                 this.messageLbl.setText("Passwords do not match!");
             } else {
                 user = new SchlepUser(firstName, lastName, email, passwordConf, phoneNumber);
+
             }
 
         }
-        //changeScene.Move("AddressSignUp.fxml", activateAcctBtn);
 
+//        changeScene.Move("AddressSignUp.fxml", activateAcctBtn);
     }
 
     /**

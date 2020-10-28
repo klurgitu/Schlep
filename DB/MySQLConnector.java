@@ -3,7 +3,7 @@ package DB;
 /**
  * This class implements the DBConnectorInterface interface for MySQL databases.
  * @author Katelynn Urgitus
- * Last Updated: 10/08/2020
+ * Last Updated: 10/23/2020
  */
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -110,13 +110,13 @@ public class MySQLConnector implements DBConnectorInterface {
         for (Map.Entry<String, String> entry : _keyValuePair.entrySet()) {
             condition += " `" + entry.getKey() + "` = \"" + entry.getValue() + "\" AND";
         }
-//        if (_deleted) {
-//            // Then we'll ignore the active=1 condition and just shed off the last AND
+        if (_deleted) {
+           // Then we'll ignore the active=1 condition and just shed off the last AND
         condition = condition.substring(0, condition.length() - 3);
-//        } else {
-//            // We'll add the condition that the object must be active.
-//            condition+= " `active` = 1";
-//        }
+        } else {
+            // We'll add the condition that the object must be active.
+            condition+= " `active` = 1";
+        }
         // Combine the query with the condition.
         query = query + condition;
         // Initialize a object to store the results.
@@ -216,7 +216,9 @@ public class MySQLConnector implements DBConnectorInterface {
      */
     @Override
     public Boolean deleteObject(String _uuid) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Map<String,String> setInactive = new HashMap();
+        setInactive.put("active", "0");
+        return this.updateObject(setInactive, _uuid, "user");
     }
 
     /**
