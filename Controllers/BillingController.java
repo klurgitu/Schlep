@@ -3,7 +3,7 @@ package Controllers;
 /**
  * This is a controller for the Billing FXML
  * @author Katelynn Urgitus
- * Last Updated 09/24/2020
+ * Last Updated 10/23/2020
  */
 import Models.MoveScene;
 import java.net.URL;

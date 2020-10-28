@@ -166,7 +166,7 @@ public class DeliveryInfoController implements Initializable {
 
     @FXML
     private void moveToPrvPage(ActionEvent _event) throws IOException {
-        //goToPrvPage.Move("LoginView.fxml", backBtn);
+        goToPrvPage.Move("LoginView.fxml", backBtn);
     }
     
 }
