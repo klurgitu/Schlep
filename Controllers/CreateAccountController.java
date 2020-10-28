@@ -1,5 +1,12 @@
 package Controllers;
 
+/**
+ * last updated 10/22/2020
+ *
+ * Controls all action events on the CreateAccount FXML file
+ *
+ * @author Marc Bittle
+ */
 import java.net.URL;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -13,11 +20,6 @@ import java.io.IOException;
 import javafx.scene.control.PasswordField;
 import Models.SchlepUser;
 
-/**
- * FXML Controller class
- *
- * @author Marc Bittle
- */
 public class CreateAccountController implements Initializable {
 
     @FXML
@@ -61,13 +63,14 @@ public class CreateAccountController implements Initializable {
     private void activateAcctBtn(ActionEvent e) throws IOException {
         // Force user to complete all fields
         if (firstName.getText().equals("") || lastName.getText().equals("") || email.getText().equals("") || phoneNumber.getText().equals("")) {
-            this.messageLbl.setText("All fields required!");
+            messageLbl.setText("All fields required!");
         } else {
             if (!password.getText().equals(passwordConf.getText())) {
-                this.messageLbl.setText("Passwords do not match!");
+                messageLbl.setText("Passwords do not match!");
             } else {
+                messageLbl.setText("");
                 user = new SchlepUser(firstName, lastName, email, passwordConf, phoneNumber);
-
+                //changeScene.Move("AddressSignUp.fxml", activateAcctBtn);
             }
 
         }
@@ -90,7 +93,7 @@ public class CreateAccountController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.messageLbl.setText("");
+        messageLbl.setText("");
     }
 
 }

@@ -12,31 +12,32 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="469.0" prefWidth="531.0" style="-fx-background-color: peachpuff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginViewController">
+<AnchorPane id="AnchorPane" prefHeight="510.0" prefWidth="575.0" style="-fx-background-color: peachpuff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginViewController">
    <children>
-      <VBox alignment="CENTER" layoutX="184.0" layoutY="152.0" prefHeight="166.0" prefWidth="163.0" spacing="10.0">
+      <VBox alignment="CENTER" layoutX="206.0" layoutY="148.0" prefHeight="215.0" prefWidth="163.0" spacing="10.0">
          <children>
+            <Label fx:id="messageLbl" alignment="CENTER" prefHeight="17.0" prefWidth="167.0" text="Label" textFill="#e3493b" />
             <Label alignment="CENTER" prefHeight="27.0" prefWidth="308.0" text="Please Login">
                <font>
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
-            <TextField />
-            <PasswordField />
+            <TextField fx:id="userEmail" />
+            <PasswordField fx:id="userPassword" />
             <CheckBox mnemonicParsing="false" text="Remeber Password" />
             <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#moveToNextPage" style="-fx-background-color: POWDERBLUE;" text="Login" />
          </children>
       </VBox>
-      <Label alignment="CENTER_RIGHT" layoutX="98.0" layoutY="195.0" prefHeight="17.0" prefWidth="79.0" text="Username" />
-      <Label alignment="CENTER_RIGHT" layoutX="98.0" layoutY="227.0" prefHeight="17.0" prefWidth="79.0" text="Password" />
-      <ImageView fitHeight="91.0" fitWidth="200.0" layoutX="176.0" pickOnBounds="true" preserveRatio="true">
+      <Label alignment="CENTER_RIGHT" layoutX="72.0" layoutY="231.0" prefHeight="17.0" prefWidth="116.0" text="Username/Email" />
+      <Label alignment="CENTER_RIGHT" layoutX="109.0" layoutY="267.0" prefHeight="17.0" prefWidth="79.0" text="Password" />
+      <ImageView fitHeight="91.0" fitWidth="200.0" layoutX="198.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../CSC340_WireFrame/logo.PNG" />
          </image>
       </ImageView>
 
-      <BorderPane layoutX="166.0" prefHeight="91.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 10;" />
-      <Button fx:id="returnToCreateAcctBtn" layoutX="23.0" layoutY="423.0" mnemonicParsing="false" onAction="#returnToCreateAcctBtn" style="-fx-background-color: POWDERBLUE;" text="Go back to sign up" />
+      <BorderPane layoutX="188.0" prefHeight="91.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 10;" />
+      <Button fx:id="returnToCreateAcctBtn" layoutX="22.0" layoutY="460.0" mnemonicParsing="false" onAction="#returnToCreateAcctBtn" style="-fx-background-color: POWDERBLUE;" text="Go back to sign up" />
 
    </children>
 </AnchorPane>
