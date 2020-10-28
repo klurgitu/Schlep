@@ -64,13 +64,12 @@ public class LoginViewController implements Initializable {
         checkExists.put("userPassword", password);
 
         if (connect.readObject(checkExists, "user") == null) {
-            messageLbl.setText("Incorrect Email/Paasword combonation!");
+            messageLbl.setText("Incorrect Email/Password!");
         } else {
-            changeScene.Move("SelectDeliveryType.fxml", loginBtn);
+            changeScene.Move("DeliveryInfo.fxml", loginBtn);
         }
 
     }
-
 
     /**
      *
@@ -81,6 +80,5 @@ public class LoginViewController implements Initializable {
     private void returnToCreateAcctBtn(ActionEvent event) throws Exception {
         changeScene.Move("CreateAccount.fxml", returnToCreateAcctBtn);
     }
-
 
 }
