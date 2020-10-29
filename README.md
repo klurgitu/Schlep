@@ -20,6 +20,8 @@ The purpose of the Schlep is to provide a type of ride sharing service that allo
 
 - JavaFX 14
 
+- MySQL Connector for Java 8.0.21
+
 - Scenebuilder 11.0.0
 
 - Org.JSON
