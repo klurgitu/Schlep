@@ -38,9 +38,9 @@ public class PickupAddressController extends BaseAddressAPIClass  implements Ini
     private String vendorName;
     private String zip;
     private String orderInfo; 
-    private String selectedCity = "Greensboro";
-    private String selectedState = "NC";
-    private String selectedCountry = "USA";
+    private String selectedCity;
+    private String selectedState;
+    private String selectedCountry;
     
 
     @FXML
@@ -108,9 +108,11 @@ public class PickupAddressController extends BaseAddressAPIClass  implements Ini
 
     /**
      * Initializes the controller class.
+     * @param _url url to load API data for Drop down.
+     * @param _rb resources for page.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {        
+    public void initialize(URL _url, ResourceBundle _rb) {        
         selectCountryChoiceBx.getItems().addAll(universalAPI.getCountryList());
         selectCountryChoiceBx.valueProperty().addListener(new ChangeListener<String> (){
            @Override
@@ -131,25 +133,16 @@ public class PickupAddressController extends BaseAddressAPIClass  implements Ini
                 }else{
                     selectedState = _newValue;
                 }
-               selectStateChoiceBX.setAccessibleText(selectedState);
+               //selectStateChoiceBX.setAccessibleText(selectedState);
                selectCityChoiceBx.getItems().addAll(universalAPI.getCityList(selectedState));              
             }
         });        
-         selectCityChoiceBx.valueProperty().addListener(new ChangeListener<String>() {    
-             @Override
-             public void changed(ObservableValue _ov, String _oldValue, String _newValue) {
-                 if (_newValue == null) {
-                     selectedCity = _oldValue;
-                 } else {
-                     selectedCity = _newValue;
-                 }
-            }
-        }); 
+        
     }
     @FXML
-    private void goToNxtPage(ActionEvent _event) throws IOException {
+    private void moveToNxtPage(ActionEvent _event) throws IOException {
         goToNxtPage.Move("BidPage.fxml", nextBtn);
-        //goToNxtPage.Move("GPSView.fxml", nextBtn);
+     
     }
 
     @FXML
