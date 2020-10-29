@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controllers;
 
 import Models.MoveScene;
@@ -104,8 +99,7 @@ public class DeliveryInfoController implements Initializable {
 
     @FXML
     private void setDate(ActionEvent _event) {
-        //date = scheduleDeliveryDatePicker.get().toString();
-       
+              
     }
 
     @FXML
@@ -145,7 +139,6 @@ public class DeliveryInfoController implements Initializable {
          goToNextPage.Move("AdditionalNeedsPer.fxml", nextBtn);
     }
 
-
     @FXML
     private void setType(ActionEvent _event) {
         outputLbl.setVisible(false);
@@ -163,10 +156,8 @@ public class DeliveryInfoController implements Initializable {
         nextBtn.setDisable(false);
     }
 
-
     @FXML
     private void moveToPrvPage(ActionEvent _event) throws IOException {
         goToPrvPage.Move("LoginView.fxml", backBtn);
-    }
-    
+    }    
 }

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controllers;
 
 import java.net.URL;
@@ -12,13 +8,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
 /**
  * FXML Controller class
- *
- * @author josia
+ * Handles launched from hitting the next button on previous page
+ * This is a place holder video used to simulate GPS tracking of
+ * driver progress after picking up the item.
+ * @author Josiah Stadler
+ * Last updated: 10/29/20
  */
 public class GPSViewController implements Initializable {
 

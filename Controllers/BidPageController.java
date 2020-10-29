@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controllers;
-
 import Models.MoveScene;
 import java.io.IOException;
 import static java.lang.String.format;
@@ -17,12 +11,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-
 /**
  * FXML Controller class
- *
- * @author josia
+ * This is the controller for the BidPage view. 
+ * This is where the GPS data and other associated information is sent to the 
+ * user 
+ * @author Josiah Stadler 
+ * Last updated 10/29/20
  */
 public class BidPageController implements Initializable {
     private static final MoveScene goToNextPage = new MoveScene(); 
@@ -165,23 +160,16 @@ public class BidPageController implements Initializable {
         rating6Lbl.setText(rating6);
         
     }
-
     @FXML
     private void acceptBid(ActionEvent event) {
 
     }
-
     @FXML
-
     private void moveToPrvPage(ActionEvent _event) throws IOException {
        goToPrvPage.Move("PickupAddress.fxml", backBtn);
     }
-
     @FXML
     private void moveToNextPage(ActionEvent _event) throws IOException {
-        //Needs to be a different fxml, not sure where we go from here
-         goToNextPage.Move("GPSView.fxml", nextBtn); 
-
+       goToNextPage.Move("GPSView.fxml", nextBtn); 
     }
-
 }
