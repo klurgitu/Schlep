@@ -2,8 +2,6 @@ package Controllers;
 
 import Models.MoveScene;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -81,34 +79,28 @@ public class AdditionalNeedsPerController {
     private Label NeedsLbl; 
 
     @FXML
-    private Label costLbl; 
-
+    private Label costLbl;
     @FXML
     void CheckDriverAssist(ActionEvent _event) {
         AssistTimeAmountMnBtn.setVisible(true);
-        costMsg = "Your selected assistance time is: ";       
+        costMsg = "Your selected assistance time is: ";   
     }
-
     @FXML
     void checkDolly(ActionEvent _event) {
         itemsMsg += dollyCheckMnBtn.getText()+"\n";
     }
-
     @FXML
     void checkHandTruck(ActionEvent _event) {
          itemsMsg += handTruckCheckMnBtn.getText() +"\n";
-    }  
-
+    }
     @FXML
     void checkRamp(ActionEvent _event) {
           itemsMsg += rampCheckMnItem.getText() + "\n";
     }
-
     @FXML
     void movePrvPage(ActionEvent _event) throws IOException {
          goToPrvPage.Move("DeliveryInfo.fxml",backBtn);
     }
-
     @FXML
     void moveToNextPage(ActionEvent _event) throws IOException {
        goToNextPage.Move("PickupAddress.fxml",nextBtn);       

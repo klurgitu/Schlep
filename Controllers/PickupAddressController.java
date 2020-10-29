@@ -1,11 +1,12 @@
 package Controllers;
 
 import API.BaseAddressAPIClass;
-import Models.Address;
 import Models.MoveScene;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,8 +18,6 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 
 /**
  * FXML Controller class
@@ -108,8 +107,8 @@ public class PickupAddressController extends BaseAddressAPIClass  implements Ini
 
     /**
      * Initializes the controller class.
-     * @param _url url to load API data for Drop down.
-     * @param _rb resources for page.
+     * @param  _url url to load API data for Drop down.
+     * @param  _rb resources for page.
      */
     @Override
     public void initialize(URL _url, ResourceBundle _rb) {        
@@ -125,7 +124,8 @@ public class PickupAddressController extends BaseAddressAPIClass  implements Ini
                 selectStateChoiceBX.getItems().addAll(universalAPI.getStateList(selectedCountry));
            }
         });        
-        selectStateChoiceBX.valueProperty().addListener(new ChangeListener<String>(){        
+        selectStateChoiceBX.valueProperty().addListener(new ChangeListener<String>(){   
+           
             @Override
             public void changed(ObservableValue _ov, String _oldValue, String _newValue) {
                 if( _newValue == null) {
