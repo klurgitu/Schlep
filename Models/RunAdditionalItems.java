@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Models;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -16,22 +12,23 @@ import javafx.stage.Stage;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
-import static sun.net.www.http.HttpClient.New;
+// import static sun.net.www.http.HttpClient.New;
 
 /**
  *
  * @author josiah Stadler
  * Last updated 10/8/20
  */
-public class RunAdditionalItems extends Application{
+public class RunAdditionalItems extends Application {
 
     Stage window;
     Scene scene;
+
     @Override
     public void start(Stage stage) throws Exception {
         //String path = "C:/Users/josia/OneDriv/Documents/NetBeansProjects/Schlep/src/Documents/GPS_Stub.mp4";
         //Media media = new Media(new File(path).toURI().toString());
-       
+
         //MediaPlayer player = new MediaPlayer(media);
         //MediaView view = new MediaView(player);
         //player.setAutoPlay(true);
@@ -50,26 +47,14 @@ public class RunAdditionalItems extends Application{
         window.setScene(scene);
         window.show();
     }
-     public static void main(String args[]){
+
+    public static void main(String args[]) {
         launch(args);
     }
-       
+
 }
-        
-        
-       
-       
-        
-      
-        
-    
-        
-        
-        
-       
-        
-       
-       /*
+
+/*
  window = stage;
         window.setTitle("");
         URL file = new File("src/View/DeliveryInfo.fxml").toURI().toURL();
@@ -77,9 +62,4 @@ public class RunAdditionalItems extends Application{
         scene = new Scene(root);
         window.setScene(scene);
         window.show();
-*/
-      
-       
-       
-       
-   
+ */

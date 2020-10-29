@@ -28,22 +28,19 @@ public class GPSViewController implements Initializable {
     private Label label;
     @FXML
     private MediaView gpsMedia;
-    
-    private Media video = new Media("C:/Users/josia/OneDriv/Documents/NetBeansProjects/Schlep/src/Documents/GPS_Stub.mp4");
 
-    
+    private Media video = new Media("C:/Users/josia/OneDriv/Documents/NetBeansProjects/Schlep/src/Documents/GPS_Stub.mp4");
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
-        /**MediaPlayer player = new MediaPlayer(video);
-        player.setAutoPlay(true);
-        MediaView tracking = new MediaView(player);
-        */
-     
-    }    
-    
+
+        /**
+         * MediaPlayer player = new MediaPlayer(video);
+         * player.setAutoPlay(true); MediaView tracking = new MediaView(player);
+         */
+    }
+
 }

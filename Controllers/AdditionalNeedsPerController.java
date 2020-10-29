@@ -13,111 +13,115 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+
 /**
  * Controller for 'AdditionalNeedsPer.fxml' Controller Class
+ *
  * @Author Josiah Stadler
  * Last updated 10/23/20
  */
 public class AdditionalNeedsPerController {
+
     private static final MoveScene goToNextPage = new MoveScene();
     private static final MoveScene goToPrvPage = new MoveScene();
     private final double wage = 15.00;
-    private final double halfHrWage = wage*.5;
+    private final double halfHrWage = wage * .5;
     private final double twoHrWage = wage * 2;
-    private final double threeHrWage = wage * 3;    
+    private final double threeHrWage = wage * 3;
     private double subtotal;
-    private String time;   
-    private String itemsMsg = ""; 
-    private String costMsg;    
-    @FXML 
-    private AnchorPane anchor; 
+    private String time;
+    private String itemsMsg = "";
+    private String costMsg;
+    @FXML
+    private AnchorPane anchor;
 
-    @FXML 
+    @FXML
     private ImageView logo;
 
-    @FXML 
-    private MenuButton additionalItemMnBtn; 
-
-    @FXML 
-    private CheckMenuItem dollyCheckMnBtn; 
-
-    @FXML 
-    private CheckMenuItem handTruckCheckMnBtn; 
+    @FXML
+    private MenuButton additionalItemMnBtn;
 
     @FXML
-    private CheckMenuItem rampCheckMnItem; 
+    private CheckMenuItem dollyCheckMnBtn;
 
-    @FXML 
-    private CheckMenuItem assistCheckMnItem; 
+    @FXML
+    private CheckMenuItem handTruckCheckMnBtn;
 
-    @FXML 
-    private MenuButton AssistTimeAmountMnBtn; 
+    @FXML
+    private CheckMenuItem rampCheckMnItem;
 
-    @FXML 
-    private RadioMenuItem time30Rb; 
+    @FXML
+    private CheckMenuItem assistCheckMnItem;
 
-    @FXML 
-    private RadioMenuItem time1HrRb; 
+    @FXML
+    private MenuButton AssistTimeAmountMnBtn;
 
-    @FXML 
+    @FXML
+    private RadioMenuItem time30Rb;
+
+    @FXML
+    private RadioMenuItem time1HrRb;
+
+    @FXML
     private RadioMenuItem time2HrRb;
 
-    @FXML 
+    @FXML
     private RadioMenuItem time3HrRb;
 
-    @FXML 
+    @FXML
     private Button processBtn;
 
-    @FXML 
-    private Label confirmedLbl; 
-
-    @FXML 
-    private Button nextBtn; 
-
-    @FXML 
-    private Button backBtn; 
-
-    @FXML 
-    private Label NeedsLbl; 
+    @FXML
+    private Label confirmedLbl;
 
     @FXML
-    private Label costLbl; 
+    private Button nextBtn;
+
+    @FXML
+    private Button backBtn;
+
+    @FXML
+    private Label NeedsLbl;
+
+    @FXML
+    private Label costLbl;
 
     @FXML
     void CheckDriverAssist(ActionEvent _event) {
         AssistTimeAmountMnBtn.setVisible(true);
-        costMsg = "Your selected assistance time is: ";       
+        costMsg = "Your selected assistance time is: ";
     }
 
     @FXML
     void checkDolly(ActionEvent _event) {
-        itemsMsg += dollyCheckMnBtn.getText()+"\n";
+        itemsMsg += dollyCheckMnBtn.getText() + "\n";
     }
 
     @FXML
     void checkHandTruck(ActionEvent _event) {
-         itemsMsg += handTruckCheckMnBtn.getText() +"\n";
-    }  
+        itemsMsg += handTruckCheckMnBtn.getText() + "\n";
+    }
 
     @FXML
     void checkRamp(ActionEvent _event) {
-          itemsMsg += rampCheckMnItem.getText() + "\n";
+        itemsMsg += rampCheckMnItem.getText() + "\n";
     }
 
     @FXML
     void movePrvPage(ActionEvent _event) throws IOException {
-         goToPrvPage.Move("DeliveryInfo.fxml",backBtn);
+        goToPrvPage.Move("DeliveryInfo.fxml", backBtn);
     }
 
     @FXML
     void moveToNextPage(ActionEvent _event) throws IOException {
-       goToNextPage.Move("PickupAddress.fxml",nextBtn);       
+        goToNextPage.Move("PickupAddress.fxml", nextBtn);
     }
+
     @FXML
     void selectTime(ActionEvent _event) {
-       RadioMenuItem source = (RadioMenuItem) _event.getSource();
-       String id = source.getId();
-       AssistTimeAmountMnBtn.setText(source.getText());
+        RadioMenuItem source = (RadioMenuItem) _event.getSource();
+        String id = source.getId();
+        AssistTimeAmountMnBtn.setText(source.getText());
         switch (id) {
             case "time30":
                 subtotal = halfHrWage;
@@ -147,23 +151,24 @@ public class AdditionalNeedsPerController {
                 time2HrRb.setSelected(false);
                 time30Rb.setSelected(false);
                 break;
-            default:                
+            default:
                 subtotal = 0;
                 time = "";
-        }      
+        }
     }
+
     @FXML
     void showCost(ActionEvent _event) {
-        if(assistCheckMnItem.isSelected()){
-            costMsg +=  time + " of assistance.\n " + " With a cost of $ " + String.format("%.2f", subtotal) + "\n";
+        if (assistCheckMnItem.isSelected()) {
+            costMsg += time + " of assistance.\n " + " With a cost of $ " + String.format("%.2f", subtotal) + "\n";
             costLbl.setText(costMsg);
             costLbl.setVisible(true);
-        }else{
+        } else {
             costLbl.setVisible(false);
         }
-       confirmedLbl.setVisible(true);
-       NeedsLbl.setText("You have selected the following additional items to assist you: \n" + itemsMsg);        
-       NeedsLbl.setVisible(true);       
-       nextBtn.setDisable(false);        
-    }     
+        confirmedLbl.setVisible(true);
+        NeedsLbl.setText("You have selected the following additional items to assist you: \n" + itemsMsg);
+        NeedsLbl.setVisible(true);
+        nextBtn.setDisable(false);
+    }
 }
