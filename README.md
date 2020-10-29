@@ -12,7 +12,7 @@ ThisGroupWillKillYourGroupNotSry
 
 ## General Info
 
-The purpose of the Schlep is to provide a type of ride sharing service that allows for delivery of large, or oversized products to be delivered to a customer when a seller does not provide delivery.
+The purpose of the Schlep is to provide a type of ride sharing service that allows for delivery of large, or oversized products to a customer when a seller does not provide delivery.
 
 ## Dependencies
 
