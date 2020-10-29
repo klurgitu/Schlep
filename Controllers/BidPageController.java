@@ -180,7 +180,7 @@ public class BidPageController implements Initializable {
     @FXML
     private void moveToNextPage(ActionEvent _event) throws IOException {
         //Needs to be a different fxml, not sure where we go from here
-         goToNextPage.Move("pickupAddress.fxml", nextBtn); 
+         goToNextPage.Move("GPSView.fxml", nextBtn); 
 
     }
 
