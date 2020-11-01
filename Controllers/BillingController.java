@@ -2,8 +2,10 @@ package Controllers;
 
 /**
  * This is a controller for the Billing FXML
+ *
+ * Last Updated 10/31/2020
+ *
  * @author Katelynn Urgitus
- * Last Updated 10/23/2020
  */
 import Models.MoveScene;
 import java.io.IOException;
@@ -16,8 +18,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class BillingController implements Initializable {
-    private static final MoveScene goToPrvPage = new MoveScene();
-    private static final MoveScene saveInfoAndMove = new MoveScene();
+
+    private static final MoveScene moveScene = new MoveScene();
 
     @FXML
     private TextField nameOnCardField;
@@ -31,6 +33,7 @@ public class BillingController implements Initializable {
     private Button nextBtn;
     @FXML
     private Button backBtn;
+
     /**
      * Initializes the controller class.
      */
@@ -47,12 +50,11 @@ public class BillingController implements Initializable {
      */
     @FXML
     private void saveInfoAndMove(ActionEvent event) throws IOException {
-        //For future login or maybe move to pickup request
-        saveInfoAndMove.Move("Login.fxml", nextBtn);
+        moveScene.Move("Login.fxml", nextBtn);
     }
 
     @FXML
     private void goToPrvPage(ActionEvent event) throws IOException {
-        goToPrvPage.Move("OffloadingItems.fxml", backBtn);
+        moveScene.Move("OffloadingItems.fxml", backBtn);
     }
 }

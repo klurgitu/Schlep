@@ -1,6 +1,12 @@
 package Controllers;
 
-import API.BaseAddressAPIClass;
+/**
+ * This is a Controller for user entering their address
+ *
+ * Last Updated 11/01/2020
+ *
+ * @author Katelynn Urgitus
+ */
 import Models.Address;
 import Models.MoveScene;
 import java.io.IOException;
@@ -10,8 +16,6 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,37 +23,26 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
-/**
- * This is a Controller for user entering their address
- *@author Katelynn Urgitus
- * Last Updated 10/23/2020
- */
-public class AddressSignUpController extends BaseAddressAPIClass implements Initializable {
-    private String selectedCountry;
-    private String selectedState;
-    private final MoveScene moveToOffloading = new MoveScene();
-    private final DB.MySQLConnector con = new DB.MySQLConnector();
+public class AddressSignUpController extends Address implements Initializable {
+
+    private final MoveScene moveScene = new MoveScene();
 
     @FXML
     private ChoiceBox<String> countryBox;
-
     @FXML
     private ChoiceBox<String> stateBox;
-
     @FXML
     private ChoiceBox<String> cityBox;
-
     @FXML
-    private TextField addressLine1;
-
+    private TextField userAddressLine1;
     @FXML
-    private TextField addressLine2;
-
+    private TextField userAddressLine2;
     @FXML
-    private TextField zipcode;
-
+    private TextField userZipcode;
     @FXML
     private Button nextBtn;
+    @FXML
+    private Button backBtn;
 
     /**
      * Initializes the controller class.
@@ -59,55 +52,26 @@ public class AddressSignUpController extends BaseAddressAPIClass implements Init
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        countryBox.getItems().addAll(universalAPI.getCountryList());
-        countryBox.valueProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue ov, String oldValue, String newValue) {
-                if (newValue == null) {
-                    selectedCountry = oldValue;
-
-                } else {
-                    selectedCountry = newValue;
-
-                }
-                stateBox.getItems().addAll(universalAPI.getStateList(selectedCountry));
-            }
-        });
-        stateBox.valueProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue ov, String oldValue, String newValue) {
-                if (newValue == null) {
-                    selectedState = oldValue;
-
-                } else {
-                    selectedState = newValue;
-                }
-                cityBox.getItems().addAll(universalAPI.getCityList(selectedState));
-            }
-        });
+        apiListen.addressListener(countryBox, stateBox, cityBox);
     }
-/**
- * Will save the User input data into the Schlep Database
- * and move to the Offloading Screen
- * @param event
- * @throws IOException
- */
-    @FXML
-    private void saveAddressAndMove(ActionEvent event) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException, SQLException {
-        Address userAddress = new Address();
-        HashMap<String, String> pairs = new HashMap();
-        pairs.put("addressLine1", addressLine1.getText());
-        pairs.put("addressLine2", addressLine2.getText());
-        pairs.put("country", countryBox.getValue());
-        pairs.put("state", stateBox.getValue());
-        pairs.put("city", cityBox.getValue());
-        pairs.put("zipcode", zipcode.getText());
-        pairs.put("UUID", userAddress.getUuid());
-        con.createObject(pairs, "address");
-        Map<String, String> map = new HashMap();
-        map.put("address_id", "address.UUID");
-        con.updateObject(map, userAddress.getUuid(), "user", "address");
-        moveToOffloading.Move("Billing.fxml", nextBtn);
 
+    /**
+     * Will save the User input data into the Schlep Database and move to the
+     * Offloading Screen
+     *
+     * @param event
+     * @throws IOException
+     */
+    @FXML
+    private void saveAddressAndMove(ActionEvent event) throws SQLException, IOException {
+        Address userAddress = new Address(userAddressLine1.getText(), userAddressLine2.getText(), countryBox.getValue(), stateBox.getValue(), cityBox.getValue(), userZipcode.getText());
+        moveScene.Move("OffloadingItems.fxml", nextBtn);
+
+
+    }
+
+    @FXML
+    private void goToPrvPage(ActionEvent event) throws IOException {
+        moveScene.Move("CreateAccount.fxml", backBtn);
     }
 }

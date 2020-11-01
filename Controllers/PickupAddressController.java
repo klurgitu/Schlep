@@ -20,15 +20,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 /**
- * FXML Controller class
- * This is a controller for entering the address of where an item
- * is to be picked up. 
- * @author Josiah Stadler
- * last updated 10/23/20
+ * FXML Controller class This is a controller for entering the address of where
+ * an item is to be picked up.
+ *
+ * @author Josiah Stadler last updated 10/23/20
  */
-public class PickupAddressController extends BaseAddressAPIClass  implements Initializable  {
-    
-    
+public class PickupAddressController extends BaseAddressAPIClass implements Initializable {
+
     private static final MoveScene goToNxtPage = new MoveScene();
     private static final MoveScene goToPrvPage = new MoveScene();
     private String instructionStr;
@@ -36,11 +34,10 @@ public class PickupAddressController extends BaseAddressAPIClass  implements Ini
     private String orderNumber;
     private String vendorName;
     private String zip;
-    private String orderInfo; 
+    private String orderInfo;
     private String selectedCity;
     private String selectedState;
     private String selectedCountry;
-    
 
     @FXML
     private ImageView logo;
@@ -50,7 +47,7 @@ public class PickupAddressController extends BaseAddressAPIClass  implements Ini
     private Button nextBtn;
     @FXML
     private Button backBtn;
-    
+
     @FXML
     private Label selectCityLbl;
     @FXML
@@ -87,62 +84,64 @@ public class PickupAddressController extends BaseAddressAPIClass  implements Ini
     private Label countryLbl;
     @FXML
     private ChoiceBox<String> selectCountryChoiceBx;
+
     @FXML
-    void confirmOrder(ActionEvent _event) {        
+    void confirmOrder(ActionEvent _event) {
         instructionStr = specialInstructionsTxFld.getText();
         vendorName = vendorNameTxFld.getText();
         streetAddress = streetNameTxFld.getText();
         zip = zipCodeTxFld.getText();
         orderNumber = orderConfirmationTxFld.getText();
-        orderInfo = "Vendor Name: " + vendorName + "\n" +  "Country: " + selectedCountry + "\n" +
-                "State: " + selectedState + "\n" + "City: " +  selectedCity + "\n" + "Address: " +
-                streetAddress + "\n" + "ZipCode: " + zip + "\n" + "Order Number from seller: " +
-                orderNumber + "\n" + "instructions: " + instructionStr;
+        orderInfo = "Vendor Name: " + vendorName + "\n" + "Country: " + selectedCountry + "\n"
+                + "State: " + selectedState + "\n" + "City: " + selectedCity + "\n" + "Address: "
+                + streetAddress + "\n" + "ZipCode: " + zip + "\n" + "Order Number from seller: "
+                + orderNumber + "\n" + "instructions: " + instructionStr;
         detailLbl.setText(orderInfo);
         orderProcessedMsgLbl.setVisible(true);
         detailLbl.setVisible(true);
         nextBtn.setDisable(false);
     }
 
-
     /**
      * Initializes the controller class.
-     * @param  _url url to load API data for Drop down.
-     * @param  _rb resources for page.
+     *
+     * @param _url url to load API data for Drop down.
+     * @param _rb resources for page.
      */
     @Override
-    public void initialize(URL _url, ResourceBundle _rb) {        
+    public void initialize(URL _url, ResourceBundle _rb) {
         selectCountryChoiceBx.getItems().addAll(universalAPI.getCountryList());
-        selectCountryChoiceBx.valueProperty().addListener(new ChangeListener<String> (){
-           @Override
-           public void changed(ObservableValue _ov, String _oldValue, String _newValue) {
-                if( _newValue == null) {
-                    selectedCountry = _oldValue;                    
-                }else{
+        selectCountryChoiceBx.valueProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue _ov, String _oldValue, String _newValue) {
+                if (_newValue == null) {
+                    selectedCountry = _oldValue;
+                } else {
                     selectedCountry = _newValue;
                 }
                 selectStateChoiceBX.getItems().addAll(universalAPI.getStateList(selectedCountry));
-           }
-        });        
-        selectStateChoiceBX.valueProperty().addListener(new ChangeListener<String>(){   
-           
+            }
+        });
+        selectStateChoiceBX.valueProperty().addListener(new ChangeListener<String>() {
+
             @Override
             public void changed(ObservableValue _ov, String _oldValue, String _newValue) {
-                if( _newValue == null) {
-                    selectedState = _oldValue;                    
-                }else{
+                if (_newValue == null) {
+                    selectedState = _oldValue;
+                } else {
                     selectedState = _newValue;
                 }
-               //selectStateChoiceBX.setAccessibleText(selectedState);
-               selectCityChoiceBx.getItems().addAll(universalAPI.getCityList(selectedState));              
+                //selectStateChoiceBX.setAccessibleText(selectedState);
+                selectCityChoiceBx.getItems().addAll(universalAPI.getCityList(selectedState));
             }
-        });        
-        
+        });
+
     }
+
     @FXML
     private void moveToNxtPage(ActionEvent _event) throws IOException {
         goToNxtPage.Move("BidPage.fxml", nextBtn);
-     
+
     }
 
     @FXML
@@ -150,11 +149,10 @@ public class PickupAddressController extends BaseAddressAPIClass  implements Ini
         goToPrvPage.Move("AdditionalNeedsPer.fxml", backBtn);
     }
 
-
     @FXML
     private void vendorSelected(ActionEvent _event) {
         MenuItem source = (MenuItem) _event.getSource();
         String vendorStr = source.getText();
-        selectVendorMnBx.setText(vendorStr);        
-    }    
+        selectVendorMnBx.setText(vendorStr);
+    }
 }
