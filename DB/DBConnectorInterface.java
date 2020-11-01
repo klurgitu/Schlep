@@ -1,12 +1,13 @@
 package DB;
 
 /**
- * The Database Interface to implement the CRUD operations that allow us to
- * use any database
+ * The Database Interface to implement the CRUD operations that allow us to use
+ * any database
+ *
+ * Last Updated: 10/31/2020
+ *
  * @author Katelynn Urgitus
- * Last Updated: 10/23/2020
  */
-
 import java.util.HashMap;
 import java.util.Map;
 

@@ -3,8 +3,10 @@ package DB;
 /**
  * The Data Factory Class can generate Class Objects and get/set properties for
  * the class type in which it is being called
+ *
+ * Last Updated: 10/31/2020
+ *
  * @author Katelynn Urgitus
- * Last Updated: 10/23/2020
  */
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

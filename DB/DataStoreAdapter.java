@@ -4,8 +4,10 @@ package DB;
  * The DataStore Adapter allows us to switch between specific databases in case
  * we would like to use a new or different database and connects that to the
  * system.
+ *
+ * Last Updated: 10/31/2020
+ *
  * @author Katelynn Urgitus
- * Last Updated: 10/23/2020
  */
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -15,7 +17,7 @@ import java.util.logging.Logger;
 
 public class DataStoreAdapter {
 
-    private static final DBConnectorInterface connector = new MySQLConnector();
+    protected static final DBConnectorInterface connector = new MySQLConnector();
 
     /**
      *

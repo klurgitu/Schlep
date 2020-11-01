@@ -2,8 +2,10 @@ package DB;
 
 /**
  * This class implements the DBConnectorInterface interface for MySQL databases.
+ *
+ * Last Updated: 10/31/2020
+ *
  * @author Katelynn Urgitus
- * Last Updated: 10/23/2020
  */
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -34,6 +36,7 @@ public class MySQLConnector implements DBConnectorInterface {
 
     /**
      * This method creates a new row entry in the given _table
+     *
      * @param _keyValuePair the object map being inserted
      * @param _table the _table in the database that needs to be inserted to
      * @return value of the key determines whether the insert was successful
@@ -64,6 +67,7 @@ public class MySQLConnector implements DBConnectorInterface {
 
     /**
      * This is a helper method to execute the insert _query
+     *
      * @param _query SQL statement to be executed
      * @return the key value determines if the execute was successful
      */
@@ -83,8 +87,8 @@ public class MySQLConnector implements DBConnectorInterface {
     }
 
     /**
-     * Calls on the other readObject method but only accounts for
-     * active entries
+     * Calls on the other readObject method but only accounts for active entries
+     *
      * @param _keyValuePair object map being searched for
      * @param _table _table searched
      * @return the data requested from the _table
@@ -96,10 +100,11 @@ public class MySQLConnector implements DBConnectorInterface {
 
     /**
      * Selects requested data from a specific data _table
+     *
      * @param _keyValuePair data being requested
      * @param _table _table searched
-     * @param _deleted not yet implemented but will be able to search only active
- users or active and "_deleted" users
+     * @param _deleted not yet implemented but will be able to search only
+     * active users or active and "_deleted" users
      * @return the data requested if it is there; If not it returns NULL
      */
     public HashMap<String, Object> readObject(Map<String, String> _keyValuePair, String _table, boolean _deleted) {
@@ -111,11 +116,11 @@ public class MySQLConnector implements DBConnectorInterface {
             condition += " `" + entry.getKey() + "` = \"" + entry.getValue() + "\" AND";
         }
         if (_deleted) {
-           // Then we'll ignore the active=1 condition and just shed off the last AND
-        condition = condition.substring(0, condition.length() - 3);
+            // Then we'll ignore the active=1 condition and just shed off the last AND
+            condition = condition.substring(0, condition.length() - 3);
         } else {
             // We'll add the condition that the object must be active.
-            condition+= " `active` = 1";
+            condition += " `active` = 1";
         }
         // Combine the query with the condition.
         query = query + condition;
@@ -147,6 +152,7 @@ public class MySQLConnector implements DBConnectorInterface {
 
     /**
      * Updates existing data fields in a given _table for the given UUID
+     *
      * @param _keyValuePair data to be updated
      * @param _uuid UUID of the entry to be updated
      * @param _table where the update is taking place
@@ -168,6 +174,7 @@ public class MySQLConnector implements DBConnectorInterface {
 
     /**
      * Updates existing data fields in a given _table for the given UUID
+     *
      * @param _keyValuePair data to be updated
      * @param _uuid UUID of the entry to be updated
      * @param _table1 where the update is taking place
@@ -175,20 +182,21 @@ public class MySQLConnector implements DBConnectorInterface {
      * @return true if the update was successful, false if unsuccessful.
      */
     public Boolean updateObject(Map<String, String> _keyValuePair, String _uuid, String _table1, String _table2) {
-        String query =  "UPDATE " + _table1 + " SET ";
+        String query = "UPDATE " + _table1 + " SET ";
         //iterate over map
         String updates = "";
-        for (Map.Entry<String, String> entry : _keyValuePair.entrySet()){
-            updates+= " " + entry.getKey() + " = (SELECT " + entry.getKey() + " FROM " + _table2 + " WHERE "+ entry.getValue() + " = '" + _uuid + "')" +",";
+        for (Map.Entry<String, String> entry : _keyValuePair.entrySet()) {
+            updates += " " + entry.getKey() + " = (SELECT " + entry.getKey() + " FROM " + _table2 + " WHERE " + entry.getValue() + " = '" + _uuid + "')" + ",";
         }
         //shed off the last comma
-        updates = updates.substring(0, updates.length()-1);
+        updates = updates.substring(0, updates.length() - 1);
         query = query + updates + " WHERE UUID = '" + _uuid + "'";
         return this.executeUpdate(query);
     }
 
     /**
      * Helper method to execute an update
+     *
      * @param _query SQL statement being executed
      * @return true if successful, false if nothing happened
      */
@@ -201,7 +209,7 @@ public class MySQLConnector implements DBConnectorInterface {
             Logger.getLogger(DataStoreAdapter.class.getName()).log(Level.SEVERE, null, ex);
         }
         // Result returns the number of rows affected. If no rows were affected,
-        // the return false.
+        // then return false.
         return (result > 0);
     }
 
@@ -216,13 +224,14 @@ public class MySQLConnector implements DBConnectorInterface {
      */
     @Override
     public Boolean deleteObject(String _uuid) {
-        Map<String,String> setInactive = new HashMap();
+        Map<String, String> setInactive = new HashMap();
         setInactive.put("active", "0");
         return this.updateObject(setInactive, _uuid, "user");
     }
 
     /**
      * Runs SQL _query
+     *
      * @param _query to be executed
      * @return result set
      */
@@ -250,6 +259,7 @@ public class MySQLConnector implements DBConnectorInterface {
 
     /**
      * A helper method to execute a simple select
+     *
      * @param _query SQL statement
      * @return the selected set
      */

@@ -11,14 +11,15 @@ import javafx.stage.Stage;
 
 /**
  * This is a class for moving from one FXML to another
+ *
+ * Last Updated 10/31/2020
+ *
  * @author Katelynn Urgitus
- * Last Updated 09/24/2020
  */
 public class MoveScene {
 
     public MoveScene() {
     }
-
 
     public void Move(String _nextFXML, Button _button) throws IOException {
         Scene scene;

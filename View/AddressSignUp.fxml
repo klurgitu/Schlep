@@ -10,22 +10,23 @@
 
 <AnchorPane id="AnchorPane" prefHeight="469.0" prefWidth="531.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AddressSignUpController">
    <children>
-      <ChoiceBox fx:id="countryBox" layoutX="174.0" layoutY="177.0" prefWidth="150.0" />
-      <Label layoutX="175.0" layoutY="159.0" text="Country" />
-      <ChoiceBox fx:id="stateBox" layoutX="173.0" layoutY="222.0" prefWidth="150.0" />
-      <Label layoutX="175.0" layoutY="203.0" text="State" />
-      <ChoiceBox fx:id="cityBox" layoutX="174.0" layoutY="271.0" prefWidth="150.0" />
-      <Label layoutX="178.0" layoutY="253.0" text="City" />
-      <TextField fx:id="addressLine1" layoutX="174.0" layoutY="86.0" prefHeight="25.0" prefWidth="149.0" promptText="Address Line 1" />
-      <TextField fx:id="addressLine2" layoutX="174.0" layoutY="122.0" promptText="Address Line 2" />
-      <TextField fx:id="zipcode" layoutX="174.0" layoutY="313.0" promptText="Zipcode" />
-      <Label layoutX="196.0" layoutY="26.0" prefHeight="86.0" prefWidth="133.0" text="Enter Your Address" AnchorPane.bottomAnchor="357.0" AnchorPane.leftAnchor="196.0" AnchorPane.rightAnchor="226.0" AnchorPane.topAnchor="26.0" />
+      <ChoiceBox fx:id="countryBox" layoutX="189.0" layoutY="218.0" prefWidth="150.0" />
+      <Label layoutX="189.0" layoutY="201.0" text="Country" />
+      <ChoiceBox fx:id="stateBox" layoutX="189.0" layoutY="268.0" prefWidth="150.0" />
+      <Label layoutX="189.0" layoutY="250.0" text="State" />
+      <ChoiceBox fx:id="cityBox" layoutX="189.0" layoutY="318.0" prefWidth="150.0" />
+      <Label layoutX="189.0" layoutY="300.0" text="City" />
+      <TextField fx:id="userAddressLine1" layoutX="189.0" layoutY="137.0" prefHeight="25.0" prefWidth="149.0" promptText="Address Line 1" />
+      <TextField fx:id="userAddressLine2" layoutX="189.0" layoutY="169.0" promptText="Address Line 2" />
+      <TextField fx:id="userZipcode" layoutX="189.0" layoutY="350.0" promptText="Zipcode" />
+      <Label layoutX="212.0" layoutY="83.0" prefHeight="86.0" prefWidth="133.0" text="Enter Your Address" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="212.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="83.0" />
       <Button fx:id="nextBtn" layoutX="458.0" layoutY="422.0" mnemonicParsing="false" onAction="#saveAddressAndMove" style="-fx-background-color: POWDERBLUE;" text="Next" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="-15.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="54.0" fitWidth="163.0" layoutX="169.0">
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="166.0">
          <image>
-            <Image url="@../../../logo.PNG" />
+            <Image url="@../Documents/logo.PNG" />
          </image>
       </ImageView>
+      <Button fx:id="backBtn" layoutX="27.0" layoutY="422.0" mnemonicParsing="false" onAction="#goToPrvPage" prefHeight="18.0" prefWidth="42.0" style="-fx-background-color: POWDERBLUE;" text="Back" />
    </children>
 </AnchorPane>
