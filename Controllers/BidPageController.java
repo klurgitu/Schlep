@@ -18,11 +18,10 @@ import javafx.scene.image.ImageView;
  * where the GPS data and other associated information is sent to the user
  *
  * @author Josiah Stadler Last updated 10/29/20
+ * @author Katelynn Urgitus Last Updated 11/05/2020
  */
 public class BidPageController implements Initializable {
 
-    private static final MoveScene goToNextPage = new MoveScene();
-    private static final MoveScene goToPrvPage = new MoveScene();
     private static final double costPerMile = .55;
     private static final double rateOfSpeed = 65;
     private static final String Hr = " Hr";
@@ -168,11 +167,11 @@ public class BidPageController implements Initializable {
 
     @FXML
     private void moveToPrvPage(ActionEvent _event) throws IOException {
-        goToPrvPage.Move("PickupAddress.fxml", backBtn);
+        MoveScene.getInstance().Move("PickupAddress.fxml", backBtn);
     }
 
     @FXML
     private void moveToNextPage(ActionEvent _event) throws IOException {
-        goToNextPage.Move("GPSView.fxml", nextBtn);
+        MoveScene.getInstance().Move("GPSView.fxml", nextBtn);
     }
 }

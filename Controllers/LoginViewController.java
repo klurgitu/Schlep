@@ -6,6 +6,7 @@ package Controllers;
  * Controls all action events on the LoginView FXML file
  *
  * @author Marc Bittle
+ * @author Katelynn Urgitus Last Updated 11/05/2020
  */
 import Models.MoveScene;
 import java.io.IOException;
@@ -32,7 +33,6 @@ public class LoginViewController implements Initializable {
     @FXML
     private Button returnToCreateAcctBtn;
 
-    private static final MoveScene changeScene = new MoveScene(); // Handles scene changes
     @FXML
     private Label messageLbl;
     @FXML
@@ -66,7 +66,7 @@ public class LoginViewController implements Initializable {
         if (connect.readObject(checkExists, "user") == null) {
             messageLbl.setText("Incorrect Email/Password!");
         } else {
-            changeScene.Move("DeliveryInfo.fxml", loginBtn);
+            MoveScene.getInstance().Move("DeliveryInfo.fxml", loginBtn);
         }
 
     }
@@ -78,7 +78,7 @@ public class LoginViewController implements Initializable {
      */
     @FXML
     private void returnToCreateAcctBtn(ActionEvent event) throws Exception {
-        changeScene.Move("CreateAccount.fxml", returnToCreateAcctBtn);
+        MoveScene.getInstance().Move("CreateAccount.fxml", returnToCreateAcctBtn);
     }
 
 }

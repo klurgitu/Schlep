@@ -19,12 +19,9 @@ import javafx.scene.layout.AnchorPane;
  * FXML Controller class
  *
  * @author Josiah Stadler updated: 10/16/20
+ * @author Katelynn Urgitus Last Updated 11/05/2020
  */
 public class DeliveryInfoController implements Initializable {
-
-    //MoeScenes to move to next or previouse page
-    private static final MoveScene goToNextPage = new MoveScene();
-    private static final MoveScene goToPrvPage = new MoveScene();
 
     //String to hold text for start of confirmation msg
     private String timeWindow = "You have selected the following delivery window: ";
@@ -130,7 +127,7 @@ public class DeliveryInfoController implements Initializable {
 
     @FXML
     private void goToNextPage(ActionEvent _event) throws IOException {
-        goToNextPage.Move("AdditionalNeedsPer.fxml", nextBtn);
+        MoveScene.getInstance().Move("AdditionalNeedsPer.fxml", nextBtn);
     }
 
     @FXML
@@ -151,6 +148,6 @@ public class DeliveryInfoController implements Initializable {
 
     @FXML
     private void moveToPrvPage(ActionEvent _event) throws IOException {
-        goToPrvPage.Move("LoginView.fxml", backBtn);
+        MoveScene.getInstance().Move("LoginView.fxml", backBtn);
     }
 }
