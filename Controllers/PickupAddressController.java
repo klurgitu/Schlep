@@ -24,11 +24,10 @@ import javafx.scene.layout.AnchorPane;
  * an item is to be picked up.
  *
  * @author Josiah Stadler last updated 10/23/20
+ * @author Katelynn Urgitus Last Updated 11/05/2020
  */
 public class PickupAddressController extends BaseAddressAPIClass implements Initializable {
 
-    private static final MoveScene goToNxtPage = new MoveScene();
-    private static final MoveScene goToPrvPage = new MoveScene();
     private String instructionStr;
     private String streetAddress;
     private String orderNumber;
@@ -140,13 +139,13 @@ public class PickupAddressController extends BaseAddressAPIClass implements Init
 
     @FXML
     private void moveToNxtPage(ActionEvent _event) throws IOException {
-        goToNxtPage.Move("BidPage.fxml", nextBtn);
+        MoveScene.getInstance().Move("BidPage.fxml", nextBtn);
 
     }
 
     @FXML
     private void goToPrvPage(ActionEvent _event) throws IOException {
-        goToPrvPage.Move("AdditionalNeedsPer.fxml", backBtn);
+        MoveScene.getInstance().Move("AdditionalNeedsPer.fxml", backBtn);
     }
 
     @FXML

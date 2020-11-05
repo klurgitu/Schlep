@@ -16,11 +16,10 @@ import javafx.scene.layout.AnchorPane;
  * Controller for 'AdditionalNeedsPer.fxml' Controller Class
  *
  * @Author Josiah Stadler Last updated 10/23/20
+ * @author Katelynn Urgitus Last Updated 11/05/2020
  */
 public class AdditionalNeedsPerController {
 
-    private static final MoveScene goToNextPage = new MoveScene();
-    private static final MoveScene goToPrvPage = new MoveScene();
     private final double wage = 15.00;
     private final double halfHrWage = wage * .5;
     private final double twoHrWage = wage * 2;
@@ -106,12 +105,12 @@ public class AdditionalNeedsPerController {
 
     @FXML
     void movePrvPage(ActionEvent _event) throws IOException {
-        goToPrvPage.Move("DeliveryInfo.fxml", backBtn);
+        MoveScene.getInstance().Move("DeliveryInfo.fxml", backBtn);
     }
 
     @FXML
     void moveToNextPage(ActionEvent _event) throws IOException {
-        goToNextPage.Move("PickupAddress.fxml", nextBtn);
+        MoveScene.getInstance().Move("PickupAddress.fxml", nextBtn);
     }
 
     @FXML

@@ -6,6 +6,7 @@ package Controllers;
  * Controls all action events on the CreateAccount FXML file
  *
  * @author Marc Bittle
+ * @author Katelynn Urgitus Last Updated 11/05/2020
  */
 import java.net.URL;
 import javafx.fxml.FXML;
@@ -49,8 +50,6 @@ public class CreateAccountController implements Initializable {
     @FXML
     private Button activateAcctBtn;
 
-    private static final MoveScene changeScene = new MoveScene();
-
     private SchlepUser user;
 
     /**
@@ -70,12 +69,12 @@ public class CreateAccountController implements Initializable {
             } else {
                 messageLbl.setText("");
                 user = new SchlepUser(firstName, lastName, email, passwordConf, phoneNumber);
-                //changeScene.Move("AddressSignUp.fxml", activateAcctBtn);
+                //MoveScene.getInstance().Move("AddressSignUp.fxml", activateAcctBtn);
             }
 
         }
 
-//        changeScene.Move("AddressSignUp.fxml", activateAcctBtn);
+//        MoveScene.getInstance().Move("AddressSignUp.fxml", activateAcctBtn);
     }
 
     /**
@@ -85,7 +84,7 @@ public class CreateAccountController implements Initializable {
      */
     @FXML
     public void changeToLoginScreenBtn(ActionEvent event) throws Exception {
-        changeScene.Move("LoginView.fxml", changeToLoginBtn);
+        MoveScene.getInstance().Move("LoginView.fxml", changeToLoginBtn);
     }
 
     /**

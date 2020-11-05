@@ -19,8 +19,6 @@ import javafx.scene.control.TextField;
 
 public class BillingController implements Initializable {
 
-    private static final MoveScene moveScene = new MoveScene();
-
     @FXML
     private TextField nameOnCardField;
     @FXML
@@ -50,11 +48,11 @@ public class BillingController implements Initializable {
      */
     @FXML
     private void saveInfoAndMove(ActionEvent event) throws IOException {
-        moveScene.Move("Login.fxml", nextBtn);
+        MoveScene.getInstance().Move("Login.fxml", nextBtn);
     }
 
     @FXML
     private void goToPrvPage(ActionEvent event) throws IOException {
-        moveScene.Move("OffloadingItems.fxml", backBtn);
+        MoveScene.getInstance().Move("OffloadingItems.fxml", backBtn);
     }
 }

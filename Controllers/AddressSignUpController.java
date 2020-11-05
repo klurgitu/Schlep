@@ -3,18 +3,15 @@ package Controllers;
 /**
  * This is a Controller for user entering their address
  *
- * Last Updated 11/01/2020
+ * Last Updated 11/05/2020
  *
  * @author Katelynn Urgitus
  */
 import Models.Address;
 import Models.MoveScene;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,8 +22,7 @@ import javafx.scene.control.TextField;
 
 public class AddressSignUpController extends Address implements Initializable {
 
-    private final MoveScene moveScene = new MoveScene();
-
+    //private final MoveScene moveScene = new MoveScene();
     @FXML
     private ChoiceBox<String> countryBox;
     @FXML
@@ -65,13 +61,12 @@ public class AddressSignUpController extends Address implements Initializable {
     @FXML
     private void saveAddressAndMove(ActionEvent event) throws SQLException, IOException {
         Address userAddress = new Address(userAddressLine1.getText(), userAddressLine2.getText(), countryBox.getValue(), stateBox.getValue(), cityBox.getValue(), userZipcode.getText());
-        moveScene.Move("OffloadingItems.fxml", nextBtn);
-
+        MoveScene.getInstance().Move("OffloadingItems.fxml", nextBtn);
 
     }
 
     @FXML
     private void goToPrvPage(ActionEvent event) throws IOException {
-        moveScene.Move("CreateAccount.fxml", backBtn);
+        MoveScene.getInstance().Move("CreateAccount.fxml", backBtn);
     }
 }

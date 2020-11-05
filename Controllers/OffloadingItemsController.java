@@ -3,7 +3,7 @@ package Controllers;
 /**
  * This is a Controller for user entering their offloading items
  *
- * Last Updated 10/31/2020
+ * Last Updated 11/05/2020
  *
  * @author Katelynn Urgitus
  */
@@ -19,8 +19,6 @@ import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.MenuButton;
 
 public class OffloadingItemsController implements Initializable {
-
-    private final MoveScene moveScene = new MoveScene();
 
     @FXML
     private CheckMenuItem handTruckItem;
@@ -52,11 +50,11 @@ public class OffloadingItemsController implements Initializable {
      */
     @FXML
     private void saveItemsAndMove(ActionEvent event) throws IOException {
-        moveScene.Move("Billing.fxml", nextBtn);
+        MoveScene.getInstance().Move("Billing.fxml", nextBtn);
     }
 
     @FXML
     private void goToPrvPage(ActionEvent event) throws IOException {
-        moveScene.Move("AddressSignUp.fxml", backBtn);
+        MoveScene.getInstance().Move("AddressSignUp.fxml", backBtn);
     }
 }
