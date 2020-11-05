@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 /**
- * This is a class for moving from one FXML to another
+ * This is a singleton class for moving from one FXML to another
  *
  * Last Updated 11/05/2020
  *
@@ -23,6 +23,11 @@ public class MoveScene {
     private MoveScene() {
     }
 
+    /**
+     * This method gets the instance above
+     *
+     * @return the single instance of the MoveScene class
+     */
     public static MoveScene getInstance() {
         // Double check locking principle.
         // If there is no instance available, create new one (i.e. lazy initialization).
@@ -40,6 +45,13 @@ public class MoveScene {
         return instance;
     }
 
+    /**
+     * Moves the current scene to a new or previous scene.
+     *
+     * @param _nextFXML the fxml you want to go to.
+     * @param _button the button being pressed to get there.
+     * @throws IOException
+     */
     public void Move(String _nextFXML, Button _button) throws IOException {
         Scene scene;
         Stage stageTheLabelBelongs = (Stage) _button.getScene().getWindow();
