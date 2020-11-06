@@ -1,12 +1,11 @@
 package Controllers;
 
-import API.BaseAddressAPIClass;
+
+import Models.Address;
 import Models.MoveScene;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,10 +22,10 @@ import javafx.scene.layout.AnchorPane;
  * FXML Controller class This is a controller for entering the address of where
  * an item is to be picked up.
  *
- * @author Josiah Stadler last updated 10/23/20
+ * @author Josiah Stadler last updated 10/23/20, 11/6/20
  * @author Katelynn Urgitus Last Updated 11/05/2020
  */
-public class PickupAddressController extends BaseAddressAPIClass implements Initializable {
+public class PickupAddressController extends Address implements Initializable {
 
     private String instructionStr;
     private String streetAddress;
@@ -83,6 +82,12 @@ public class PickupAddressController extends BaseAddressAPIClass implements Init
     private Label countryLbl;
     @FXML
     private ChoiceBox<String> selectCountryChoiceBx;
+    
+    @Override
+    public void initialize(URL _url, ResourceBundle _rb) {
+         apiListen.addressListener(selectCountryChoiceBx, selectStateChoiceBX, selectCityChoiceBx);        
+
+    }
 
     @FXML
     void confirmOrder(ActionEvent _event) {
@@ -107,35 +112,7 @@ public class PickupAddressController extends BaseAddressAPIClass implements Init
      * @param _url url to load API data for Drop down.
      * @param _rb resources for page.
      */
-    @Override
-    public void initialize(URL _url, ResourceBundle _rb) {
-        selectCountryChoiceBx.getItems().addAll(universalAPI.getCountryList());
-        selectCountryChoiceBx.valueProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue _ov, String _oldValue, String _newValue) {
-                if (_newValue == null) {
-                    selectedCountry = _oldValue;
-                } else {
-                    selectedCountry = _newValue;
-                }
-                selectStateChoiceBX.getItems().addAll(universalAPI.getStateList(selectedCountry));
-            }
-        });
-        selectStateChoiceBX.valueProperty().addListener(new ChangeListener<String>() {
-
-            @Override
-            public void changed(ObservableValue _ov, String _oldValue, String _newValue) {
-                if (_newValue == null) {
-                    selectedState = _oldValue;
-                } else {
-                    selectedState = _newValue;
-                }
-                //selectStateChoiceBX.setAccessibleText(selectedState);
-                selectCityChoiceBx.getItems().addAll(universalAPI.getCityList(selectedState));
-            }
-        });
-
-    }
+   
 
     @FXML
     private void goToNxtPage(ActionEvent _event) throws IOException {
@@ -154,4 +131,6 @@ public class PickupAddressController extends BaseAddressAPIClass implements Init
         String vendorStr = source.getText();
         selectVendorMnBx.setText(vendorStr);
     }
+
+    
 }

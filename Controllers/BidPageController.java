@@ -57,6 +57,7 @@ public class BidPageController implements Initializable {
     private double price4 = costPerMile * distance4;
     private double price5 = costPerMile * distance5;
     private double price6 = costPerMile * distance6;
+    
 
     @FXML
     private ImageView logo;
@@ -140,6 +141,7 @@ public class BidPageController implements Initializable {
     @FXML
     private Label etaLbl6;
     public Button[] btnArray;
+   
 
     /**
      * Initializes the controller class.

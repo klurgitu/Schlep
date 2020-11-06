@@ -14,8 +14,7 @@ import java.util.HashMap;
  */
 public class BillingInfo extends DB.DataObject {
 
-    private String firstName;
-    private String lastName;
+    private String name;   
     private String creditCardNum;
     private String expDate;
     private String ccv;
@@ -27,9 +26,8 @@ public class BillingInfo extends DB.DataObject {
 
     }
 
-    public BillingInfo(String _fName, String _lName, String _cCardNum, String _expDate, String _ccv) throws SQLException {
-        this.firstName = _fName;
-        this.lastName = _lName;
+    public BillingInfo(String _name,  String _cCardNum, String _expDate, String _ccv) throws SQLException {
+        this.name = _name;
         this.creditCardNum = _cCardNum;
         this.expDate = _expDate;
         this.ccv = _ccv;
@@ -43,8 +41,7 @@ public class BillingInfo extends DB.DataObject {
      */
     private void saveBillingInfo() throws SQLException {
         HashMap<String, String> pairs = new HashMap();
-        pairs.put("firstName",this.getFirstName());
-        pairs.put("lastName", this.getLastName());
+        pairs.put("name",this.getName());        
         pairs.put("creditcardNum", this.getCreditCardNum());
         pairs.put("expDate",this.getExpDate());
         pairs.put("ccv", this.getCcv());
@@ -60,15 +57,8 @@ public class BillingInfo extends DB.DataObject {
     /**
      * @return the firstName
      */
-    public String getFirstName() {
-        return firstName;
-    }
-
-    /**
-     * @return the lastName
-     */
-    public String getLastName() {
-        return lastName;
+    public String getName() {
+        return name;
     }
 
     /**
@@ -97,17 +87,10 @@ public class BillingInfo extends DB.DataObject {
     //=================== Setters ============================================
 
     /**
-     * @param _fName the firstName to set
+     * @param _name the Name to set
      */
-    public void setFirstName(String _fName) {
-        this.firstName = _fName;
-    }
-
-    /**
-     * @param _lName the lastName to set
-     */
-    public void setLastName(String _lName) {
-        this.lastName = _lName;
+    public void setName(String _name) {
+        this.name = _name;
     }
 
     /**
