@@ -7,9 +7,11 @@ package Controllers;
  *
  * @author Katelynn Urgitus
  */
+import Models.BillingInfo;
 import Models.MoveScene;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,7 +39,7 @@ public class BillingController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       
     }
 
     /**
@@ -47,8 +49,9 @@ public class BillingController implements Initializable {
      * @param event
      */
     @FXML
-    private void saveInfoAndMove(ActionEvent event) throws IOException {
+    private void saveInfoAndMove(ActionEvent event) throws IOException, SQLException {
         MoveScene.getInstance().Move("Login.fxml", nextBtn);
+        BillingInfo info = new BillingInfo(nameOnCardField.getText(), cardNumberField.getText(), expirationDateField.getText(),ccvCvvField.getText());
     }
 
     @FXML
