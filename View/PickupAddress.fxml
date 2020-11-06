@@ -23,7 +23,7 @@
             <TextField fx:id="specialInstructionsTxFld" alignment="TOP_LEFT" prefHeight="103.0" prefWidth="190.0" promptText="Enter Special Instructions Here" />
          </children>
       </VBox>
-      <Button id="nextBtn" fx:id="nextBtn" disable="true" layoutX="455.0" layoutY="430.0" mnemonicParsing="false" onAction="#goToNxtPage" prefHeight="31.0" prefWidth="62.0" style="-fx-background-color: POWDERBLUE;" text="Next" textFill="WHITE" />
+      <Button id="nextBtn" fx:id="nextBtn" disable="true" layoutX="455.0" layoutY="430.0" mnemonicParsing="false" onAction="#moveToNxtPage" prefHeight="31.0" prefWidth="62.0" style="-fx-background-color: POWDERBLUE;" text="Next" textFill="WHITE" />
       <Button id="backBtn" fx:id="backBtn" layoutX="16.0" layoutY="430.0" mnemonicParsing="false" onAction="#goToPrvPage" prefHeight="31.0" prefWidth="55.0" style="-fx-background-color: POWDERBLUE;" text="Back" textFill="WHITE" />
       <ImageView fx:id="logo" fitHeight="114.0" fitWidth="241.0" layoutX="145.0" pickOnBounds="true" preserveRatio="true">
          <image>
