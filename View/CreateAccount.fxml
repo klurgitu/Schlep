@@ -50,7 +50,7 @@
       <Label alignment="CENTER_RIGHT" layoutX="76.0" layoutY="379.0" prefHeight="25.0" prefWidth="106.0" text="Confrim Password" />
       <ImageView fitHeight="91.0" fitWidth="200.0" layoutX="198.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../CSC340_WireFrame/logo.PNG" />
+            <Image url="@../Documents/logo.PNG" />
          </image>
       </ImageView>
       <BorderPane layoutX="188.0" prefHeight="91.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 10;" />

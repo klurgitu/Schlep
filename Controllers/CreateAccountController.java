@@ -1,7 +1,7 @@
 package Controllers;
 
 /**
- * last updated 10/22/2020
+ * last updated 11/6/2020
  *
  * Controls all action events on the CreateAccount FXML file
  *
@@ -50,8 +50,6 @@ public class CreateAccountController implements Initializable {
     @FXML
     private Button activateAcctBtn;
 
-    private SchlepUser user;
-
     /**
      *
      * @param e
@@ -68,13 +66,11 @@ public class CreateAccountController implements Initializable {
                 messageLbl.setText("Passwords do not match!");
             } else {
                 messageLbl.setText("");
-                user = new SchlepUser(firstName, lastName, email, passwordConf, phoneNumber);
-                //MoveScene.getInstance().Move("AddressSignUp.fxml", activateAcctBtn);
+                SchlepUser user = new SchlepUser(firstName, lastName, email, passwordConf, phoneNumber);
+                MoveScene.getInstance().Move("AddressSignUp.fxml", activateAcctBtn);
             }
 
         }
-
-//        MoveScene.getInstance().Move("AddressSignUp.fxml", activateAcctBtn);
     }
 
     /**
