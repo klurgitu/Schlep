@@ -1,17 +1,19 @@
 package Models;
 
 /**
- * last updated 10/22/2020
+ * last updated 11/6/2020
  *
- * The SchlepUser Class builds a User and places the User data in a text
- * file - (eventually a database)
+ * The SchlepUser Class builds a User and places the User data in a text file -
+ * (eventually a database)
  *
  * @author Marc Bittle
  */
 import java.io.*;
-import java.util.Scanner;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
+import DB.MySQLConnector;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SchlepUser extends DB.DataObject {
 
@@ -19,11 +21,12 @@ public class SchlepUser extends DB.DataObject {
     private String lastName;
     private String userEmail;
     private String userPassword;
-    private String userAddress;
     private String phoneNumber;
+    private final MySQLConnector connector = new MySQLConnector();
+    protected final static SchlepUser user = new SchlepUser();
 
     public SchlepUser() {
-        this.setUuid(DB.DataObject.generateUuid());
+
     }
 
     /**
@@ -42,33 +45,36 @@ public class SchlepUser extends DB.DataObject {
         this.userPassword = _password.getText();
         this.phoneNumber = _phone.getText();
 
+        this.setUuid(DB.DataObject.generateUuid());
         saveSchleperInfo();
     }
 
+    /*
     /**
      *
      * @throws IOException
      */
     private void saveSchleperInfo() throws IOException {
-        try {
-            File file = new File("SchleperInformation.txt");
-            Scanner inputFile = new Scanner(file);
-            PrintWriter outputFile = new PrintWriter(new FileWriter(file, true));
+        HashMap<String, String> saveUser = new HashMap();
+        saveUser.put("UUID", this.getUuid());
+        saveUser.put("firstName", this.getFirstName());
+        saveUser.put("lastName", this.getLastName());
+        saveUser.put("userEmail", this.getEmail());
+        saveUser.put("userPassword", this.getPassword());
+        saveUser.put("phoneNumber", this.getPhoneNumber());
 
-            outputFile.println(this.firstName);
-            outputFile.println(this.lastName);
-            outputFile.println(this.userEmail);
-            outputFile.println(this.phoneNumber + "\n");
-            outputFile.close();
-
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found.");
-        } catch (IOException e) {
-            System.out.println("Not able to write to file.");
-        }
+        connector.createObject(saveUser, "user");
     }
 
-    // ================================ GETTERS ====================================
+    public HashMap<String, Object> checkValidUser(String _email, String _password) {
+        Map<String, String> checkExists = new HashMap();
+        checkExists.put("userEmail", _email);
+        checkExists.put("userPassword", _password);
+
+        return connector.readObject(checkExists, "user");
+    }
+
+    // ================================ GETTERS ===================================
     public String getFirstName() {
         return this.firstName;
     }
@@ -83,6 +89,10 @@ public class SchlepUser extends DB.DataObject {
 
     public String getPhoneNumber() {
         return this.phoneNumber;
+    }
+
+    public String getPassword() {
+        return this.userPassword;
     }
 
     @Override

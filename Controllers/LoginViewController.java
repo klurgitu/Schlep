@@ -1,18 +1,17 @@
 package Controllers;
 
 /**
- * last updated 10/22/2020
+ * last updated 11/6/2020
  *
  * Controls all action events on the LoginView FXML file
  *
  * @author Marc Bittle
  * @author Katelynn Urgitus Last Updated 11/05/2020
  */
-import Models.MoveScene;
+import Models.SchlepUser;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import Models.MoveScene;
@@ -26,7 +25,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import DB.MySQLConnector;
 
-public class LoginViewController implements Initializable {
+public class LoginViewController extends SchlepUser implements Initializable {
 
     @FXML
     private Button loginBtn;
@@ -55,20 +54,11 @@ public class LoginViewController implements Initializable {
      */
     @FXML
     void moveToNextPage(ActionEvent event) throws SQLException, IOException {
-        String email = userEmail.getText();
-        String password = userPassword.getText();
-
-        MySQLConnector connect = new MySQLConnector();
-        Map<String, String> checkExists = new HashMap();
-        checkExists.put("userEmail", email);
-        checkExists.put("userPassword", password);
-
-        if (connect.readObject(checkExists, "user") == null) {
+        if (user.checkValidUser(userEmail.getText(), userPassword.getText()) == null) {
             messageLbl.setText("Incorrect Email/Password!");
         } else {
             MoveScene.getInstance().Move("DeliveryInfo.fxml", loginBtn);
         }
-
     }
 
     /**

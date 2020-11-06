@@ -32,7 +32,7 @@
       <Label alignment="CENTER_RIGHT" layoutX="109.0" layoutY="267.0" prefHeight="17.0" prefWidth="79.0" text="Password" />
       <ImageView fitHeight="91.0" fitWidth="200.0" layoutX="198.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../CSC340_WireFrame/logo.PNG" />
+            <Image url="@../Documents/logo.PNG" />
          </image>
       </ImageView>
 
