@@ -138,7 +138,7 @@ public class PickupAddressController extends BaseAddressAPIClass implements Init
     }
 
     @FXML
-    private void moveToNxtPage(ActionEvent _event) throws IOException {
+    private void goToNxtPage(ActionEvent _event) throws IOException {
         MoveScene.getInstance().Move("BidPage.fxml", nextBtn);
 
     }
