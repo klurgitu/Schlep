@@ -22,7 +22,6 @@ import javafx.scene.control.TextField;
 
 public class AddressSignUpController extends Address implements Initializable {
 
-    //private final MoveScene moveScene = new MoveScene();
     @FXML
     private ChoiceBox<String> countryBox;
     @FXML
