@@ -55,7 +55,7 @@ public class BillingInfo extends DB.DataObject {
     //============================= GETTERS ===============================
 
     /**
-     * @return the firstName
+     * @return the name
      */
     public String getName() {
         return name;

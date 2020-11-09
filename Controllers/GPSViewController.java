@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controllers;
 
 import java.net.URL;
@@ -11,12 +16,9 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
 /**
- * FXML Controller class Handles launched from hitting the next button on
- * previous page This is a place holder video used to simulate GPS tracking of
- * driver progress after picking up the item.
+ * FXML Controller class
  *
- * @author Josiah Stadler Last updated: 10/29/20
- * Last updated: 11/6/20
+ * @author josia
  */
 public class GPSViewController implements Initializable {
 
@@ -26,37 +28,28 @@ public class GPSViewController implements Initializable {
     private Label label;
     @FXML
     private MediaView gpsMedia;
-    private MediaPlayer mediaPlayer;
-    private static final String MEDIA_URL = "GPS_Stub.mp4";
-
-    //private Media video = new Media("/Documents/GPS_Stub.mp4");
 
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        System.out.println(url.toString());
-        System.out.println(this.getClass().getResource(MEDIA_URL).toExternalForm());
-        mediaPlayer = new MediaPlayer(new Media(this.getClass().getResource(MEDIA_URL).toExternalForm()));
-        mediaPlayer.setAutoPlay(true);
-        gpsMedia.setMediaPlayer(mediaPlayer);
-        
-        /***
-         * URL mediaUrl = getClass().getResource("GPS_stub.mp4");
+    public void initialize(URL _url, ResourceBundle _rb) {
+        // TODO
+       /***
+        * URL mediaUrl = getClass().getResource("./GPS_Stub.mp4");
         String mediaStringUrl = mediaUrl.toExternalForm();
-        Media media = new Media (mediaStringUrl);
+        */
+        
+        Media media = new Media ("src/Documents/GPS_Stub.mp4");
         final MediaPlayer player = new MediaPlayer(media);
-        gpsMedia = new MediaView(player);
+        //gpsMedia = new MediaView(player);
+        
         //MediaPlayer player = new MediaPlayer(video);
+        
         player.setAutoPlay(true);
         player.play();
-        //MediaView tracking = new MediaView(player);
-         * 
-         */
-        
-        
          
-    }
-
+       
+    }    
+    
 }

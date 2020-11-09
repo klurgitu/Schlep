@@ -22,7 +22,7 @@ import javafx.scene.layout.AnchorPane;
  * FXML Controller class This is a controller for entering the address of where
  * an item is to be picked up.
  *
- * @author Josiah Stadler last updated 10/23/20, 11/6/20
+ * @author Josiah Stadler last updated 10/23/20, 11/6/20, 11/9/20
  * @author Katelynn Urgitus Last Updated 11/05/2020
  */
 public class PickupAddressController extends Address implements Initializable {
@@ -83,14 +83,22 @@ public class PickupAddressController extends Address implements Initializable {
     @FXML
     private ChoiceBox<String> selectCountryChoiceBx;
     
+     /**
+     * Initializes the controller class.
+     *
+     * @param _url to load API data for Drop down.
+     * @param _rb resources for page.
+     */   
     @Override
     public void initialize(URL _url, ResourceBundle _rb) {
-         apiListen.addressListener(selectCountryChoiceBx, selectStateChoiceBX, selectCityChoiceBx);        
-
+        apiListen.addressListener(selectCountryChoiceBx, selectStateChoiceBX, selectCityChoiceBx);        
     }
 
     @FXML
     void confirmOrder(ActionEvent _event) {
+        selectedCountry = selectCountryChoiceBx.getValue();
+        selectedState = selectStateChoiceBX.getValue();
+        selectedCity = selectCityChoiceBx.getValue();
         instructionStr = specialInstructionsTxFld.getText();
         vendorName = vendorNameTxFld.getText();
         streetAddress = streetNameTxFld.getText();
@@ -104,20 +112,11 @@ public class PickupAddressController extends Address implements Initializable {
         orderProcessedMsgLbl.setVisible(true);
         detailLbl.setVisible(true);
         nextBtn.setDisable(false);
-    }
-
-    /**
-     * Initializes the controller class.
-     *
-     * @param _url url to load API data for Drop down.
-     * @param _rb resources for page.
-     */
-   
+    }   
 
     @FXML
-    private void goToNxtPage(ActionEvent _event) throws IOException {
+    private void moveToNxtPage(ActionEvent _event) throws IOException {
         MoveScene.getInstance().Move("BidPage.fxml", nextBtn);
-
     }
 
     @FXML
@@ -130,7 +129,5 @@ public class PickupAddressController extends Address implements Initializable {
         MenuItem source = (MenuItem) _event.getSource();
         String vendorStr = source.getText();
         selectVendorMnBx.setText(vendorStr);
-    }
-
-    
+    }    
 }

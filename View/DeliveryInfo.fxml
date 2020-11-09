@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="anchor" fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="531.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DeliveryInfoController">
+<AnchorPane id="anchor" fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="531.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controllers.DeliveryInfoController">
    <children>
       <DatePicker id="datePicker" fx:id="scheduleDeliveryDatePicker" disable="true" layoutX="374.0" layoutY="178.0" onAction="#setDate" prefHeight="25.0" prefWidth="157.0" promptText="Pick a Delivery Date" />
       <MenuButton id="selectTimeMn" fx:id="selectTimeMnBtn" disable="true" layoutY="178.0" mnemonicParsing="false" onAction="#setWindow" text="Select Delivery Window">
