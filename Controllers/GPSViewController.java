@@ -11,8 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
 /**
@@ -40,14 +38,14 @@ public class GPSViewController implements Initializable {
         String mediaStringUrl = mediaUrl.toExternalForm();
         */
         
-        Media media = new Media ("src/Documents/GPS_Stub.mp4");
-        final MediaPlayer player = new MediaPlayer(media);
+        //Media media = new Media ("src/Documents/GPS_Stub.mp4");
+        //final MediaPlayer player = new MediaPlayer(media);
         //gpsMedia = new MediaView(player);
         
         //MediaPlayer player = new MediaPlayer(video);
         
-        player.setAutoPlay(true);
-        player.play();
+        //player.setAutoPlay(true);
+        //player.play();
          
        
     }    
