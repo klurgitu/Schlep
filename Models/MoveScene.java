@@ -26,7 +26,7 @@ public class MoveScene {
     /**
      * This method gets the instance above
      *
-     * @return the single instance of the MoveScene class
+     * @return the single instance of the MoveScene class.
      */
     public static MoveScene getInstance() {
         // Double check locking principle.
