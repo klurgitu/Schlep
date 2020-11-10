@@ -64,6 +64,7 @@ public class UniversalTutorialAPI {
             con.setRequestMethod("GET");
             con.setRequestProperty("Authorization", "Bearer " + authToken);
             con.setRequestProperty("Accept", "application/json");
+            con.setRequestProperty("User-Agent", "Mozilla/5.0");
             StringBuffer content;
             try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
                 String inputLine;
@@ -103,6 +104,7 @@ public class UniversalTutorialAPI {
             con.setRequestMethod("GET");
             con.setRequestProperty("api-token", _apiKey);
             con.setRequestProperty("user-email", _email);
+            con.setRequestProperty("User-Agent", "Mozilla/5.0");
             StringBuffer content;
             try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
                 String inputLine;
@@ -114,7 +116,7 @@ public class UniversalTutorialAPI {
             con.disconnect();
 
             JSONObject obj = new JSONObject(content.toString());
-            authToken = obj.getString("auth_token");
+            authToken = obj.getString("auth_token");            
             return authToken;
         } catch (IOException | JSONException ex) {
             Logger.getLogger(UniversalTutorialAPI.class.getName()).log(Level.SEVERE, null, ex);

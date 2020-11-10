@@ -8,12 +8,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="531.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.BidPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="531.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controllers.BidPageController">
    <children>
       <Label fx:id="BidLbl" layoutX="90.0" layoutY="131.0" prefHeight="18.0" prefWidth="351.0" text="Schleppers In Your Area Are Wlling to Schlep Your Item" />
       <ImageView fx:id="logo" fitHeight="123.0" fitWidth="231.0" layoutX="145.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../UNCG%20Fall%202020/Copy%20of%20logo.PNG" />
+            <Image url="@../Documents/logo.PNG" />
          </image>
       </ImageView>
       <HBox layoutX="22.0" layoutY="171.0" prefHeight="259.0" prefWidth="497.0" spacing="45.0">

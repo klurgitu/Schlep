@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="469.0" prefWidth="531.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AddressSignUpController">
+<AnchorPane id="AnchorPane" prefHeight="469.0" prefWidth="531.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controllers.AddressSignUpController">
    <children>
       <ChoiceBox fx:id="countryBox" layoutX="189.0" layoutY="218.0" prefWidth="150.0" />
       <Label layoutX="189.0" layoutY="201.0" text="Country" />
