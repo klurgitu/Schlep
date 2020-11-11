@@ -7,6 +7,7 @@ package Models;
  * (eventually a database)
  *
  * @author Marc Bittle
+ * @author Katelynn Urgitus Last Updated: 11/11/2020
  */
 import java.io.*;
 import javafx.scene.control.TextField;
@@ -54,7 +55,7 @@ public class SchlepUser extends DB.DataObject {
      *
      * @throws IOException
      */
-    private void saveSchleperInfo() throws IOException {
+    public void saveSchleperInfo() throws IOException {
         HashMap<String, String> saveUser = new HashMap();
         saveUser.put("UUID", this.getUuid());
         saveUser.put("firstName", this.getFirstName());
@@ -124,6 +125,14 @@ public class SchlepUser extends DB.DataObject {
      */
     public void setEmail(String _email) {
         this.userEmail = _email;
+    }
+
+    /**
+     *
+     * @param _password
+     */
+    public void setPassword(String _password) {
+        this.userPassword = _password;
     }
 
     /**

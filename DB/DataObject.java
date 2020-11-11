@@ -4,7 +4,7 @@ package DB;
  * The Database Interface to implement the CRUD operations that allow us to use
  * any database
  *
- * Last Updated: 10/31/2020
+ * Last Updated: 11/11/2020
  *
  * @author Katelynn Urgitus
  */
@@ -122,19 +122,6 @@ public class DataObject extends DataFactory {
      */
     protected static String generateUuid() {
         return UUID.randomUUID().toString();
-    }
-
-    /**
-     *
-     * @return @throws SQLException
-     */
-    public static String connectUUID() throws SQLException {
-        MySQLConnector connect = new MySQLConnector();
-        String selectStmt = "SELECT UUID FROM user WHERE address_id IS NULL";
-        ResultSet result = connect.executeSelect(selectStmt);
-        result.next();
-        String _uuid = result.getString("UUID");
-        return _uuid;
     }
 
 // ================================ GETTERS ====================================
