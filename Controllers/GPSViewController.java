@@ -15,7 +15,7 @@ import javafx.scene.media.MediaView;
  * previous page This is a place holder video used to simulate GPS tracking of
  * driver progress after picking up the item.
  *
- * @author Josiah Stadler Last updated: 10/29/20
+ * @author Josiah Stadler
  * Last updated: 11/6/20
  */
 public class GPSViewController implements Initializable {
@@ -30,7 +30,6 @@ public class GPSViewController implements Initializable {
     private static final String MEDIA_URL = "GPS_Stub.mp4";
 
     //private Media video = new Media("/Documents/GPS_Stub.mp4");
-
     /**
      * Initializes the controller class.
      */
@@ -41,22 +40,17 @@ public class GPSViewController implements Initializable {
         mediaPlayer = new MediaPlayer(new Media(this.getClass().getResource(MEDIA_URL).toExternalForm()));
         mediaPlayer.setAutoPlay(true);
         gpsMedia.setMediaPlayer(mediaPlayer);
-        
-        /***
-         * URL mediaUrl = getClass().getResource("GPS_stub.mp4");
-        String mediaStringUrl = mediaUrl.toExternalForm();
-        Media media = new Media (mediaStringUrl);
-        final MediaPlayer player = new MediaPlayer(media);
-        gpsMedia = new MediaView(player);
-        //MediaPlayer player = new MediaPlayer(video);
-        player.setAutoPlay(true);
-        player.play();
-        //MediaView tracking = new MediaView(player);
-         * 
+
+        /**
+         * *
+         * URL mediaUrl = getClass().getResource("GPS_stub.mp4"); String
+         * mediaStringUrl = mediaUrl.toExternalForm(); Media media = new Media
+         * (mediaStringUrl); final MediaPlayer player = new MediaPlayer(media);
+         * gpsMedia = new MediaView(player); //MediaPlayer player = new
+         * MediaPlayer(video); player.setAutoPlay(true); player.play();
+         * //MediaView tracking = new MediaView(player);
+         *
          */
-        
-        
-         
     }
 
 }

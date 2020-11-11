@@ -1,6 +1,5 @@
 package Controllers;
 
-
 import Models.Address;
 import Models.MoveScene;
 import java.io.IOException;
@@ -82,10 +81,10 @@ public class PickupAddressController extends Address implements Initializable {
     private Label countryLbl;
     @FXML
     private ChoiceBox<String> selectCountryChoiceBx;
-    
+
     @Override
     public void initialize(URL _url, ResourceBundle _rb) {
-         apiListen.addressListener(selectCountryChoiceBx, selectStateChoiceBX, selectCityChoiceBx);        
+        apiListen.addressListener(selectCountryChoiceBx, selectStateChoiceBX, selectCityChoiceBx);
 
     }
 
@@ -112,8 +111,6 @@ public class PickupAddressController extends Address implements Initializable {
      * @param _url url to load API data for Drop down.
      * @param _rb resources for page.
      */
-   
-
     @FXML
     private void goToNxtPage(ActionEvent _event) throws IOException {
         MoveScene.getInstance().Move("BidPage.fxml", nextBtn);
@@ -132,5 +129,4 @@ public class PickupAddressController extends Address implements Initializable {
         selectVendorMnBx.setText(vendorStr);
     }
 
-    
 }
