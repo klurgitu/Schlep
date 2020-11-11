@@ -14,6 +14,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
@@ -23,25 +24,9 @@ import javafx.scene.layout.AnchorPane;
  */
 public class DeliveryInfoController implements Initializable {
 
-    //String to hold text for start of confirmation msg
-    private String timeWindow = "You have selected the following delivery window: ";
-    private String date;
-
-    private String time_1;
-    private String time_2;
-    private String time_3;
-    private String time_4;
-    private String time_5;
-    private String time_6;
-
-    //Variables to hold time window for output
-    private String window1 = "10:00 a.m. - 12:00 p.m.";
-    private String window2 = "1:00 p.m. - 3:00 p.m.";
-    private String window3 = "3:00 p.m. - 5:00 p.m.";
-    private String window4 = "5:00 p.m. - 7:00 p.m.";
-    private String window5 = "7:00 p.m. - 9:00 p.m.";
-    private String window6 = "9:00 p.m. - 11:00 p.m.";
-
+   //To hold data format for output
+    private  String date;
+    private static final double instantCost = 25.00;
     @FXML
     private AnchorPane anchorPane;
     @FXML
@@ -65,64 +50,73 @@ public class DeliveryInfoController implements Initializable {
     @FXML
     private ImageView logo;
     @FXML
-    private MenuButton selectServiceTypeMnuBtn;
-    @FXML
-    private MenuItem scheduledDelveryMnuItem;
+    private MenuButton selectServiceTypeMnuBtn; 
     @FXML
     private MenuItem instantDeliveryMnuItem;
     @FXML
-    private Button backBtn;
+    private Button backBtn; 
     @FXML
-    private Label outputLbl;
+    private Label detailHeaderLbl;
+    @FXML
+    private Label deliveryTypeLbl;
+    @FXML
+    private Label whenLbl;
+    @FXML
+    private Label willContactLbl;   
+    @FXML
+    private VBox detailsVBox;
+    @FXML
+    private MenuItem scheduledDeliveryMnuItem;
 
     /**
      * Initializes the controller class.
+     * @param _url
+     * @param _rb
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        //Variables to hold id for switch statement to set delivery window
-        time_1 = selectedTime10_12MnItem.getId();
-        time_2 = selectedTime1_3MnItem.getId();
-        time_3 = selectedTime3_5MnItem.getId();
-        time_4 = selectedTime5_7MnItem.getId();
-        time_5 = selectedTime7_9MnItem.getId();
-        time_6 = selectedTime9_11MnItem.getId();
+    public void initialize(URL _url, ResourceBundle _rb) {
+        //Variables to hold id for switch statement to set delivery window    
         scheduleDeliveryDatePicker.setDisable(true);
-        selectTimeMnBtn.setDisable(true);
-        outputLbl.setVisible(false);
+        selectServiceTypeMnuBtn.setDisable(false);
+        selectTimeMnBtn.setDisable(true);        
         nextBtn.setDisable(true);
+        detailsVBox.setVisible(false);     
+        
     }
 
     @FXML
     private void setDate(ActionEvent _event) {
-
+        DatePicker source = (DatePicker) _event.getSource();
+        date = source.getValue().toString();        
+        detailsVBox.setVisible(false);       
+        whenLbl.setText("Delivery Window: ");
+        deliveryTypeLbl.setText("Delivery Type: " + scheduledDeliveryMnuItem.getText());              
+        whenLbl.setText(whenLbl.getText() + date);        
+        detailsVBox.setVisible(true);       
     }
 
     @FXML
-    private void setWindow(ActionEvent _event) {
+    private void setWindow(ActionEvent _event) { 
         MenuItem source = (MenuItem) _event.getSource();
-
-        if (source.getId().equals(time_1)) {
-            selectTimeMnBtn.setText(source.getText());
-            timeWindow += "\n" + window1;
-        } else if (source.getId().equals(time_2)) {
-            selectTimeMnBtn.setText(source.getText());
-            timeWindow += "\n" + window2;
-        } else if (source.getId().equals(time_3)) {
-            selectTimeMnBtn.setText(source.getText());
-            timeWindow += "\n" + window3;
-        } else if (source.getId().equals(time_4)) {
-            selectTimeMnBtn.setText(source.getText());
-            timeWindow = "\n" + window4;
-        } else if (source.getId().equals(time_5)) {
-            selectTimeMnBtn.setText(source.getText());
-            timeWindow += "\n" + window5;
-        } else if (source.getId().equals(time_6)) {
-            selectTimeMnBtn.setText(source.getText());
-            timeWindow += "\n" + window6;
-        }
-        outputLbl.setText(timeWindow);
-        outputLbl.setVisible(true);
+        selectTimeMnBtn.setText(source.getText());     
+        detailsVBox.setVisible(false);
+        whenLbl.setText("Delivery Window: ");            
+        deliveryTypeLbl.setText("Delivery Type: " + " " + instantDeliveryMnuItem.getText()+"= $" + instantCost);
+        
+        if (source.getId().equals(selectedTime10_12MnItem.getId())) {                  
+            whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());              
+        } else if (source.getId().equals(selectedTime1_3MnItem.getId())) {          
+            whenLbl.setText(whenLbl.getText()+ "today, between " + source.getText());           
+        } else if (source.getId().equals(selectedTime3_5MnItem.getId())) {                   
+            whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());
+        } else if (source.getId().equals(selectedTime5_7MnItem.getId())) {             
+            whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());         
+        } else if (source.getId().equals(selectedTime7_9MnItem.getId())) {                    
+            whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());         
+        } else if (source.getId().equals(selectedTime9_11MnItem.getId())) {                  
+            whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());           
+        }        
+        detailsVBox.setVisible(true);
     }
 
     @FXML
@@ -132,16 +126,18 @@ public class DeliveryInfoController implements Initializable {
 
     @FXML
     private void setType(ActionEvent _event) {
-        outputLbl.setVisible(false);
         MenuItem source = (MenuItem) _event.getSource();
+        detailsVBox.setVisible(false);
+        scheduleDeliveryDatePicker.setDisable(true);
+        selectTimeMnBtn.setDisable(true);
+        nextBtn.setDisable(true);        
+        
         if (source.getId().equals(instantDeliveryMnuItem.getId())) {
-            selectTimeMnBtn.setDisable(false);
-            scheduleDeliveryDatePicker.setDisable(true);
+            selectTimeMnBtn.setDisable(false);           
             selectServiceTypeMnuBtn.setText(instantDeliveryMnuItem.getText());
-        } else if (source.getId().equals(scheduledDelveryMnuItem.getId())) {
-            scheduleDeliveryDatePicker.setDisable(false);
-            selectTimeMnBtn.setDisable(true);
-            selectServiceTypeMnuBtn.setText(scheduledDelveryMnuItem.getText());
+        } else if (source.getId().equals(scheduledDeliveryMnuItem.getId())) {
+            scheduleDeliveryDatePicker.setDisable(false);            
+            selectServiceTypeMnuBtn.setText(scheduledDeliveryMnuItem.getText());
         }
         nextBtn.setDisable(false);
     }

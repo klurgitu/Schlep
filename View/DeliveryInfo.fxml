@@ -9,6 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="anchor" fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="531.0" style="-fx-background-color: PEACHPUFF;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controllers.DeliveryInfoController">
    <children>
@@ -23,7 +24,6 @@
             <MenuItem id="time9_11" fx:id="selectedTime9_11MnItem" mnemonicParsing="false" onAction="#setWindow" text="9:00 p.m. - 11:00 p.m." />
          </items>
       </MenuButton>
-      <Button id="nextBtn" fx:id="nextBtn" disable="true" layoutX="464.0" layoutY="421.0" mnemonicParsing="false" onAction="#goToNextPage" style="-fx-background-color: POWDERBLUE;" text="Next" textFill="WHITE" />
       <VBox alignment="TOP_CENTER" layoutX="8.0" layoutY="7.0" prefHeight="151.0" prefWidth="515.0" spacing="10.0">
          <children>
             <ImageView id="logo" fx:id="logo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -33,13 +33,25 @@
             </ImageView>
             <MenuButton id="selectServiceMn" fx:id="selectServiceTypeMnuBtn" mnemonicParsing="false" onAction="#setType" prefHeight="25.0" prefWidth="204.0" text="Select Type of Service">
               <items>
-                <MenuItem id="scheduledDelivery" fx:id="scheduledDelveryMnuItem" mnemonicParsing="false" onAction="#setType" text="Scheduled Delivery" />
+                <MenuItem id="scheduledDelivery" fx:id="scheduledDeliveryMnuItem" mnemonicParsing="false" onAction="#setType" text="Scheduled Delivery" />
                 <MenuItem id="instantDelivery" fx:id="instantDeliveryMnuItem" mnemonicParsing="false" onAction="#setType" text="Instant Delivery (Added Fee)" />
               </items>
             </MenuButton>
          </children>
       </VBox>
+      <VBox id="detailsVBox" fx:id="detailsVBox" alignment="TOP_CENTER" layoutX="1.0" layoutY="218.0" prefHeight="143.0" prefWidth="531.0" spacing="15.0" style="-fx-background-color: white;">
+         <children>
+            <Label id="detailsHeaderLbl" fx:id="detailHeaderLbl" alignment="CENTER" contentDisplay="TOP" prefHeight="25.0" prefWidth="117.0" text="Deliver Details" textAlignment="CENTER" underline="true" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label id="deliveryTypeLbl" fx:id="deliveryTypeLbl" text="Delivery Type:" />
+            <Label id="whenLbl" fx:id="whenLbl" text="Delivery Window: " />
+            <Label id="willContactLbl" fx:id="willContactLbl" prefHeight="46.0" prefWidth="372.0" text="Your Schlepper will contact you 30 minutes before arriving at your drop off location" textAlignment="CENTER" wrapText="true" />
+         </children>
+      </VBox>
       <Button id="backBtn" fx:id="backBtn" layoutX="21.0" layoutY="421.0" mnemonicParsing="false" onAction="#moveToPrvPage" style="-fx-background-color: POWDERBLUE;" text="Back" textFill="WHITE" />
-      <Label id="outputLbl" fx:id="outputLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="108.0" layoutY="235.0" prefHeight="71.0" prefWidth="298.0" textAlignment="CENTER" visible="false" />
+      <Button id="nextBtn" fx:id="nextBtn" disable="true" layoutX="464.0" layoutY="421.0" mnemonicParsing="false" onAction="#goToNextPage" style="-fx-background-color: POWDERBLUE;" text="Next" textFill="WHITE" />
    </children>
 </AnchorPane>
