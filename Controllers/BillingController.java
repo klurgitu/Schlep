@@ -39,7 +39,7 @@ public class BillingController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+
     }
 
     /**
@@ -51,7 +51,7 @@ public class BillingController implements Initializable {
     @FXML
     private void saveInfoAndMove(ActionEvent event) throws IOException, SQLException {
         MoveScene.getInstance().Move("Login.fxml", nextBtn);
-        BillingInfo info = new BillingInfo(nameOnCardField.getText(), cardNumberField.getText(), expirationDateField.getText(),ccvCvvField.getText());
+        BillingInfo info = new BillingInfo(nameOnCardField.getText(), cardNumberField.getText(), expirationDateField.getText(), ccvCvvField.getText());
     }
 
     @FXML
