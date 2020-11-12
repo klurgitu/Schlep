@@ -1,6 +1,5 @@
 package Controllers;
 
-
 import Models.Address;
 import Models.MoveScene;
 import java.io.IOException;
@@ -82,6 +81,7 @@ public class PickupAddressController extends Address implements Initializable {
     private Label countryLbl;
     @FXML
     private ChoiceBox<String> selectCountryChoiceBx;
+
     
      /**
      * Initializes the controller class.
@@ -112,6 +112,7 @@ public class PickupAddressController extends Address implements Initializable {
         orderProcessedMsgLbl.setVisible(true);
         detailLbl.setVisible(true);
         nextBtn.setDisable(false);
+
     }   
 
     @FXML
@@ -129,5 +130,7 @@ public class PickupAddressController extends Address implements Initializable {
         MenuItem source = (MenuItem) _event.getSource();
         String vendorStr = source.getText();
         selectVendorMnBx.setText(vendorStr);
+
     }    
+
 }

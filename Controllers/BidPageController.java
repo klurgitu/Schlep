@@ -57,56 +57,55 @@ public class BidPageController implements Initializable {
     private double price4 = costPerMile * distance4;
     private double price5 = costPerMile * distance5;
     private double price6 = costPerMile * distance6;
-    
 
     @FXML
     private ImageView logo;
     @FXML
     private Label driver1Lbl;
-    
+
     @FXML
     private Button schlepItBtn1;
-    
+
     @FXML
     private Label rating1Lbl;
-    
+
     @FXML
     private Label BidLbl;
     @FXML
     private Label driver2Lbl;
-    
+
     @FXML
     private Button schlepItBtn2;
     @FXML
     private Label rating2Lbl;
-    
+
     @FXML
     private Label driver3Lbl;
-   
+
     @FXML
     private Button schlepItBtn3;
     @FXML
     private Label rating3Lbl;
-   
+
     @FXML
     private Label driver4Lbl;
-    
+
     @FXML
     private Button schlepItBtn4;
     @FXML
     private Label rating4Lbl;
-   
+
     @FXML
     private Label driver5Lbl;
-   
+
     @FXML
     private Button schlepItBtn5;
     @FXML
     private Label rating5Lbl;
-   
+
     @FXML
     private Label driver6Lbl;
-    
+
     @FXML
     private Button schlepItBtn6;
     @FXML
@@ -141,13 +140,12 @@ public class BidPageController implements Initializable {
     @FXML
     private Label etaLbl6;
     public Button[] btnArray;
-   
 
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL _url, ResourceBundle _rb) {        
+    public void initialize(URL _url, ResourceBundle _rb) {
         initializeButtonArray();
         driver1Lbl.setText(driver1);
         driver2Lbl.setText(driver2);
@@ -160,13 +158,13 @@ public class BidPageController implements Initializable {
         etaLbl3.setText(format("%.2f", time3) + Hr);
         etaLbl4.setText(format("%.2f", time4) + Hr);
         etaLbl5.setText(format("%.2f", time5) + Hr);
-        etaLbl6.setText(format("%.2f", time6) + Hr);        
+        etaLbl6.setText(format("%.2f", time6) + Hr);
         costLbl1.setText("$" + format("%.2f", price1));
         costLbl2.setText("$" + format("%.2f", price2));
         costLbl3.setText("$" + format("%.2f", price3));
         costLbl4.setText("$" + format("%.2f", price4));
         costLbl5.setText("$" + format("%.2f", price5));
-        costLbl6.setText("$" + format("%.2f", price6));        
+        costLbl6.setText("$" + format("%.2f", price6));
         rating1Lbl.setText(rating1);
         rating2Lbl.setText(rating2);
         rating3Lbl.setText(rating3);
@@ -174,10 +172,11 @@ public class BidPageController implements Initializable {
         rating5Lbl.setText(rating5);
         rating6Lbl.setText(rating6);
     }
-    public void initializeButtonArray(){
+
+    public void initializeButtonArray() {
         btnArray = new Button[numOfBids];
-        for (int i = 0; i <numOfBids; i++){
-            
+        for (int i = 0; i < numOfBids; i++) {
+
         }
     }
 

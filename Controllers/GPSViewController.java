@@ -18,7 +18,8 @@ import javafx.scene.media.MediaView;
 /**
  * FXML Controller class
  *
- * @author josia
+ * @author Josiah Stadler
+ * Last updated: 11/6/20
  */
 public class GPSViewController implements Initializable {
 
