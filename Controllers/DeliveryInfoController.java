@@ -1,6 +1,7 @@
 package Controllers;
 
 import Models.MoveScene;
+import Models.PassCost;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,10 +20,10 @@ import javafx.scene.layout.VBox;
 /**
  * FXML Controller class
  *
- * @author Josiah Stadler updated: 10/16/20
+ * @author Josiah Stadler updated: 10/16/20, 11/11/20
  * @author Katelynn Urgitus Last Updated 11/05/2020
  */
-public class DeliveryInfoController implements Initializable {
+public class DeliveryInfoController extends PassCost implements Initializable {
 
    //To hold data format for output
     private  String date;
@@ -101,7 +102,7 @@ public class DeliveryInfoController implements Initializable {
         selectTimeMnBtn.setText(source.getText());     
         detailsVBox.setVisible(false);
         whenLbl.setText("Delivery Window: ");            
-        deliveryTypeLbl.setText("Delivery Type: " + " " + instantDeliveryMnuItem.getText()+"= $" + instantCost);
+        deliveryTypeLbl.setText("Delivery Type: " + " " + instantDeliveryMnuItem.getText()+" = $" + String.format("%.2f",instantCost));
         
         if (source.getId().equals(selectedTime10_12MnItem.getId())) {                  
             whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());              
@@ -115,7 +116,8 @@ public class DeliveryInfoController implements Initializable {
             whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());         
         } else if (source.getId().equals(selectedTime9_11MnItem.getId())) {                  
             whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());           
-        }        
+        }
+        setInstDeliveryCost(instantCost);
         detailsVBox.setVisible(true);
     }
 

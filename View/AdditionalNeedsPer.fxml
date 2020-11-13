@@ -22,13 +22,13 @@
             </ImageView>
             <MenuButton id="selectionMnBtn" fx:id="additionalItemMnBtn" mnemonicParsing="false" text="Select Additional Items Needed">
               <items>
-                  <CheckMenuItem id="dolly" fx:id="dollyCheckMnBtn" mnemonicParsing="false" onAction="#checkDolly" text="Dolly" />
-                  <CheckMenuItem fx:id="handTruckCheckMnBtn" mnemonicParsing="false" onAction="#checkHandTruck" text="Hand Truck" />
-                  <CheckMenuItem fx:id="rampCheckMnItem" mnemonicParsing="false" onAction="#checkRamp" text="Ramp" />
-                  <CheckMenuItem fx:id="assistCheckMnItem" mnemonicParsing="false" onAction="#CheckDriverAssist" text="Driver Assistance(Additional Fee)" />
+                  <CheckMenuItem id="dolly" fx:id="dollyCheckMnBtn" mnemonicParsing="false" onAction="#checkItem" text="Dolly" />
+                  <CheckMenuItem id="handTruck" fx:id="handTruckCheckMnBtn" mnemonicParsing="false" onAction="#checkItem" text="Hand Truck" />
+                  <CheckMenuItem id="ramp" fx:id="rampCheckMnItem" mnemonicParsing="false" onAction="#checkItem" text="Ramp" />
+                  <CheckMenuItem id="assist" fx:id="assistCheckMnItem" mnemonicParsing="false" onAction="#checkItem" text="Driver Assistance(Additional Fee)" />
               </items>
             </MenuButton>
-            <MenuButton fx:id="AssistTimeAmountMnBtn" mnemonicParsing="false" onAction="#selectTime" text="Estimated Time of Assistnce Needed" visible="false">
+            <MenuButton id="assist" fx:id="AssistTimeAmountMnBtn" mnemonicParsing="false" onAction="#selectTime" text="Estimated Time of Assistnce Needed" visible="false">
               <items>
                   <RadioMenuItem id="time30" fx:id="time30Rb" mnemonicParsing="false" onAction="#selectTime" text="30 Mintues" />
                   <RadioMenuItem id="time1Hr" fx:id="time1HrRb" mnemonicParsing="false" onAction="#selectTime" text="1 Hour" />
@@ -39,13 +39,36 @@
             <Button id="processBtn" fx:id="processBtn" mnemonicParsing="false" onAction="#showCost" style="-fx-background-color: POWDERBLUE;" text="Process" textFill="WHITE" />
          </children>
       </VBox>
-      <Label fx:id="confirmedLbl" alignment="CENTER" layoutX="71.0" layoutY="253.0" prefHeight="25.0" prefWidth="328.0" text="The following has been confirmed for your delivery: " underline="true" visible="false" wrapText="true">
+      <VBox id="outputVBox" fx:id="outputVBox" layoutX="33.0" layoutY="302.0" prefHeight="68.0" prefWidth="182.0" spacing="25.0">
+         <children>
+            <Label id="needsLbl" fx:id="needsLbl" prefHeight="20.0" prefWidth="183.0" text="Requested Additional Items: " underline="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label id="costLbl" fx:id="costLbl" prefHeight="20.0" prefWidth="126.0" text="Cost for assistance: " underline="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Label id="confirmedLbl" fx:id="confirmedLbl" alignment="CENTER" layoutY="266.0" prefHeight="25.0" prefWidth="470.0" text="The following has been confirmed for your delivery: " underline="true" wrapText="true">
          <font>
-            <Font size="14.0" />
-         </font></Label>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
       <Button fx:id="nextBtn" disable="true" layoutX="364.0" layoutY="476.0" mnemonicParsing="false" onAction="#moveToNextPage" style="-fx-background-color: POWDERBLUE;" text="Next" textFill="WHITE" />
       <Button fx:id="backBtn" layoutX="53.0" layoutY="476.0" mnemonicParsing="false" onAction="#movePrvPage" style="-fx-background-color: POWDERBLUE;" text="Back" textFill="WHITE" />
-      <Label fx:id="NeedsLbl" layoutX="78.0" layoutY="286.0" visible="false" />
-      <Label fx:id="costLbl" layoutX="78.0" layoutY="387.0" visible="false" />
+      <Label id="needsOutLbl" fx:id="needsOutLbl" layoutX="217.0" layoutY="302.0" prefHeight="20.0" prefWidth="206.0" text="needsOutLbl">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label id="costOutLbl" fx:id="costOutLbl" layoutX="217.0" layoutY="343.0" prefHeight="20.0" prefWidth="206.0" text="costOutLbl">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
