@@ -5,10 +5,14 @@
  */
 package Controllers;
 
+import Models.MoveScene;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
@@ -29,6 +33,10 @@ public class GPSViewController implements Initializable {
     private Label label;
     @FXML
     private MediaView gpsMediaView;
+    @FXML
+    private Button nextBtn;
+    @FXML
+    private Button backBtn;
 
     /**
      * Initializes the controller class.
@@ -41,23 +49,16 @@ public class GPSViewController implements Initializable {
         MediaPlayer player = new MediaPlayer(media);
         gpsMediaView.setMediaPlayer(player);
         player.setAutoPlay(true);
-        player.play();
-        
-       /***
-        * URL mediaUrl = getClass().getResource("./GPS_Stub.mp4");
-        String mediaStringUrl = mediaUrl.toExternalForm();
-        */
-        
-        //Media media = new Media ("src/Documents/GPS_Stub.mp4");
-        //final MediaPlayer player = new MediaPlayer(media);
-        //gpsMedia = new MediaView(player);
-        
-        //MediaPlayer player = new MediaPlayer(video);
-        
-        //player.setAutoPlay(true);
-        //player.play();
-         
-       
+        player.play();       
     }    
+
+    @FXML
+    private void moveToNextPage(ActionEvent _event) {
+    }
+
+    @FXML
+    private void moveToPrvPage(ActionEvent _event) throws IOException {
+         MoveScene.getInstance().Move("Billing.fxml", backBtn);
+    }
     
 }
