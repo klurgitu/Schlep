@@ -1,9 +1,13 @@
 package Controllers;
 
 import Models.MoveScene;
+import Models.PassCost;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.Label;
@@ -11,23 +15,25 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 /**
  * Controller for 'AdditionalNeedsPer.fxml' Controller Class
  *
- * @Author Josiah Stadler Last updated 10/23/20
+ * @Author Josiah Stadler Last updated 10/23/20, 11/13/20
  * @author Katelynn Urgitus Last Updated 11/05/2020
  */
-public class AdditionalNeedsPerController {
+public class AdditionalNeedsPerController extends PassCost implements Initializable{
 
-    private final double wage = 15.00;
+    private final double wage = getAssistanceWage();    
     private final double halfHrWage = wage * .5;
     private final double twoHrWage = wage * 2;
     private final double threeHrWage = wage * 3;
     private double subtotal;
     private String time;
-    private String itemsMsg = "";
-    private String costMsg;
+    private String itemsMsg;
+    private String costMsg;  
+    
     @FXML
     private AnchorPane anchor;
 
@@ -77,31 +83,50 @@ public class AdditionalNeedsPerController {
     private Button backBtn;
 
     @FXML
-    private Label NeedsLbl;
-
-    @FXML
     private Label costLbl;
-
+    
     @FXML
+    private VBox outputVBox;
+    
+    @FXML
+    private Label needsLbl;
+    
+    @FXML
+    private Label costOutLbl;
+    
+    @FXML
+    private Label needsOutLbl;
+    
+    
+    @Override
+    public void initialize(URL _url, ResourceBundle _rb) {
+        needsLbl.setVisible(false);
+        needsOutLbl.setVisible(false);
+        costLbl.setVisible(false);
+        costOutLbl.setVisible(false);        
+        confirmedLbl.setVisible(false);
+        AssistTimeAmountMnBtn.setVisible(false);
+        needsOutLbl.setText("");
+        costOutLbl.setText("");        
+        processBtn.setDisable(true);
+        nextBtn.setDisable(true);
+        itemsMsg = "";
+        costMsg = "";
+    }
+    
+     @FXML
+    private void checkItem(ActionEvent _event) {
+        CheckMenuItem source = (CheckMenuItem) _event.getSource();
+        String id = source.getId();
+        if(id.equals(assistCheckMnItem.getId())){
+            AssistTimeAmountMnBtn.setVisible(true);
+        }
+        processBtn.setDisable(false);
+    }
+       
     void CheckDriverAssist(ActionEvent _event) {
-        AssistTimeAmountMnBtn.setVisible(true);
-        costMsg = "Your selected assistance time is: ";
-    }
-
-    @FXML
-    void checkDolly(ActionEvent _event) {
-        itemsMsg += dollyCheckMnBtn.getText() + "\n";
-    }
-
-    @FXML
-    void checkHandTruck(ActionEvent _event) {
-        itemsMsg += handTruckCheckMnBtn.getText() + "\n";
-    }
-
-    @FXML
-    void checkRamp(ActionEvent _event) {
-        itemsMsg += rampCheckMnItem.getText() + "\n";
-    }
+        AssistTimeAmountMnBtn.setVisible(true);       
+    }    
 
     @FXML
     void movePrvPage(ActionEvent _event) throws IOException {
@@ -150,21 +175,44 @@ public class AdditionalNeedsPerController {
             default:
                 subtotal = 0;
                 time = "";
-        }
+        }        
+        setAssistCost(subtotal);
+        processBtn.setDisable(false);        
     }
 
     @FXML
     void showCost(ActionEvent _event) {
-        if (assistCheckMnItem.isSelected()) {
-            costMsg += time + " of assistance.\n " + " With a cost of $ " + String.format("%.2f", subtotal) + "\n";
-            costLbl.setText(costMsg);
-            costLbl.setVisible(true);
-        } else {
-            costLbl.setVisible(false);
+        itemsMsg ="";
+        costMsg = "";
+        needsLbl.setVisible(false);        
+        needsOutLbl.setVisible(false);     
+        if(dollyCheckMnBtn.isSelected()){
+            itemsMsg += dollyCheckMnBtn.getText() + " ";
+            needsLbl.setVisible(true);
         }
-        confirmedLbl.setVisible(true);
-        NeedsLbl.setText("You have selected the following additional items to assist you: \n" + itemsMsg);
-        NeedsLbl.setVisible(true);
+        if(rampCheckMnItem.isSelected()){
+            itemsMsg += rampCheckMnItem.getText() + " ";
+            needsLbl.setVisible(true);
+        }
+        if(handTruckCheckMnBtn.isSelected()){
+            itemsMsg += handTruckCheckMnBtn.getText() + " ";
+            needsLbl.setVisible(true);
+        }
+        if(assistCheckMnItem.isSelected()) {            
+            costOutLbl.setText("$" + String.format("%.2f", getAssistCost()));
+            costLbl.setVisible(true);
+            costOutLbl.setVisible(true);
+            AssistTimeAmountMnBtn.setVisible(true);
+        }else if (!assistCheckMnItem.isSelected()) {
+            costMsg = "";
+            costLbl.setVisible(false);
+            costOutLbl.setVisible(false);
+            AssistTimeAmountMnBtn.setVisible(false);
+        }
+        needsOutLbl.setText(itemsMsg); 
+        confirmedLbl.setVisible(true);               
+        needsOutLbl.setVisible(true);
+        
         nextBtn.setDisable(false);
-    }
+    }    
 }

@@ -1,6 +1,7 @@
 package Controllers;
 
 import Models.MoveScene;
+import Models.PassCost;
 import java.io.IOException;
 import static java.lang.String.format;
 import java.net.URL;
@@ -16,50 +17,18 @@ import javafx.scene.image.ImageView;
  * FXML Controller class This is the controller for the BidPage view. This is
  * where the GPS data and other associated information is sent to the user
  *
- * @author Josiah Stadler Last updated 10/29/20
+ * @author Josiah Stadler Last updated 10/29/20, 11/13/20
  * @author Katelynn Urgitus Last Updated 11/05/2020
  */
-public class BidPageController implements Initializable {
 
-    private static final double costPerMile = .55;
-    private static final double rateOfSpeed = 65;
-    private static final String Hr = " Hr";
-
-//Variables to hold data for imulation of gps API
-    private String driver1 = "Carl1";
-    private String driver2 = "Carl2";
-    private String driver3 = "Carl3";
-    private String driver4 = "Carl4";
-    private String driver5 = "Carl5";
-    private String driver6 = "Carl6";
-    private String rating1 = "3:5";
-    private String rating2 = "1:5";
-    private String rating3 = "2:5";
-    private String rating4 = "5:5";
-    private String rating5 = "4:5";
-    private String rating6 = "2:5";
-    private int numOfBids = 6;
-    private double distance1 = 8.78;
-    private double distance2 = 6.5;
-    private double distance3 = 8.9;
-    private double distance4 = 10.9;
-    private double distance5 = 11.5;
-    private double distance6 = 14.5;
-    private double time1 = (distance1 / rateOfSpeed);
-    private double time2 = distance2 / rateOfSpeed;
-    private double time3 = distance3 / rateOfSpeed;
-    private double time4 = distance4 / rateOfSpeed;
-    private double time5 = distance5 / rateOfSpeed;
-    private double time6 = distance6 / rateOfSpeed;
-    private double price1 = costPerMile * distance1;
-    private double price2 = costPerMile * distance2;
-    private double price3 = costPerMile * distance3;
-    private double price4 = costPerMile * distance4;
-    private double price5 = costPerMile * distance5;
-    private double price6 = costPerMile * distance6;
+public class BidPageController extends PassCost implements Initializable {
+    //Variables to hold data for imulation of gps API
+    private static final String Hr = " Hr";    
+    private int numOfBids = 6;  
 
     @FXML
     private ImageView logo;
+    
     @FXML
     private Label driver1Lbl;
 
@@ -143,34 +112,45 @@ public class BidPageController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param _url
+     * @param _rb
      */
     @Override
     public void initialize(URL _url, ResourceBundle _rb) {
+
         initializeButtonArray();
-        driver1Lbl.setText(driver1);
-        driver2Lbl.setText(driver2);
-        driver3Lbl.setText(driver3);
-        driver4Lbl.setText(driver4);
-        driver5Lbl.setText(driver5);
-        driver6Lbl.setText(driver6);
-        etaLbl1.setText(format("%.2f", time1) + Hr);
-        etaLbl2.setText(format("%.2f", time2) + Hr);
-        etaLbl3.setText(format("%.2f", time3) + Hr);
-        etaLbl4.setText(format("%.2f", time4) + Hr);
-        etaLbl5.setText(format("%.2f", time5) + Hr);
-        etaLbl6.setText(format("%.2f", time6) + Hr);
-        costLbl1.setText("$" + format("%.2f", price1));
-        costLbl2.setText("$" + format("%.2f", price2));
-        costLbl3.setText("$" + format("%.2f", price3));
-        costLbl4.setText("$" + format("%.2f", price4));
-        costLbl5.setText("$" + format("%.2f", price5));
-        costLbl6.setText("$" + format("%.2f", price6));
-        rating1Lbl.setText(rating1);
-        rating2Lbl.setText(rating2);
-        rating3Lbl.setText(rating3);
-        rating4Lbl.setText(rating4);
-        rating5Lbl.setText(rating5);
-        rating6Lbl.setText(rating6);
+        //Creates bids with all need info
+        PassCost bidOne = new PassCost("Rick", "3:5", 20.52, 65, 25.00,2);
+        PassCost bidTwo = new PassCost("John", "4:5", 120.52, 75, 0,0);
+        PassCost bidThree = new PassCost("Shawn", "2:5", 40.52, 25, 25.00,3);
+        PassCost bidFour = new PassCost("Jenny", "5:5", 220.52, 85, 25.00,1);
+        PassCost bidFive = new PassCost("Kat", "10:5", 85.50, 65, 25.00,3);
+        PassCost bidSix = new PassCost("Carlie", "3:5", 2.52, 35, 0,0);      
+        driver1Lbl.setText(bidOne.getDriverName());
+        driver2Lbl.setText(bidTwo.getDriverName());
+        driver3Lbl.setText(bidThree.getDriverName());
+        driver4Lbl.setText(bidFour.getDriverName());
+        driver5Lbl.setText(bidFive.getDriverName());
+        driver6Lbl.setText(bidSix.getDriverName());
+        etaLbl1.setText(format("%.2f", bidOne.getEta()) + Hr);
+        etaLbl2.setText(format("%.2f", bidTwo.getEta()) + Hr);
+        etaLbl3.setText(format("%.2f", bidThree.getEta()) + Hr);
+        etaLbl4.setText(format("%.2f", bidFour.getEta()) + Hr);
+        etaLbl5.setText(format("%.2f", bidFive.getEta()) + Hr);
+        etaLbl6.setText(format("%.2f", bidSix.getEta()) + Hr);        
+        costLbl1.setText("$" + format("%.2f", bidOne.getTotal()));
+        costLbl2.setText("$" + format("%.2f", bidTwo.getTotal()));
+        costLbl3.setText("$" + format("%.2f", bidThree.getTotal()));
+        costLbl4.setText("$" + format("%.2f", bidFour.getTotal()));
+        costLbl5.setText("$" + format("%.2f", bidFive.getTotal()));
+        costLbl6.setText("$" + format("%.2f", bidSix.getTotal()));        
+        rating1Lbl.setText(bidOne.getRating());
+        rating2Lbl.setText(bidTwo.getRating());
+        rating3Lbl.setText(bidThree.getRating());
+        rating4Lbl.setText(bidFour.getRating());
+        rating5Lbl.setText(bidFive.getRating());
+        rating6Lbl.setText(bidSix.getRating());
+
     }
 
     public void initializeButtonArray() {
