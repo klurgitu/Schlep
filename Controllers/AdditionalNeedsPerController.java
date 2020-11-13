@@ -135,7 +135,7 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
 
     @FXML
     void moveToNextPage(ActionEvent _event) throws IOException {
-        MoveScene.getInstance().Move("PickupAddress.fxml", nextBtn);       
+        MoveScene.getInstance().Move("PickupAddress.fxml", nextBtn);
     }
 
     @FXML

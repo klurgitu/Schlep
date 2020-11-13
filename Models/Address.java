@@ -3,7 +3,7 @@ package Models;
 /**
  * This is a class for the Address for a user
  *
- * Last Updated 11/01/2020
+ * Last Updated 11/11/2020
  *
  * @author Katelynn Urgitus
  */
@@ -40,7 +40,7 @@ public class Address extends API.BaseAddressAPIClass {
         this.state = _state;
         this.city = _city;
         this.zipcode = _zipcode;
-        this.uuid = SchlepUser.connectUUID();
+        this.uuid = SchlepUser.user.getUuid();
         saveAddress();
         updateAddressId();
     }

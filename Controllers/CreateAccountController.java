@@ -6,7 +6,7 @@ package Controllers;
  * Controls all action events on the CreateAccount FXML file
  *
  * @author Marc Bittle
- * @author Katelynn Urgitus Last Updated 11/05/2020
+ * @author Katelynn Urgitus Last Updated 11/11/2020
  */
 import java.net.URL;
 import javafx.fxml.FXML;
@@ -21,7 +21,7 @@ import java.io.IOException;
 import javafx.scene.control.PasswordField;
 import Models.SchlepUser;
 
-public class CreateAccountController implements Initializable {
+public class CreateAccountController extends SchlepUser implements Initializable {
 
     @FXML
     private TextField firstName;
@@ -66,7 +66,13 @@ public class CreateAccountController implements Initializable {
                 messageLbl.setText("Passwords do not match!");
             } else {
                 messageLbl.setText("");
-                SchlepUser user = new SchlepUser(firstName, lastName, email, passwordConf, phoneNumber);
+                SchlepUser.user.setUuid(DB.DataObject.generateUuid());
+                SchlepUser.user.setFirstName(firstName.getText());
+                SchlepUser.user.setLastName(lastName.getText());
+                SchlepUser.user.setEmail(email.getText());
+                SchlepUser.user.setPassword(passwordConf.getText());
+                SchlepUser.user.setPhoneNumber(phoneNumber.getText());
+                SchlepUser.user.saveSchleperInfo();
                 MoveScene.getInstance().Move("AddressSignUp.fxml", activateAcctBtn);
             }
 

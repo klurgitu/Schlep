@@ -20,60 +20,61 @@ import javafx.scene.image.ImageView;
  * @author Josiah Stadler Last updated 10/29/20, 11/13/20
  * @author Katelynn Urgitus Last Updated 11/05/2020
  */
+
 public class BidPageController extends PassCost implements Initializable {
     //Variables to hold data for imulation of gps API
     private static final String Hr = " Hr";    
-    private int numOfBids = 6;   
+    private int numOfBids = 6;  
 
     @FXML
     private ImageView logo;
     
     @FXML
     private Label driver1Lbl;
-    
+
     @FXML
     private Button schlepItBtn1;
-    
+
     @FXML
     private Label rating1Lbl;
-    
+
     @FXML
     private Label BidLbl;
     @FXML
     private Label driver2Lbl;
-    
+
     @FXML
     private Button schlepItBtn2;
     @FXML
     private Label rating2Lbl;
-    
+
     @FXML
     private Label driver3Lbl;
-   
+
     @FXML
     private Button schlepItBtn3;
     @FXML
     private Label rating3Lbl;
-   
+
     @FXML
     private Label driver4Lbl;
-    
+
     @FXML
     private Button schlepItBtn4;
     @FXML
     private Label rating4Lbl;
-   
+
     @FXML
     private Label driver5Lbl;
-   
+
     @FXML
     private Button schlepItBtn5;
     @FXML
     private Label rating5Lbl;
-   
+
     @FXML
     private Label driver6Lbl;
-    
+
     @FXML
     private Button schlepItBtn6;
     @FXML
@@ -108,7 +109,6 @@ public class BidPageController extends PassCost implements Initializable {
     @FXML
     private Label etaLbl6;
     public Button[] btnArray;
-   
 
     /**
      * Initializes the controller class.
@@ -117,7 +117,7 @@ public class BidPageController extends PassCost implements Initializable {
      */
     @Override
     public void initialize(URL _url, ResourceBundle _rb) {
-        
+
         initializeButtonArray();
         //Creates bids with all need info
         PassCost bidOne = new PassCost("Rick", "3:5", 20.52, 65, 25.00,2);
@@ -150,11 +150,13 @@ public class BidPageController extends PassCost implements Initializable {
         rating4Lbl.setText(bidFour.getRating());
         rating5Lbl.setText(bidFive.getRating());
         rating6Lbl.setText(bidSix.getRating());
+
     }
-    public void initializeButtonArray(){
+
+    public void initializeButtonArray() {
         btnArray = new Button[numOfBids];
-        for (int i = 0; i <numOfBids; i++){
-            
+        for (int i = 0; i < numOfBids; i++) {
+
         }
     }
 
