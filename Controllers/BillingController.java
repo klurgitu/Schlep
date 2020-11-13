@@ -7,7 +7,7 @@ package Controllers;
  *
  * @author Katelynn Urgitus
  */
-import Models.BillingInfo;
+
 import Models.MoveScene;
 import java.io.IOException;
 import java.net.URL;
@@ -36,26 +36,26 @@ public class BillingController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param _url
+     * @param _rb
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL _url, ResourceBundle _rb) {
 
     }
-
     /**
      * Will save billing info of the User in the Schlep Database and move to the
      * next screen
      *
-     * @param event
+     * @param _event the event being handled 
      */
     @FXML
-    private void saveInfoAndMove(ActionEvent event) throws IOException, SQLException {
-        MoveScene.getInstance().Move("Login.fxml", nextBtn);
-        BillingInfo info = new BillingInfo(nameOnCardField.getText(), cardNumberField.getText(), expirationDateField.getText(), ccvCvvField.getText());
+    private void saveInfoAndMove(ActionEvent _event) throws IOException, SQLException {
+        MoveScene.getInstance().Move("GPSView.fxml", nextBtn);        
     }
 
     @FXML
-    private void goToPrvPage(ActionEvent event) throws IOException {
-        MoveScene.getInstance().Move("OffloadingItems.fxml", backBtn);
+    private void goToPrvPage(ActionEvent _event) throws IOException {
+        MoveScene.getInstance().Move("BidPage.fxml", backBtn);
     }
 }
