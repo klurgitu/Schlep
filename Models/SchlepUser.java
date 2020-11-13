@@ -1,7 +1,6 @@
 package Models;
 
 /**
- * last updated 11/6/2020
  *
  * The SchlepUser Class builds a User and places the User data in a text file -
  * (eventually a database)
