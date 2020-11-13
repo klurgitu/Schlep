@@ -20,7 +20,7 @@ public class RunSchlep extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        URL urlForDropdownFX = new File("src/view/Timer.fxml").toURI().toURL();
+        URL urlForDropdownFX = new File("src/view/CreateAccount.fxml").toURI().toURL();
         Parent parent = FXMLLoader.load(urlForDropdownFX);
         Scene scene = new Scene(parent);
 
