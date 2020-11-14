@@ -120,7 +120,7 @@ public class BidPageController extends PassCost implements Initializable {
 
         initializeButtonArray();
         //Creates bids with all need info
-        PassCost bidOne = new PassCost("Rick", "3:5", 20.52, 65, 25.00,2);
+        PassCost bidOne = new PassCost("Rick", "3:5",0, 65, 25.00,2);
         PassCost bidTwo = new PassCost("John", "4:5", 120.52, 75, 0,0);
         PassCost bidThree = new PassCost("Shawn", "2:5", 40.52, 25, 25.00,3);
         PassCost bidFour = new PassCost("Jenny", "5:5", 220.52, 85, 25.00,1);
@@ -175,6 +175,6 @@ public class BidPageController extends PassCost implements Initializable {
 
     @FXML
     private void moveToNextPage(ActionEvent _event) throws IOException {
-        MoveScene.getInstance().Move("GPSView.fxml", nextBtn);
+        MoveScene.getInstance().Move("Billing.fxml", nextBtn);
     }
 }
