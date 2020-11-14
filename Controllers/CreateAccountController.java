@@ -1,7 +1,6 @@
 package Controllers;
 
 /**
- * last updated 11/6/2020
  *
  * Controls all action events on the CreateAccount FXML file
  *
