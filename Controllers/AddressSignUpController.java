@@ -60,7 +60,7 @@ public class AddressSignUpController extends Address implements Initializable {
     @FXML
     private void saveAddressAndMove(ActionEvent event) throws SQLException, IOException {
         Address userAddress = new Address(userAddressLine1.getText(), userAddressLine2.getText(), countryBox.getValue(), stateBox.getValue(), cityBox.getValue(), userZipcode.getText());
-        MoveScene.getInstance().Move("OffloadingItems.fxml", nextBtn);
+        MoveScene.getInstance().Move("DeliveryInfo.fxml", nextBtn);
 
     }
 
