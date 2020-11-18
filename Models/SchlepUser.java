@@ -49,10 +49,8 @@ public class SchlepUser extends DB.DataObject {
         saveSchleperInfo();
     }
 
-    /*
     /**
      *
-     * @throws IOException
      */
     public void saveSchleperInfo() throws IOException {
         HashMap<String, String> saveUser = new HashMap();

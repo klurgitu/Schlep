@@ -50,20 +50,20 @@ public class CreateAccountController extends SchlepUser implements Initializable
     private Button activateAcctBtn;
 
     /**
+     * Create new User account
      *
      * @param e
      * @throws IOException
      */
     @FXML
-
     private void activateAcctBtn(ActionEvent e) throws IOException {
         // Force user to complete all fields
         if (firstName.getText().equals("") || lastName.getText().equals("") || email.getText().equals("") || phoneNumber.getText().equals("")) {
             messageLbl.setText("All fields required!");
-        } else {
+        } else { // If all fields are complete, verify password
             if (!password.getText().equals(passwordConf.getText())) {
                 messageLbl.setText("Passwords do not match!");
-            } else {
+            } else { // generate UUID
                 messageLbl.setText("");
                 SchlepUser.user.setUuid(DB.DataObject.generateUuid());
                 SchlepUser.user.setFirstName(firstName.getText());
@@ -79,6 +79,7 @@ public class CreateAccountController extends SchlepUser implements Initializable
     }
 
     /**
+     * Transition to the LoginView
      *
      * @param event
      * @throws Exception
