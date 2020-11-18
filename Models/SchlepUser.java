@@ -50,7 +50,7 @@ public class SchlepUser extends DB.DataObject {
     }
 
     /**
-     *
+     * Save User to DB
      */
     public void saveSchleperInfo() throws IOException {
         HashMap<String, String> saveUser = new HashMap();
@@ -64,6 +64,13 @@ public class SchlepUser extends DB.DataObject {
         connector.createObject(saveUser, "user");
     }
 
+    /**
+     * Verify that the User account exists
+     *
+     * @param _email user email
+     * @param _password user password
+     * @return results from query (the user if they exist, otherwise null)
+     */
     public HashMap<String, Object> checkValidUser(String _email, String _password) {
         Map<String, String> checkExists = new HashMap();
         checkExists.put("userEmail", _email);
@@ -102,7 +109,7 @@ public class SchlepUser extends DB.DataObject {
     // ================================ SETTERS ====================================
     /**
      *
-     * @param _fname
+     * @param _fname user first name
      */
     public void setFirstName(String _fname) {
         this.firstName = _fname;
@@ -110,7 +117,7 @@ public class SchlepUser extends DB.DataObject {
 
     /**
      *
-     * @param _lname
+     * @param _lname user last name
      */
     public void setLastName(String _lname) {
         this.lastName = _lname;
@@ -118,7 +125,7 @@ public class SchlepUser extends DB.DataObject {
 
     /**
      *
-     * @param _email
+     * @param _email user email
      */
     public void setEmail(String _email) {
         this.userEmail = _email;
@@ -126,7 +133,7 @@ public class SchlepUser extends DB.DataObject {
 
     /**
      *
-     * @param _password
+     * @param _password user password
      */
     public void setPassword(String _password) {
         this.userPassword = _password;
@@ -134,7 +141,7 @@ public class SchlepUser extends DB.DataObject {
 
     /**
      *
-     * @param _phone
+     * @param _phone user phone number
      */
     public void setPhoneNumber(String _phone) {
         this.phoneNumber = _phone;
