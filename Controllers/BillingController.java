@@ -18,6 +18,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+/**
+ * 
+ * @author kat
+ * @last update: Josiah Stadler 11/17/20
+ */
 
 public class BillingController implements Initializable {
 
