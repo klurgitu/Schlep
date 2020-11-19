@@ -18,17 +18,24 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 /**
- * Controller for 'AdditionalNeedsPer.fxml' Controller Class
+ * Controller for 'AdditionalNeedsPer.fxml'. This is where a customer selects items they
+ * might need for offloading items that are delivered. this includes assistance
+ * from the driver, which is an additional fee. 
  *
- * @Author Josiah Stadler Last updated 10/23/20, 11/13/20
+ * @Author Josiah Stadler Last updated 10/23/20, 11/13/20, 11/17/20, 11/18/20
  * @author Katelynn Urgitus Last Updated 11/05/2020
  */
 public class AdditionalNeedsPerController extends PassCost implements Initializable {
 
-    private final double wage = getAssistanceWage();
+    //Gets the one hour wage for driver assistance with offloading from the PassCost model.
+    public double wage = getWAGE();
+   
+    //public boolean assistRequest;
+
     private final double halfHrWage = wage * .5;
     private final double twoHrWage = wage * 2;
     private final double threeHrWage = wage * 3;
+    public static double assistTime;
     private double subtotal;
     private String time;
     private String itemsMsg;
@@ -111,6 +118,8 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
         nextBtn.setDisable(true);
         itemsMsg = "";
         costMsg = "";
+        assistTime = 0;
+        
     }
 
     @FXML
@@ -146,6 +155,7 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
             case "time30":
                 subtotal = halfHrWage;
                 time = time30Rb.getText();
+                assistTime = .50;
                 time1HrRb.setSelected(false);
                 time2HrRb.setSelected(false);
                 time3HrRb.setSelected(false);
@@ -153,6 +163,7 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
             case "time1Hr":
                 subtotal = wage;
                 time = time1HrRb.getText();
+                assistTime = 1;
                 time30Rb.setSelected(false);
                 time2HrRb.setSelected(false);
                 time3HrRb.setSelected(false);
@@ -160,6 +171,7 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
             case "time2Hr":
                 subtotal = twoHrWage;
                 time = time2HrRb.getText();
+                assistTime = 2;
                 time1HrRb.setSelected(false);
                 time30Rb.setSelected(false);
                 time3HrRb.setSelected(false);
@@ -167,12 +179,14 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
             case "time3Hr":
                 subtotal = threeHrWage;
                 time = time3HrRb.getText();
+                assistTime = 3;
                 time1HrRb.setSelected(false);
                 time2HrRb.setSelected(false);
                 time30Rb.setSelected(false);
                 break;
             default:
                 subtotal = 0;
+                assistTime = 0;
                 time = "";
         }
         setAssistCost(subtotal);
@@ -211,7 +225,6 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
         needsOutLbl.setText(itemsMsg);
         confirmedLbl.setVisible(true);
         needsOutLbl.setVisible(true);
-
         nextBtn.setDisable(false);
     }
 }

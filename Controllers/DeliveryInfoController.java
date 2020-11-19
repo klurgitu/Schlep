@@ -20,14 +20,18 @@ import javafx.scene.layout.VBox;
 /**
  * FXML Controller class
  *
- * @author Josiah Stadler updated: 10/16/20, 11/11/20
+ * @author Josiah Stadler updated: 10/16/20, 11/11/20, 11/17/20
  * @author Katelynn Urgitus Last Updated 11/05/2020
  */
 public class DeliveryInfoController extends PassCost implements Initializable {
 
-   //To hold data format for output
-    private  String date;
-    private static final double instantCost = 25.00;
+    //To hold data format for output
+    private String date;
+    private double instCost;
+    
+    //Passed to PassCost class to set the additional fee for an instant delivery
+    public boolean instRequest;
+   
     @FXML
     private AnchorPane anchorPane;
     @FXML
@@ -51,11 +55,11 @@ public class DeliveryInfoController extends PassCost implements Initializable {
     @FXML
     private ImageView logo;
     @FXML
-    private MenuButton selectServiceTypeMnuBtn; 
+    private MenuButton selectServiceTypeMnuBtn;
     @FXML
     private MenuItem instantDeliveryMnuItem;
     @FXML
-    private Button backBtn; 
+    private Button backBtn;
     @FXML
     private Label detailHeaderLbl;
     @FXML
@@ -63,7 +67,7 @@ public class DeliveryInfoController extends PassCost implements Initializable {
     @FXML
     private Label whenLbl;
     @FXML
-    private Label willContactLbl;   
+    private Label willContactLbl;
     @FXML
     private VBox detailsVBox;
     @FXML
@@ -71,53 +75,56 @@ public class DeliveryInfoController extends PassCost implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
      * @param _url
      * @param _rb
      */
     @Override
     public void initialize(URL _url, ResourceBundle _rb) {
-        //Variables to hold id for switch statement to set delivery window    
+        //Variables to hold id for switch statement to set delivery window
         scheduleDeliveryDatePicker.setDisable(true);
         selectServiceTypeMnuBtn.setDisable(false);
-        selectTimeMnBtn.setDisable(true);        
+        selectTimeMnBtn.setDisable(true);
         nextBtn.setDisable(true);
-        detailsVBox.setVisible(false);     
-        
+        detailsVBox.setVisible(false);
+        setInstRequested(false);
     }
 
     @FXML
     private void setDate(ActionEvent _event) {
+        setInstRequested(false);
         DatePicker source = (DatePicker) _event.getSource();
-        date = source.getValue().toString();        
-        detailsVBox.setVisible(false);       
+        date = source.getValue().toString();
+        detailsVBox.setVisible(false);
         whenLbl.setText("Delivery Window: ");
-        deliveryTypeLbl.setText("Delivery Type: " + scheduledDeliveryMnuItem.getText());              
-        whenLbl.setText(whenLbl.getText() + date);        
-        detailsVBox.setVisible(true);       
+        deliveryTypeLbl.setText("Delivery Type: " + scheduledDeliveryMnuItem.getText());
+        whenLbl.setText(whenLbl.getText() + date);
+        detailsVBox.setVisible(true);
     }
 
     @FXML
-    private void setWindow(ActionEvent _event) { 
+    private void setWindow(ActionEvent _event) {
         MenuItem source = (MenuItem) _event.getSource();
-        selectTimeMnBtn.setText(source.getText());     
+        setInstRequested(true);
+        selectTimeMnBtn.setText(source.getText());
         detailsVBox.setVisible(false);
-        whenLbl.setText("Delivery Window: ");            
-        deliveryTypeLbl.setText("Delivery Type: " + " " + instantDeliveryMnuItem.getText()+" = $" + String.format("%.2f",instantCost));
-        
-        if (source.getId().equals(selectedTime10_12MnItem.getId())) {                  
-            whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());              
-        } else if (source.getId().equals(selectedTime1_3MnItem.getId())) {          
-            whenLbl.setText(whenLbl.getText()+ "today, between " + source.getText());           
-        } else if (source.getId().equals(selectedTime3_5MnItem.getId())) {                   
+        whenLbl.setText("Delivery Window: ");
+
+        if (source.getId().equals(selectedTime10_12MnItem.getId())) {
             whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());
-        } else if (source.getId().equals(selectedTime5_7MnItem.getId())) {             
-            whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());         
-        } else if (source.getId().equals(selectedTime7_9MnItem.getId())) {                    
-            whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());         
-        } else if (source.getId().equals(selectedTime9_11MnItem.getId())) {                  
-            whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());           
+        } else if (source.getId().equals(selectedTime1_3MnItem.getId())) {
+            whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());
+        } else if (source.getId().equals(selectedTime3_5MnItem.getId())) {
+            whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());
+        } else if (source.getId().equals(selectedTime5_7MnItem.getId())) {
+            whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());
+        } else if (source.getId().equals(selectedTime7_9MnItem.getId())) {
+            whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());
+        } else if (source.getId().equals(selectedTime9_11MnItem.getId())) {
+            whenLbl.setText(whenLbl.getText() + "today, between " + source.getText());
         }
-        setInstDeliveryCost(instantCost);
+        deliveryTypeLbl.setText("Delivery Type: " + " "
+                + instantDeliveryMnuItem.getText() + " = $" + String.format("%.2f", getInstDeliveryCost()));
         detailsVBox.setVisible(true);
     }
 
@@ -128,17 +135,20 @@ public class DeliveryInfoController extends PassCost implements Initializable {
 
     @FXML
     private void setType(ActionEvent _event) {
+
         MenuItem source = (MenuItem) _event.getSource();
         detailsVBox.setVisible(false);
         scheduleDeliveryDatePicker.setDisable(true);
         selectTimeMnBtn.setDisable(true);
-        nextBtn.setDisable(true);        
-        
+        nextBtn.setDisable(true);
+
         if (source.getId().equals(instantDeliveryMnuItem.getId())) {
-            selectTimeMnBtn.setDisable(false);           
+            setInstRequested(true);
+            selectTimeMnBtn.setDisable(false);
             selectServiceTypeMnuBtn.setText(instantDeliveryMnuItem.getText());
         } else if (source.getId().equals(scheduledDeliveryMnuItem.getId())) {
-            scheduleDeliveryDatePicker.setDisable(false);            
+            setInstRequested(false);
+            scheduleDeliveryDatePicker.setDisable(false);
             selectServiceTypeMnuBtn.setText(scheduledDeliveryMnuItem.getText());
         }
         nextBtn.setDisable(false);
