@@ -5,6 +5,7 @@ package Controllers;
  *
  * @author Marc Bittle Last Updated 11/17/2020
  */
+import Models.PassCost;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.Map;
@@ -65,12 +66,17 @@ public class TimerController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ObservableList<Integer> hoursList = FXCollections.observableArrayList();
         ObservableList<Integer> minutesAndSecondsList = FXCollections.observableArrayList();
+
+        // Populate the hoursList and the minutesAndSecondsList with applicable values
+        // (i.e , 0-24 for hours, 0-60 for minutes and seconds)
         for (int i = 0; i <= 60; i++) {
             if (0 <= i && i <= 24) {
                 hoursList.add(i);
             }
             minutesAndSecondsList.add(i);
         }
+
+        // add the hoursList and the minutesAndSecondsList as item to the input menu - default all values to zero
         hoursInput.setItems(hoursList);
         hoursInput.setValue(0);
 
@@ -80,6 +86,8 @@ public class TimerController implements Initializable {
         secondsInput.setItems(minutesAndSecondsList);
         secondsInput.setValue(0);
 
+        // generate a TreepMap whose Keys are Integers (0 - 60) and the Values are a string
+        // representation of the Keys
         numberMap = new TreeMap<Integer, String>();
         for (Integer i = 0; i <= 60; i++) {
             if (0 <= i && i <= 9) {
@@ -134,6 +142,7 @@ public class TimerController implements Initializable {
             public void run() {
                 try {
                     while (true) {
+                        // set the output for the timer
                         setOutput();
                         Thread.sleep(1000);
                         if (currentSeconds == 0) {
@@ -141,6 +150,7 @@ public class TimerController implements Initializable {
                             scrollDown();
                             thread.stop();
                         }
+                        // decrement seconds
                         currentSeconds -= 1;
                     }
                 } catch (InterruptedException e) {

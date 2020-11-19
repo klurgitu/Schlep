@@ -48,12 +48,14 @@ public class LoginViewController extends SchlepUser implements Initializable {
     }
 
     /**
+     * Transition to the DeliveryInfo page
      *
      * @param event
      * @throws IOException
      */
     @FXML
     void moveToNextPage(ActionEvent event) throws SQLException, IOException {
+        // Verify the User account
         if (user.checkValidUser(userEmail.getText(), userPassword.getText()) == null) {
             messageLbl.setText("Incorrect Email/Password!");
         } else {
@@ -62,6 +64,7 @@ public class LoginViewController extends SchlepUser implements Initializable {
     }
 
     /**
+     * Go back to the CreateAccount page
      *
      * @param event
      * @throws Exception

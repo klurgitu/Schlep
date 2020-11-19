@@ -26,10 +26,12 @@ import javafx.scene.layout.VBox;
  * @author Katelynn Urgitus Last Updated 11/05/2020
  */
 public class AdditionalNeedsPerController extends PassCost implements Initializable {
+
     //Gets the one hour wage for driver assistance with offloading from the PassCost model.
     public double wage = getWAGE();
    
     //public boolean assistRequest;
+
     private final double halfHrWage = wage * .5;
     private final double twoHrWage = wage * 2;
     private final double threeHrWage = wage * 3;
@@ -188,7 +190,6 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
                 time = "";
         }
         setAssistCost(subtotal);
-        setAssistTime(assistTime);
         processBtn.setDisable(false);
     }
 
