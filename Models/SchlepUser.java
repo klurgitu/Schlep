@@ -71,12 +71,17 @@ public class SchlepUser extends DB.DataObject {
      * @param _password user password
      * @return results from query (the user if they exist, otherwise null)
      */
-    public HashMap<String, Object> checkValidUser(String _email, String _password) {
+    public boolean checkValidUser(String _email, String _password) {
+        boolean validUser = false;
         Map<String, String> checkExists = new HashMap();
         checkExists.put("userEmail", _email);
         checkExists.put("userPassword", _password);
 
-        return connector.readObject(checkExists, "user");
+        if (connector.readObject(checkExists, "user") != null) {
+            validUser = true;
+        }
+
+        return validUser;
     }
 
     // ================================ GETTERS ===================================

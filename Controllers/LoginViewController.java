@@ -56,7 +56,7 @@ public class LoginViewController extends SchlepUser implements Initializable {
     @FXML
     void moveToNextPage(ActionEvent event) throws SQLException, IOException {
         // Verify the User account
-        if (user.checkValidUser(userEmail.getText(), userPassword.getText()) == null) {
+        if (user.checkValidUser(userEmail.getText(), userPassword.getText()) == false) {
             messageLbl.setText("Incorrect Email/Password!");
         } else {
             MoveScene.getInstance().Move("DeliveryInfo.fxml", loginBtn);

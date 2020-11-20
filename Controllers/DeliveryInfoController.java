@@ -28,10 +28,10 @@ public class DeliveryInfoController extends PassCost implements Initializable {
     //To hold data format for output
     private String date;
     private double instCost;
-    
+
     //Passed to PassCost class to set the additional fee for an instant delivery
     public boolean instRequest;
-   
+
     @FXML
     private AnchorPane anchorPane;
     @FXML
