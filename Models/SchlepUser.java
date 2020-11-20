@@ -23,7 +23,7 @@ public class SchlepUser extends DB.DataObject {
     private String userPassword;
     private String phoneNumber;
     private final MySQLConnector connector = new MySQLConnector();
-    protected final static SchlepUser user = new SchlepUser();
+    protected static SchlepUser user = new SchlepUser();
 
     public SchlepUser() {
 
