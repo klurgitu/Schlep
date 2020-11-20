@@ -5,8 +5,8 @@ package Models;
  * The SchlepUser Class builds a User and places the User data in a text file -
  * (eventually a database)
  *
- * @author Marc Bittle
- * @author Katelynn Urgitus Last Updated: 11/11/2020
+ * @author Marc Bittle Last Updated: 11/20/2020
+ * @author Katelynn Urgitus
  */
 import java.io.*;
 import javafx.scene.control.TextField;
