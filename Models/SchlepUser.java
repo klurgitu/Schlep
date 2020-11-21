@@ -5,8 +5,8 @@ package Models;
  * The SchlepUser Class builds a User and places the User data in a text file -
  * (eventually a database)
  *
- * @author Marc Bittle
- * @author Katelynn Urgitus Last Updated: 11/11/2020
+ * @author Marc Bittle Last Updated: 11/20/2020
+ * @author Katelynn Urgitus
  */
 import java.io.*;
 import javafx.scene.control.TextField;
@@ -23,7 +23,7 @@ public class SchlepUser extends DB.DataObject {
     private String userPassword;
     private String phoneNumber;
     private final MySQLConnector connector = new MySQLConnector();
-    protected final static SchlepUser user = new SchlepUser();
+    protected static SchlepUser user = new SchlepUser();
 
     public SchlepUser() {
 
@@ -71,12 +71,17 @@ public class SchlepUser extends DB.DataObject {
      * @param _password user password
      * @return results from query (the user if they exist, otherwise null)
      */
-    public HashMap<String, Object> checkValidUser(String _email, String _password) {
+    public boolean checkValidUser(String _email, String _password) {
+        boolean validUser = false;
         Map<String, String> checkExists = new HashMap();
         checkExists.put("userEmail", _email);
         checkExists.put("userPassword", _password);
 
-        return connector.readObject(checkExists, "user");
+        if (connector.readObject(checkExists, "user") != null) {
+            validUser = true;
+        }
+
+        return validUser;
     }
 
     // ================================ GETTERS ===================================

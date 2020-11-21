@@ -65,13 +65,7 @@ public class CreateAccountController extends SchlepUser implements Initializable
                 messageLbl.setText("Passwords do not match!");
             } else { // generate UUID
                 messageLbl.setText("");
-                SchlepUser.user.setUuid(DB.DataObject.generateUuid());
-                SchlepUser.user.setFirstName(firstName.getText());
-                SchlepUser.user.setLastName(lastName.getText());
-                SchlepUser.user.setEmail(email.getText());
-                SchlepUser.user.setPassword(passwordConf.getText());
-                SchlepUser.user.setPhoneNumber(phoneNumber.getText());
-                SchlepUser.user.saveSchleperInfo();
+                SchlepUser.user = new SchlepUser(firstName, lastName, email, passwordConf, phoneNumber);
                 MoveScene.getInstance().Move("AddressSignUp.fxml", activateAcctBtn);
             }
 

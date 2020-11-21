@@ -5,8 +5,8 @@ package Controllers;
  *
  * Controls all action events on the LoginView FXML file
  *
- * @author Marc Bittle
- * @author Katelynn Urgitus Last Updated 11/05/2020
+ * @author Marc Bittle Last Updated 11/20/2020
+ * @author Katelynn Urgitus
  */
 import Models.SchlepUser;
 import java.io.IOException;
@@ -56,7 +56,7 @@ public class LoginViewController extends SchlepUser implements Initializable {
     @FXML
     void moveToNextPage(ActionEvent event) throws SQLException, IOException {
         // Verify the User account
-        if (user.checkValidUser(userEmail.getText(), userPassword.getText()) == null) {
+        if (user.checkValidUser(userEmail.getText(), userPassword.getText()) == false) {
             messageLbl.setText("Incorrect Email/Password!");
         } else {
             MoveScene.getInstance().Move("DeliveryInfo.fxml", loginBtn);
