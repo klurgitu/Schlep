@@ -27,7 +27,7 @@
       <Button id="backBtn" fx:id="backBtn" layoutX="16.0" layoutY="430.0" mnemonicParsing="false" onAction="#goToPrvPage" prefHeight="31.0" prefWidth="55.0" style="-fx-background-color: POWDERBLUE;" text="Back" textFill="WHITE" />
       <ImageView fx:id="logo" fitHeight="114.0" fitWidth="241.0" layoutX="145.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../UNCG%20Fall%202020/Copy%20of%20logo.PNG" />
+            <Image url="@../Documents/logo.PNG" />
          </image>
       </ImageView>
       <HBox id="menuHBox" layoutX="-1.0" layoutY="117.0" prefHeight="44.0" prefWidth="531.0" spacing="20.0">

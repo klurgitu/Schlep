@@ -95,7 +95,7 @@ public class PickupAddressController extends Address implements Initializable {
     }
 
     @FXML
-    void confirmOrder(ActionEvent _event) {
+    private void confirmOrder(ActionEvent _event) {
         selectedCountry = selectCountryChoiceBx.getValue();
         selectedState = selectStateChoiceBX.getValue();
         selectedCity = selectCityChoiceBx.getValue();
