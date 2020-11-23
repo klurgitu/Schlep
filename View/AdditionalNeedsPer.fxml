@@ -17,7 +17,7 @@
          <children>
             <ImageView id="logo" fx:id="logo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../UNCG%20Fall%202020/Copy%20of%20logo.PNG" />
+                  <Image url="@../Documents/logo.PNG" />
                </image>
             </ImageView>
             <MenuButton id="selectionMnBtn" fx:id="additionalItemMnBtn" mnemonicParsing="false" text="Select Additional Items Needed">
