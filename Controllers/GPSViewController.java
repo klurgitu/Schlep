@@ -10,7 +10,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.web.WebView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 
 /**
  * FXML Controller class
@@ -27,8 +29,9 @@ public class GPSViewController implements Initializable {
     private Button nextBtn;
     @FXML
     private Button backBtn;
+   
     @FXML
-    private WebView gpsWebview;
+    private MediaView gpsMediaView;
 
     /**
      * Initializes the controller class.
@@ -39,7 +42,14 @@ public class GPSViewController implements Initializable {
     @Override
     public void initialize(URL _url, ResourceBundle _rb) {
 
-        gpsWebview.getEngine().load("https://www.youtube.com/embed/Eb4wdnXb7cU?autoplay=1&rel=0");
+         String videoUrl = ("file:/C:/Users/josia/OneDrive/Documents/NetBeansProjects/Schlep/src/Documents/GPS_Stub.mp4");
+        
+        Media media = new Media(videoUrl);
+        MediaPlayer player = new MediaPlayer(media);
+        gpsMediaView.setMediaPlayer(player);
+        player.setAutoPlay(true);
+        player.play();   
+        //gpsWebview.getEngine().load("https://www.youtube.com/embed/Eb4wdnXb7cU?autoplay=1&rel=0");
 
     }
 
