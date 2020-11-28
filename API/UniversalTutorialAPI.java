@@ -116,7 +116,7 @@ public class UniversalTutorialAPI {
             con.disconnect();
 
             JSONObject obj = new JSONObject(content.toString());
-            authToken = obj.getString("auth_token");            
+            authToken = obj.getString("auth_token");
             return authToken;
         } catch (IOException | JSONException ex) {
             Logger.getLogger(UniversalTutorialAPI.class.getName()).log(Level.SEVERE, null, ex);

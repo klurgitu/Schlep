@@ -1,5 +1,14 @@
 package Controllers;
 
+/**
+ * FXML Controller class This is the controller for the BidPage view. This is
+ * where the GPS data and other associated information for each driver is sent
+ * to the user
+ *
+ * Last Updated: 11/18/2020
+ *
+ * @author Josiah Stadler, Katelynn Urgitus
+ */
 import Models.MoveScene;
 import Models.PassCost;
 import java.io.IOException;
@@ -13,14 +22,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
-/**
- * FXML Controller class This is the controller for the BidPage view. This is
- * where the GPS data and other associated information for each driver is sent
- * to the user
- *
- * @author Josiah Stadler Last updated 10/29/20, 11/13/20, 11/17/20, 11/18/20
- * @author Katelynn Urgitus Last Updated 11/05/2020
- */
 public class BidPageController extends PassCost implements Initializable {
 
     //Variables to hold data for imulation of gps API
@@ -135,7 +136,7 @@ public class BidPageController extends PassCost implements Initializable {
         rating5Lbl.setText(bidFive.getRating());
         rating6Lbl.setText(bidSix.getRating());
     }
-    
+
     @FXML
     private void acceptBid(ActionEvent _event) {
         nextBtn.setDisable(false);

@@ -1,5 +1,12 @@
 package Models;
 
+/**
+ * This is a singleton class for moving from one FXML to another
+ *
+ * Last Updated 11/05/2020
+ *
+ * @author Katelynn Urgitus
+ */
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -9,13 +16,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-/**
- * This is a singleton class for moving from one FXML to another
- *
- * Last Updated 11/05/2020
- *
- * @author Katelynn Urgitus
- */
 public class MoveScene {
 
     private static volatile MoveScene instance = null;

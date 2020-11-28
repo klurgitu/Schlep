@@ -1,5 +1,12 @@
 package Controllers;
 
+/**
+ * FXML Controller class
+ *
+ * Last Updated: 11/17/2020
+ *
+ * @author Josiah Stadler, Katelynn Urgitus
+ */
 import Models.MoveScene;
 import Models.PassCost;
 import java.io.IOException;
@@ -17,12 +24,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
-/**
- * FXML Controller class
- *
- * @author Josiah Stadler updated: 10/16/20, 11/11/20, 11/17/20
- * @author Katelynn Urgitus Last Updated 11/05/2020
- */
 public class DeliveryInfoController extends PassCost implements Initializable {
 
     //To hold data format for output
