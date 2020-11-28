@@ -29,17 +29,24 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
 
     //Gets the one hour wage for driver assistance with offloading from the PassCost model.
     public double wage = getWAGE();
+    private static final double HALFHR = .5;
+    private static final double ONEHR = 1.0;
+    private static final double TWOHR = 2.0;
+    private static final double THREEHR = 3.0;
    
     //public boolean assistRequest;
 
-    private final double halfHrWage = wage * .5;
-    private final double twoHrWage = wage * 2;
-    private final double threeHrWage = wage * 3;
+    private final double halfHrWage = wage * HALFHR;
+    private final double twoHrWage = wage * TWOHR;
+    private final double threeHrWage = wage * THREEHR;
     public static double assistTime;
     private double subtotal;
     private String time;
     private String itemsMsg;
     private String costMsg;
+    private String assistance = "Driver Assistance";
+    private String needsOut;
+    private String costOut;
 
     @FXML
     private AnchorPane anchor;
@@ -98,32 +105,24 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
     @FXML
     private Label needsLbl;
 
-    @FXML
-    private Label costOutLbl;
-
-    @FXML
-    private Label needsOutLbl;
 
     @Override
     public void initialize(URL _url, ResourceBundle _rb) {
-        needsLbl.setVisible(false);
-        needsOutLbl.setVisible(false);
-        costLbl.setVisible(false);
-        costOutLbl.setVisible(false);
-        confirmedLbl.setVisible(false);
-        AssistTimeAmountMnBtn.setVisible(false);
-        needsOutLbl.setText("");
-        costOutLbl.setText("");
+        outputVBox.setVisible(false);
+        AssistTimeAmountMnBtn.setVisible(false);        
         processBtn.setDisable(true);
         nextBtn.setDisable(true);
-        itemsMsg = "";
-        costMsg = "";
+        needsLbl.setText("Additional Items: ");
+        costLbl.setVisible(false);
+        needsOut = needsLbl.getText();
+        costOut = costLbl.getText();
         assistTime = 0;
         
     }
 
     @FXML
     private void checkItem(ActionEvent _event) {
+        outputVBox.setVisible(false);
         CheckMenuItem source = (CheckMenuItem) _event.getSource();
         String id = source.getId();
         if (id.equals(assistCheckMnItem.getId())) {
@@ -155,7 +154,7 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
             case "time30":
                 subtotal = halfHrWage;
                 time = time30Rb.getText();
-                assistTime = .50;
+                assistTime = HALFHR;
                 time1HrRb.setSelected(false);
                 time2HrRb.setSelected(false);
                 time3HrRb.setSelected(false);
@@ -163,7 +162,7 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
             case "time1Hr":
                 subtotal = wage;
                 time = time1HrRb.getText();
-                assistTime = 1;
+                assistTime = ONEHR;
                 time30Rb.setSelected(false);
                 time2HrRb.setSelected(false);
                 time3HrRb.setSelected(false);
@@ -171,7 +170,7 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
             case "time2Hr":
                 subtotal = twoHrWage;
                 time = time2HrRb.getText();
-                assistTime = 2;
+                assistTime = TWOHR;
                 time1HrRb.setSelected(false);
                 time30Rb.setSelected(false);
                 time3HrRb.setSelected(false);
@@ -179,7 +178,7 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
             case "time3Hr":
                 subtotal = threeHrWage;
                 time = time3HrRb.getText();
-                assistTime = 3;
+                assistTime = THREEHR;
                 time1HrRb.setSelected(false);
                 time2HrRb.setSelected(false);
                 time30Rb.setSelected(false);
@@ -194,37 +193,32 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
     }
 
     @FXML
-    void showCost(ActionEvent _event) {
+    void showCost(ActionEvent _event) {   
         itemsMsg = "";
         costMsg = "";
-        needsLbl.setVisible(false);
-        needsOutLbl.setVisible(false);
+        outputVBox.setVisible(false);
         if (dollyCheckMnBtn.isSelected()) {
             itemsMsg += dollyCheckMnBtn.getText() + " ";
-            needsLbl.setVisible(true);
-        }
-        if (rampCheckMnItem.isSelected()) {
+            
+        } if (rampCheckMnItem.isSelected()) {
             itemsMsg += rampCheckMnItem.getText() + " ";
-            needsLbl.setVisible(true);
-        }
-        if (handTruckCheckMnBtn.isSelected()) {
+            
+        } if (handTruckCheckMnBtn.isSelected()) {
             itemsMsg += handTruckCheckMnBtn.getText() + " ";
-            needsLbl.setVisible(true);
-        }
-        if (assistCheckMnItem.isSelected()) {
-            costOutLbl.setText("$" + String.format("%.2f", getAssistCost()));
-            costLbl.setVisible(true);
-            costOutLbl.setVisible(true);
+            
+        } if (assistCheckMnItem.isSelected()) {
+            itemsMsg += assistance;
+            costMsg = "$" + String.format("%.2f", getAssistCost());
+            costLbl.setVisible(true);            
             AssistTimeAmountMnBtn.setVisible(true);
-        } else if (!assistCheckMnItem.isSelected()) {
-            costMsg = "";
-            costLbl.setVisible(false);
-            costOutLbl.setVisible(false);
+        } if (!assistCheckMnItem.isSelected()) {
+            costMsg = "";           
             AssistTimeAmountMnBtn.setVisible(false);
         }
-        needsOutLbl.setText(itemsMsg);
-        confirmedLbl.setVisible(true);
-        needsOutLbl.setVisible(true);
+        needsLbl.setText(needsOut + itemsMsg);
+        costLbl.setText(costOut + costMsg);
+        
+        outputVBox.setVisible(true);
         nextBtn.setDisable(false);
     }
 }
