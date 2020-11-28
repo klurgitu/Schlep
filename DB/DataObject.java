@@ -9,8 +9,6 @@ package DB;
  * @author Katelynn Urgitus
  */
 import java.lang.reflect.InvocationTargetException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.UUID;
 import java.util.logging.Level;

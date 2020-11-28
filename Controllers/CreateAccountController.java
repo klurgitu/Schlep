@@ -1,11 +1,11 @@
 package Controllers;
 
 /**
- *
  * Controls all action events on the CreateAccount FXML file
  *
- * @author Marc Bittle
- * @author Katelynn Urgitus Last Updated 11/11/2020
+ * Last Updated 11/11/2020
+ *
+ * @author Marc Bittle, Katelynn Urgitus
  */
 import java.net.URL;
 import javafx.fxml.FXML;

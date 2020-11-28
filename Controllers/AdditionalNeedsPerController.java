@@ -1,5 +1,14 @@
 package Controllers;
 
+/**
+ * Controller for 'AdditionalNeedsPer.fxml'. This is where a customer selects
+ * items they might need for offloading items that are delivered. this includes
+ * assistance from the driver, which is an additional fee.
+ *
+ * Last Updated: 11/18/2020
+ *
+ * @author Josiah Stadler, Katelynn Urgitus
+ */
 import Models.MoveScene;
 import Models.PassCost;
 import java.io.IOException;
@@ -17,14 +26,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
-/**
- * Controller for 'AdditionalNeedsPer.fxml'. This is where a customer selects items they
- * might need for offloading items that are delivered. this includes assistance
- * from the driver, which is an additional fee. 
- *
- * @Author Josiah Stadler Last updated 10/23/20, 11/13/20, 11/17/20, 11/18/20
- * @author Katelynn Urgitus Last Updated 11/05/2020
- */
 public class AdditionalNeedsPerController extends PassCost implements Initializable {
 
     //Gets the one hour wage for driver assistance with offloading from the PassCost model.
@@ -33,9 +34,8 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
     private static final double ONEHR = 1.0;
     private static final double TWOHR = 2.0;
     private static final double THREEHR = 3.0;
-   
-    //public boolean assistRequest;
 
+    //public boolean assistRequest;
     private final double halfHrWage = wage * HALFHR;
     private final double twoHrWage = wage * TWOHR;
     private final double threeHrWage = wage * THREEHR;
@@ -105,11 +105,10 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
     @FXML
     private Label needsLbl;
 
-
     @Override
     public void initialize(URL _url, ResourceBundle _rb) {
         outputVBox.setVisible(false);
-        AssistTimeAmountMnBtn.setVisible(false);        
+        AssistTimeAmountMnBtn.setVisible(false);
         processBtn.setDisable(true);
         nextBtn.setDisable(true);
         needsLbl.setText("Additional Items: ");
@@ -117,7 +116,7 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
         needsOut = needsLbl.getText();
         costOut = costLbl.getText();
         assistTime = 0;
-        
+
     }
 
     @FXML
@@ -193,31 +192,35 @@ public class AdditionalNeedsPerController extends PassCost implements Initializa
     }
 
     @FXML
-    void showCost(ActionEvent _event) {   
+    void showCost(ActionEvent _event) {
         itemsMsg = "";
         costMsg = "";
         outputVBox.setVisible(false);
         if (dollyCheckMnBtn.isSelected()) {
             itemsMsg += dollyCheckMnBtn.getText() + " ";
-            
-        } if (rampCheckMnItem.isSelected()) {
+
+        }
+        if (rampCheckMnItem.isSelected()) {
             itemsMsg += rampCheckMnItem.getText() + " ";
-            
-        } if (handTruckCheckMnBtn.isSelected()) {
+
+        }
+        if (handTruckCheckMnBtn.isSelected()) {
             itemsMsg += handTruckCheckMnBtn.getText() + " ";
-            
-        } if (assistCheckMnItem.isSelected()) {
+
+        }
+        if (assistCheckMnItem.isSelected()) {
             itemsMsg += assistance;
             costMsg = "$" + String.format("%.2f", getAssistCost());
-            costLbl.setVisible(true);            
+            costLbl.setVisible(true);
             AssistTimeAmountMnBtn.setVisible(true);
-        } if (!assistCheckMnItem.isSelected()) {
-            costMsg = "";           
+        }
+        if (!assistCheckMnItem.isSelected()) {
+            costMsg = "";
             AssistTimeAmountMnBtn.setVisible(false);
         }
         needsLbl.setText(needsOut + itemsMsg);
         costLbl.setText(costOut + costMsg);
-        
+
         outputVBox.setVisible(true);
         nextBtn.setDisable(false);
     }

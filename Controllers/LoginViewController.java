@@ -1,12 +1,11 @@
 package Controllers;
 
 /**
- * last updated 11/6/2020
- *
  * Controls all action events on the LoginView FXML file
  *
- * @author Marc Bittle Last Updated 11/20/2020
- * @author Katelynn Urgitus
+ * Last Updated: 11/20/2020
+ *
+ * @author Marc Bittle, Katelynn Urgitus
  */
 import Models.SchlepUser;
 import java.io.IOException;
@@ -19,11 +18,8 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import DB.MySQLConnector;
 
 public class LoginViewController extends SchlepUser implements Initializable {
 

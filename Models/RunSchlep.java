@@ -3,11 +3,11 @@ package Models;
 /**
  * Launch the application
  *
- * @author Katelynn Urgitus Last Updated 09/12/2020
- * @author Marc Bittle Last Updated 10/22/2020
+ * Last Updated: 10/22/2020
+ *
+ * @author Katelynn Urgitus, Marc Bittle
  */
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import javafx.application.Application;
 import static javafx.application.Application.launch;

@@ -3,9 +3,10 @@ package Controllers;
 /**
  * Controls all action events on the Timer FXML file
  *
- * @author Marc Bittle Last Updated 11/17/2020
+ * Last Updated 11/17/2020
+ *
+ * @author Marc Bittle
  */
-import Models.PassCost;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.Map;

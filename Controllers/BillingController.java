@@ -3,11 +3,10 @@ package Controllers;
 /**
  * This is a controller for the Billing FXML
  *
- * Last Updated 10/31/2020
+ * Last Updated 11/17/2020
  *
- * @author Katelynn Urgitus
+ * @author Katelynn Urgitus, Josiah Stadler
  */
-
 import Models.MoveScene;
 import java.io.IOException;
 import java.net.URL;
@@ -18,11 +17,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-/**
- * 
- * @author kat
- * @last update: Josiah Stadler 11/17/20
- */
 
 public class BillingController implements Initializable {
 
@@ -41,6 +35,7 @@ public class BillingController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
      * @param _url
      * @param _rb
      */
@@ -48,15 +43,16 @@ public class BillingController implements Initializable {
     public void initialize(URL _url, ResourceBundle _rb) {
 
     }
+
     /**
      * Will save billing info of the User in the Schlep Database and move to the
      * next screen
      *
-     * @param _event the event being handled 
+     * @param _event the event being handled
      */
     @FXML
     private void saveInfoAndMove(ActionEvent _event) throws IOException, SQLException {
-        MoveScene.getInstance().Move("GPSView.fxml", nextBtn);        
+        MoveScene.getInstance().Move("GPSView.fxml", nextBtn);
     }
 
     @FXML

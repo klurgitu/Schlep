@@ -1,5 +1,13 @@
 package Controllers;
 
+/**
+ * FXML Controller class This is a controller for entering the address of where
+ * an item is to be picked up.
+ *
+ * Last Updated: 11/9/2020
+ *
+ * @author Josiah Stadler, Katelynn Urgitus
+ */
 import Models.Address;
 import Models.MoveScene;
 import java.io.IOException;
@@ -17,13 +25,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-/**
- * FXML Controller class This is a controller for entering the address of where
- * an item is to be picked up.
- *
- * @author Josiah Stadler last updated 10/23/20, 11/6/20, 11/9/20
- * @author Katelynn Urgitus Last Updated 11/05/2020
- */
 public class PickupAddressController extends Address implements Initializable {
 
     private String instructionStr;
@@ -82,16 +83,15 @@ public class PickupAddressController extends Address implements Initializable {
     @FXML
     private ChoiceBox<String> selectCountryChoiceBx;
 
-    
-     /**
+    /**
      * Initializes the controller class.
      *
      * @param _url to load API data for Drop down.
      * @param _rb resources for page.
-     */   
+     */
     @Override
     public void initialize(URL _url, ResourceBundle _rb) {
-        apiListen.addressListener(selectCountryChoiceBx, selectStateChoiceBX, selectCityChoiceBx);        
+        apiListen.addressListener(selectCountryChoiceBx, selectStateChoiceBX, selectCityChoiceBx);
     }
 
     @FXML
@@ -113,7 +113,7 @@ public class PickupAddressController extends Address implements Initializable {
         detailLbl.setVisible(true);
         nextBtn.setDisable(false);
 
-    }   
+    }
 
     @FXML
     private void moveToNxtPage(ActionEvent _event) throws IOException {
@@ -131,6 +131,6 @@ public class PickupAddressController extends Address implements Initializable {
         String vendorStr = source.getText();
         selectVendorMnBx.setText(vendorStr);
 
-    }    
+    }
 
 }

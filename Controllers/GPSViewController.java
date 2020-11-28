@@ -1,5 +1,12 @@
 package Controllers;
 
+/**
+ * FXML Controller class
+ *
+ * Last updated: 11/17/2020
+ *
+ * @author Josiah Stadler
+ */
 import Models.MoveScene;
 import java.io.IOException;
 import java.net.URL;
@@ -14,11 +21,6 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
-/**
- * FXML Controller class
- *
- * @author Josiah Stadler Last updated: 11/6/20,11/17/20
- */
 public class GPSViewController implements Initializable {
 
     @FXML
@@ -29,7 +31,7 @@ public class GPSViewController implements Initializable {
     private Button nextBtn;
     @FXML
     private Button backBtn;
-   
+
     @FXML
     private MediaView gpsMediaView;
 
@@ -42,13 +44,13 @@ public class GPSViewController implements Initializable {
     @Override
     public void initialize(URL _url, ResourceBundle _rb) {
 
-         String videoUrl = ("file:/C:/Users/josia/OneDrive/Documents/NetBeansProjects/Schlep/src/Documents/GPS_Stub.mp4");
-        
+        String videoUrl = ("file:/C:/Users/josia/OneDrive/Documents/NetBeansProjects/Schlep/src/Documents/GPS_Stub.mp4");
+
         Media media = new Media(videoUrl);
         MediaPlayer player = new MediaPlayer(media);
         gpsMediaView.setMediaPlayer(player);
         player.setAutoPlay(true);
-        player.play();   
+        player.play();
         //gpsWebview.getEngine().load("https://www.youtube.com/embed/Eb4wdnXb7cU?autoplay=1&rel=0");
 
     }

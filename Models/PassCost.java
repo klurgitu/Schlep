@@ -1,10 +1,11 @@
 package Models;
 
 /**
+ * This class sets details for each bid from a driver to transport an item.
+ *
+ * Last Updated: 11/18/2020
  *
  * @author josiah Stadler
- * @ last updated: 11/12/20,11/13, 11/17/20, 11/18/20
- * This class sets details for each bid from a driver to transport an item.
  */
 public class PassCost {
 
