@@ -3,7 +3,7 @@ package Controllers;
 /**
  * Controls all action events on the CreateAccount FXML file
  *
- * Last Updated 11/11/2020
+ * Last Updated 12/01/2020
  *
  * @author Marc Bittle, Katelynn Urgitus
  */
@@ -64,11 +64,15 @@ public class CreateAccountController extends SchlepUser implements Initializable
             if (!password.getText().equals(passwordConf.getText())) {
                 messageLbl.setText("Passwords do not match!");
             } else { // generate UUID
-                messageLbl.setText("");
-                SchlepUser.user = new SchlepUser(firstName, lastName, email, passwordConf, phoneNumber);
-                MoveScene.getInstance().Move("AddressSignUp.fxml", activateAcctBtn);
-            }
+                if (!checkValidEmail(email.getText())) {
+                    messageLbl.setText("Invalid Email!");
+                } else {
+                    messageLbl.setText("");
+                    SchlepUser.user = new SchlepUser(firstName, lastName, email, passwordConf, phoneNumber);
+                    MoveScene.getInstance().Move("AddressSignUp.fxml", activateAcctBtn);
+                }
 
+            }
         }
     }
 

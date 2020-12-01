@@ -5,7 +5,7 @@ package Models;
  * The SchlepUser Class builds a User and places the User data in a text file -
  * (eventually a database)
  *
- * Last Updated: 11/20/2020
+ * Last Updated: 12/01/2020
  *
  * @author Marc Bittle, Katelynn Urgitus
  */
@@ -15,6 +15,7 @@ import javafx.scene.control.PasswordField;
 import DB.MySQLConnector;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class SchlepUser extends DB.DataObject {
 
@@ -63,6 +64,24 @@ public class SchlepUser extends DB.DataObject {
         saveUser.put("phoneNumber", this.getPhoneNumber());
 
         connector.createObject(saveUser, "user");
+    }
+
+    /**
+     *
+     * @param _email to be validated.
+     * @return true if valid, false if invalid.
+     */
+    public boolean checkValidEmail(String _email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."
+                + "[a-zA-Z0-9_+&*-]+)*@"
+                + "(?:[a-zA-Z0-9-]+\\.)+[a-z"
+                + "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (_email == null) {
+            return false;
+        }
+        return pat.matcher(_email).matches();
     }
 
     /**
